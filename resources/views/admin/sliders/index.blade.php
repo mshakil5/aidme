@@ -44,6 +44,7 @@
                                 </div>
                               </div>
                               <div class="tile-footer">
+                                <br>
                                   <input type="button" id="addBtn" value="Create" class="btn btn-primary">
                                   <input type="button" id="FormCloseBtn" value="Close" class="btn btn-warning">
                                   {!! Form::close() !!}
@@ -197,7 +198,7 @@
                                 $(".ermsg").html(d.message);
                                 pagetop();
                             }else if(d.status == 300){
-                                success("Data Update Successfully!!");
+                                $(".ermsg").html(d.message);
                                 window.setTimeout(function(){location.reload()},2000)
                             }
                         },
@@ -221,43 +222,32 @@
                 });
             });
             //Edit  end
-            //Delete 
+
+            //Delete
             $("#contentContainer").on('click','#deleteBtn', function(){
-                var dataid = $(this).attr('rid');
-                var info_url = url + '/'+dataid;
-                swal({
-                    title: "Are you sure?",
-                    text: "You will not be able to recover this imaginary file!",
-                    type: "warning",
-                    showCancelButton: true,
-                    confirmButtonText: "Yes, delete it!",
-                    cancelButtonText: "No, cancel plx!",
-                    closeOnConfirm: false,
-                    closeOnCancel: false
-                }, function(isConfirm) {
-                    if (isConfirm) {
-                        $.ajax({
-                            url:info_url,
-                            method: "GET",
-                            type: "DELETE",
-                            data:{
-                            },
-                            success: function(d){
-                                if(d.success) {
-                                    swal("Deleted!", "Your imaginary file has been deleted.", "success");     
-                                    location.reload();
-                                }
-                            },
-                            error:function(d){
-                                console.log(d);
-                            }
-                        });
-                    } else {
-                        swal("Cancelled", "Your imaginary file is safe :)", "error");
+                if(!confirm('Sure?')) return;
+                codeid = $(this).attr('rid');
+                info_url = url + '/'+codeid;
+                $.ajax({
+                    url:info_url,
+                    method: "GET",
+                    type: "DELETE",
+                    data:{
+                    },
+                    success: function(d){
+                        if(d.success) {
+                            alert(d.message);
+                            location.reload();
+                        }
+                    },
+                    error:function(d){
+                        console.log(d);
                     }
                 });
             });
-            //Delete  
+            //Delete
+
+            
             function populateForm(data){
                 $("#title").val(data.title);
                 $("#codeid").val(data.id);
@@ -278,11 +268,5 @@
 
             
     </script>
-      <script>
-        function copyToClipboard(id) {
-            document.getElementById(id).select();
-            document.execCommand('copy');
-            swal("Copied!");
-        }
-    </script>
+    
 @endsection

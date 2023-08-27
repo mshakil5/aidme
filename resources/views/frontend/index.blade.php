@@ -6,13 +6,14 @@
 <section class="slider">
     <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
         <div class="carousel-inner">
-            
+
+            @foreach (\App\Models\Slider::where('status',1)->get() as $key => $slider)
             <div class="carousel-item active">
-                <img src="{{ asset('assets/images/2.jpg')}}" class="d-block w-100" alt="slider photo missing">
+                <img src="{{asset('images/slider/'.$slider->photo)}}" class="d-block w-100" alt="slider photo missing">
                 <div class="carousel-text container">
-                    <h5 class="txt-primary">Raising Your Helping Hands</h5>
-                    <h1 class="main-title">Mission To Access Safe The Nation</h1>
-                    <div class="d-flex flex-wrap align-items-center justify-content-center-sm">
+                    {{-- <h5 class="txt-primary">Raising Your Helping Hands</h5> --}}
+                    <h1 class="main-title">{{$slider->title}}</h1>
+                    {{-- <div class="d-flex flex-wrap align-items-center justify-content-center-sm">
                         <a href="" class="btn-theme">
                             <div class="icon">
                                 <iconify-icon icon="mdi:hand-heart" class=" mx-2"></iconify-icon>
@@ -25,51 +26,12 @@
                             </div>
                             our cases
                         </a>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
-            <div class="carousel-item ">
-                <img src="{{ asset('assets/images/1.jpg')}}" class="d-block w-100" alt="slider photo missing">
-                <div class="carousel-text container">
-                    <h5 class="txt-primary">Raising Your Helping Hands</h5>
-                    <h1 class="main-title">Mission To Access Safe The Nation</h1>
-                    <div class="d-flex flex-wrap align-items-center justify-content-center-sm">
-                        <a href="" class="btn-theme">
-                            <div class="icon">
-                                <iconify-icon icon="mdi:hand-heart" class=" mx-2"></iconify-icon>
-                            </div>
-                            learn more
-                        </a>
-                        <a href=" " class="btn-theme bg-secondary">
-                            <div class="icon">
-                                <iconify-icon icon="mdi:hand-heart" class=" mx-2"></iconify-icon>
-                            </div>
-                            our cases
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-item ">
-                <img src="{{ asset('assets/images/3.jpg')}}" class="d-block w-100" alt="slider photo missing">
-                <div class="carousel-text container">
-                    <h5 class="txt-primary">Raising Your Helping Hands</h5>
-                    <h1 class="main-title">Mission To Access Safe The Nation</h1>
-                    <div class="d-flex flex-wrap align-items-center justify-content-center-sm">
-                        <a href="" class="btn-theme">
-                            <div class="icon">
-                                <iconify-icon icon="mdi:hand-heart" class=" mx-2"></iconify-icon>
-                            </div>
-                            learn more
-                        </a>
-                        <a href=" " class="btn-theme bg-secondary">
-                            <div class="icon">
-                                <iconify-icon icon="mdi:hand-heart" class=" mx-2"></iconify-icon>
-                            </div>
-                            our cases
-                        </a>
-                    </div>
-                </div>
-            </div>
+            @endforeach
+            
+            
 
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade"
