@@ -6,6 +6,7 @@
 <section class="slider">
     <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
         <div class="carousel-inner">
+            
             <div class="carousel-item active">
                 <img src="{{ asset('assets/images/2.jpg')}}" class="d-block w-100" alt="slider photo missing">
                 <div class="carousel-text container">
@@ -165,31 +166,16 @@
             </div>
             <div class="col-md-6 ">
                 <div class="about-right mt-5">
-                    <h6 class="txt-primary fs-4 d-flex align-items-center">
+                    {{-- <h6 class="txt-primary fs-4 d-flex align-items-center">
                         <iconify-icon icon="ph:heart-fill"></iconify-icon>
                         About EnaCare
-                    </h6>
-                    <h2 class="title-global">Challenge 264 Million Children Go to Schools</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque modi, provident quo
-                        assumenda facere harum aliquam voluptatum non atque aperiam animi quisquam consectetur
-                        itaque alias incidunt quia molestias quaerat, debitis labore ipsum rem. Iste distinctio sint
-                        autem consequatur vel ducimus delectus officiis sit veritatis dignissimos a saepe magni, quo
-                        perspiciatis.</p>
+                    </h6> --}}
+                    
+                    <h2 class="title-global">{{\App\Models\Master::where('name','about')->first()->title}}</h2>
+                    
 
-                    <ul class="list-theme">
-                        <li>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima voluptas itaque
-                        </li>
-                        <li>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima voluptas itaque
-                        </li>
-                    </ul>
-                    <div class="btn-theme">
-                        learn more
-                        <div class="icon">
-                            <iconify-icon icon="ph:heart-fill"></iconify-icon>
-                        </div>
-                    </div>
+                    {!! \App\Models\Master::where('name','about')->first()->description !!}
+                    
                 </div>
             </div>
         </div>

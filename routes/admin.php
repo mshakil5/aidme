@@ -14,7 +14,7 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\EventTransactionController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Admin\ContactMailController; 
-use App\Http\Controllers\Admin\ImageController;
+use App\Http\Controllers\SliderController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\FundraisingSourceController;
 use App\Http\Controllers\Admin\EmailContentController;
@@ -123,14 +123,14 @@ Route::group(['prefix' =>'admin/', 'middleware' => ['auth', 'is_admin']], functi
     Route::get('active-homepage-campaign', [CampaignController::class, 'activeHomepageCampaign']);
     Route::get('active-comment', [CampaignController::class, 'activeComment']);
 
-    
 
-    // photo
-    Route::get('/photo', [ImageController::class, 'index'])->name('admin.photo');
-    Route::post('/photo', [ImageController::class, 'store']);
-    Route::get('/photo/{id}/edit', [ImageController::class, 'edit']);
-    Route::put('/photo/{id}', [ImageController::class, 'update']);
-    Route::get('/photo/{id}', [ImageController::class, 'delete']);
+    // sliders
+    Route::get('/sliders', [SliderController::class, 'index'])->name('admin.sliders');
+    Route::post('/sliders', [SliderController::class, 'store']);
+    Route::get('/sliders/{id}/edit', [SliderController::class, 'edit']);
+    Route::put('/sliders/{id}', [SliderController::class, 'update']);
+    Route::get('/sliders/{id}', [SliderController::class, 'delete']);
+
     
     // fundraising-source
     Route::get('/fundraising-source', [FundraisingSourceController::class, 'index'])->name('admin.fundraisingsource');

@@ -5,77 +5,74 @@
 
 @section('content')
 
-<section class="contact py-5">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-10 mx-auto">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="title mb-5 fs-1 " >
-                            Contact us Today 
-                        </div>
-                    </div>
-                    <div class="col-lg-6 d-flex align-items-center justify-content-center">
-                        <img class='img-fluid shadow-sm' src="{{asset('assets/images/undraw_Envelope_re_f5j4.png')}}" alt="conatct image missing" > 
-                    </div><div class="col-lg-6">
-                      
-                        <div class="theme-para ">
-                            Fill out the form below and we’ll get back to you as   soon as we can.
-                        </div>
-                        <div class="ermsg"></div>
-                        <div class="form-custom"> 
-                            <div class="form-group">
-                                <input class="form-control" type="text" id="name" name="name" placeholder="Name"> 
-                            </div>
-                            <div class="form-group">
-                                <input class="form-control" type="email" id="email" name="email" placeholder="Email"> 
-                            </div>
-                            <div class="form-group">
-                                <input class="form-control" type="text" id="subject" name="subject" placeholder="Subject"> 
-                            </div>
-                            <div class="form-group">
-                                <textarea class="form-control" rows="3" id="message" name="message" placeholder="Message"></textarea> 
-                            </div>
-                            <div class="form-group">
-                                <button id="submit" class="btn-theme bg-primary">Send</button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 
-<section class="default contactInfo" style="display: none">
+<section class="contact spacer bg-light">
     <div class="container">
         <div class="row ">
-            <div class="col-lg-3 d-flex flex-column align-items-center">
-                <div class="paratitle text-center">Phone</div>
-                <p class="theme-para text-center">  {{\App\Models\CompanyDetail::where('id',1)->first()->phone1 }}  </p>
-                <a href="#" class="btn-theme bg-primary">Call</a>
+            <div class="col-md-6">
+                <h6 class="txt-primary fs-4 d-flex align-items-center"> 
+                    Get In Touch
+                </h6>
+                <h2 class="title-global">Don’t Hesited To Contact Us</h2>
+                <p>
+                    Sed perspiciatis unde omnis iste natus error sit voluptatem accntium doloremque laudantiurema periam eaque ipsa quailinve ntore
+                </p>
+                <div class="my-3">
+                    <h6 class="txt-secondary fw-bold fs-4">
+                       
+                        <span> Phone Number</span>
+                    </h6>
+                    <h5 class="txt-primary fs-6">
+                        {{\App\Models\CompanyDetail::where('id',1)->first()->phone1 }}
+                    </h5>
+                </div>
+                <div class="my-3">
+                    <h6 class="txt-secondary fw-bold fs-4">
+                       
+                        <span> Email Address</span>
+                    </h6>
+                    <h5 class="txt-primary fs-6">
+                        {{\App\Models\CompanyDetail::where('id',1)->first()->email1 }}
+                    </h5>
+                </div>
+                <div class="my-3">
+                    <h6 class="txt-secondary fw-bold fs-4">
+                       
+                        <span>Our Location</span>
+                    </h6>
+                    <h5 class="txt-primary fs-6">
+                        {{\App\Models\CompanyDetail::where('id',1)->first()->address1 }}
+                    </h5>
+                </div>
             </div>
-            <div class="col-lg-3 d-flex flex-column align-items-center">
-                <div class="paratitle text-center">Whatsapp</div>
-                <p class="theme-para text-center">  {{\App\Models\CompanyDetail::where('id',1)->first()->phone1 }}  </p>
-                <a href="#" class="btn-theme bg-primary">Message</a>
+            <div class="col-md-6  p-5 bg-white">
+                <h6 class="txt-primary fs-4 d-flex align-items-center">
+                    <iconify-icon class="me-2" icon="arcticons:nextcloudsms"></iconify-icon>
+                    Send Message
+                </h6>
+                <h2 class="title-global">Feel Free To Write Us Message.</h2>
+                <div class="ermsg"></div>
+                <form class=" mt-4">
+                    <div class="form-group mb-3">
+                        <input class="form-control fw-bold" type="text" name="name" id="name" placeholder="Name" required="">
+                    </div>
+                    <div class="form-group mb-3">
+                        <input class="form-control fw-bold" type="email" id="email" name="email" placeholder="Email" required="">
+                    </div>
+                    <div class="form-group mb-3">
+                        <input class="form-control fw-bold" type="text" id="subject" name="subject" placeholder="Subject" required="">
+                    </div>
+                    <div class="form-group mb-3">
+                        <textarea class="form-control fw-bold" rows="3" id="message" name="message" placeholder="Message" required=""></textarea>
+                    </div>
+                    <div class="form-group">
+                        <button id="submit" class="btn-theme text-center border-0">Send</button>
+                    </div>
+                </form>
             </div>
-            <div class="col-lg-3 d-flex flex-column align-items-center">
-                <div class="paratitle text-center">Email</div>
-                <p class="theme-para text-center"> {{\App\Models\CompanyDetail::where('id',1)->first()->email1 }}  </p>
-                <a href="#" class="btn-theme bg-primary">Email</a>
-            </div>
-            <div class="col-lg-3 d-flex flex-column align-items-center">
-                <div class="paratitle text-center">Address</div>
-                <p class="theme-para text-center"> {{\App\Models\CompanyDetail::where('id',1)->first()->address1 }}</p>
-                <a href="#" class="btn-theme bg-primary">Visit</a>
-            </div>
-            
         </div>
     </div>
 </section>
-
 
 @endsection
 

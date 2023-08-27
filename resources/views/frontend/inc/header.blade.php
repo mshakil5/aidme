@@ -48,10 +48,10 @@
                         <ul class="navbar-nav mx-auto navCustom">
                             <!-- "me-auto" for left align | "ms-auto" for right align | "mx-auto" for center align--->
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="/">Home</a>
+                                <a class="nav-link active" aria-current="page" href="{{ route('homepage')}}">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link " aria-current="page" href="about.html">About</a>
+                                <a class="nav-link " aria-current="page" href="{{ route('frontend.about')}}">About</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link " aria-current="page" href="{{route('frontend.contact')}}">contact</a>
@@ -89,14 +89,14 @@
                                     <li class="nav-item dropdown px-3 d-flex align-items-center">
                                         <a class="nav-link nav-profile  pe-0 show d-flex align-items-center cursor-pointer"
                                             id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                            <img width="45px" src="../images/posts/1.jpg" alt="Profile" class="rounded-circle">
-                                            <span class="d-none d-md-block dropdown-toggle ps-2">K. Anderson</span>
+                                            <img width="45px" src="{{ asset('assets/images/posts/1.jpg')}}" alt="Profile" class="rounded-circle">
+                                            <span class="d-none d-md-block dropdown-toggle ps-2">{{Auth::user()->name}}</span>
                                         </a><!-- End Profile Iamge Icon -->
                                         <ul class="dropdown-menu shadow-sm" aria-labelledby="dropdownMenuButton1">
                                             <li>
                                                 <hr class="dropdown-divider">
                                             </li>
-                                            <li><a class="dropdown-item" href="./profile.html">Account Settings</a></li>
+                                            <li><a class="dropdown-item" href="{{route('admin.dashboard')}}">Dashboard</a></li>
                                             <li>
                                                 <hr class="dropdown-divider">
                                             </li>

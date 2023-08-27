@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <title>GoGiving</title>
+    <title>Aidme</title>
     <link rel="icon" href="{{ asset('assets/admin/images/favicon.png')}}">
     
 
@@ -153,7 +153,7 @@
                 <li><a href="{{url('admin/company-detail')}}" class="nav-link {{ (request()->is('admin/company-detail*')) ? 'current' : '' }}">Company Details</a></li>
                 <li><a href="{{route('admin.whychooseus')}}" class="nav-link {{ (request()->is('admin/why-choose-us*')) ? 'current' : '' }}">Why Choose Us</a></li>
                 <li><a href="{{route('admin.master')}}" class="nav-link {{ (request()->is('admin/all-data*')) ? 'current' : '' }}">All Data</a></li>
-                <li><a href="{{route('admin.hometopsection')}}" class="nav-link {{ (request()->is('admin/home-top-section*')) ? 'current' : '' }}">Homepage Top Section</a></li>
+                <li><a href="{{route('admin.sliders')}}" class="nav-link {{ (request()->is('admin/sliders*')) ? 'current' : '' }}">Slider</a></li>
                 <li><a href="{{route('admin.contact-mail')}}" class="nav-link {{ (request()->is('admin/contact-mail*')) ? 'current' : '' }}">Contact Mail</a></li>
                 
                 <li><a href="{{route('admin.emailcontent')}}" class="nav-link {{ (request()->is('admin/email-content*')) ? 'current' : '' }}">Email Content</a></li>
