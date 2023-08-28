@@ -111,22 +111,16 @@
                                     <li class="nav-item dropdown px-3 d-flex align-items-center">
                                         <a class="nav-link nav-profile  pe-0 show d-flex align-items-center cursor-pointer"
                                             id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                            <img width="45px" src="../images/posts/1.jpg" alt="Profile" class="rounded-circle">
-                                            <span class="d-none d-md-block dropdown-toggle ps-2">K. Anderson</span>
+                                            <img width="45px" src="{{ asset('assets/images/posts/1.jpg')}}" alt="Profile" class="rounded-circle">
+                                            <span class="d-none d-md-block dropdown-toggle ps-2">{{Auth::user()->name}}</span>
                                         </a><!-- End Profile Iamge Icon -->
                                         <ul class="dropdown-menu shadow-sm" aria-labelledby="dropdownMenuButton1">
-                                            <li>
-                                                <hr class="dropdown-divider">
+                                            <li><hr class="dropdown-divider"></li>
+                                            <li><a class="dropdown-item" href="{{route('user.donationhistory')}}">Donation i have made</a>
                                             </li>
-                                            <li><a class="dropdown-item" href="./donation-history.html">Donation i have made</a>
-                                            </li>
-                                            <li>
-                                                <hr class="dropdown-divider">
-                                            </li>
-                                            <li><a class="dropdown-item" href="./profile.html">Account Settings</a></li>
-                                            <li>
-                                                <hr class="dropdown-divider">
-                                            </li>
+                                            <li><hr class="dropdown-divider"></li>
+                                            <li><a class="dropdown-item" href="{{route('user.profile')}}">Account Settings</a></li>
+                                            <li><hr class="dropdown-divider"></li>
                                             <li><a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Sign Out</a>
                                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                                     @csrf
