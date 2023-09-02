@@ -4,13 +4,6 @@ var carousel = new bootstrap.Carousel(myCarousel, {
   wrap: true,
 });
 
-function catchAmount(event) {
-  let prodeccingfee = (document.getElementById("prodeccingfee").value =
-    (event.target.value * 2) / 100);
-  let process = (document.getElementById("process").innerHTML = prodeccingfee);
-  let donate = (document.getElementById("donate").innerHTML =
-    event.target.value); 
-}
 
 function addDonate(event) {
   let prodeccingfee = document.getElementById("prodeccingfee").value;  

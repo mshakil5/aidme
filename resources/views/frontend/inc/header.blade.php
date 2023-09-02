@@ -74,7 +74,7 @@
                         </ul>
                         <ul class="navbar-nav ms-auto navCustom">
                             <li>
-                                <a href="donation.html" class="btn-theme ">
+                                <a href="{{route('frontend.donation')}}" class="btn-theme ">
                                     <div class="icon">
                                         <iconify-icon icon="mdi:hand-heart" class=" mx-2"></iconify-icon>
                                     </div>

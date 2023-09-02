@@ -67,11 +67,9 @@ class FrontendController extends Controller
         return view('frontend.faq');
     }
 
-    public function nonprofit()
+    public function donation()
     {
-        $charities = User::select('photo','id','name','postcode','town','street_name','house_number')->where('is_type', '2')->limit(6)->orderby('id','DESC')->where('status','1')->get();
-
-        return view('frontend.nonprofit',compact('charities'));
+        return view('frontend.donation');
     }
 
     public function individual()

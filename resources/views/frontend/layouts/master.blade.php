@@ -96,6 +96,7 @@
 
 
     </script>
+    @yield('script')
 
 </body>
 
