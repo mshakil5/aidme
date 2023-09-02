@@ -133,15 +133,11 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('login') }}">Login </a>
                                 </li>
-
-                                
                             @endif
 
                         </ul>
                     </div>
-
                 </nav>
-
             </div>
         </div>
     </section>

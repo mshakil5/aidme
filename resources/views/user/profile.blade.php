@@ -37,10 +37,6 @@
                     </li>
     
                     <li class="nav-item" role="presentation">
-                      <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-settings" aria-selected="false" role="tab" tabindex="-1">Settings</button>
-                    </li>
-    
-                    <li class="nav-item" role="presentation">
                       <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-change-password" aria-selected="true" role="tab">Change Password</button>
                     </li>
     
@@ -55,17 +51,34 @@
     
                       <div class="row">
                         <div class="col-lg-3 col-md-4 label txt-primary">Full Name</div>
-                        <div class="col-lg-9 col-md-8 txt-secondary ">:{{Auth::user()->name}}</div>
+                        <div class="col-lg-9 col-md-8 txt-secondary ">: {{Auth::user()->name}}</div>
+                      </div>
+                      <div class="row">
+                        <div class="col-lg-3 col-md-4 label txt-primary">Email</div>
+                        <div class="col-lg-9 col-md-8 txt-secondary ">: {{Auth::user()->email}}</div>
+                      </div>
+                      <div class="row">
+                        <div class="col-lg-3 col-md-4 label txt-primary">Phone</div>
+                        <div class="col-lg-9 col-md-8 txt-secondary ">: {{Auth::user()->phone}}</div>
                       </div>
     
                       <div class="row">
-                        <div class="col-lg-3 col-md-4 label txt-primary">Company</div>
-                        <div class="col-lg-9 col-md-8 txt-secondary ">:</div>
+                        <div class="col-lg-3 col-md-4 label txt-primary">House No</div>
+                        <div class="col-lg-9 col-md-8 txt-secondary ">: {{Auth::user()->house_number}}</div>
                       </div>
     
                       <div class="row">
-                        <div class="col-lg-3 col-md-4 label txt-primary">Job</div>
-                        <div class="col-lg-9 col-md-8 txt-secondary ">:</div>
+                        <div class="col-lg-3 col-md-4 label txt-primary">Street</div>
+                        <div class="col-lg-9 col-md-8 txt-secondary ">: {{Auth::user()->street_name}}</div>
+                      </div>
+                      <div class="row">
+                        <div class="col-lg-3 col-md-4 label txt-primary">City</div>
+                        <div class="col-lg-9 col-md-8 txt-secondary ">: {{Auth::user()->town}}</div>
+                      </div>
+                      
+                      <div class="row">
+                        <div class="col-lg-3 col-md-4 label txt-primary">Post Code</div>
+                        <div class="col-lg-9 col-md-8 txt-secondary ">: {{Auth::user()->postcode}}</div>
                       </div>
     
                       <div class="row">
@@ -73,20 +86,6 @@
                         <div class="col-lg-9 co txt-secondary l-md-8">:{{Auth::user()->country}}</div>
                       </div>
     
-                      <div class="row">
-                        <div class="col-lg-3 col-md-4 label txt-primary">Address</div>
-                        <div class="col-lg-9 col-md-8 txt-secondary ">:{{Auth::user()->r_address}}</div>
-                      </div>
-    
-                      <div class="row">
-                        <div class="col-lg-3 col-md-4 label txt-primary">Phone</div>
-                        <div class="col-lg-9 col-md-8 txt-secondary ">:{{Auth::user()->phone}}</div>
-                      </div>
-    
-                      <div class="row">
-                        <div class="col-lg-3 col-md-4 label txt-primary">Email</div>
-                        <div class="col-lg-9 col-md-8 txt-secondary ">:{{Auth::user()->email}}</div>
-                      </div>
     
                     </div>
     
@@ -97,7 +96,12 @@
                         <div class="row mb-3">
                           <label for="profileImage" class="col-md-4 col-lg-3 col-form-label">Profile Image</label>
                           <div class="col-md-8 col-lg-9">
+
+                            @if (isset(Auth::user()->photo))
                             <img src="{{ asset('images/'.Auth::user()->photo)}}" width="160px" class="rounded-2" alt="Profile">
+                            @else
+                            <img src="https://via.placeholder.com/510x440.png" width="160px" class="rounded-2" alt="Profile">
+                            @endif
 
                             <div class="pt-2 d-flex align-items-center gap-3">
                                <input type="file" class="form-control" name="" id="">
@@ -110,105 +114,72 @@
                         <div class="row mb-3">
                           <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Full Name</label>
                           <div class="col-md-8 col-lg-9">
-                            <input name="fullName" type="text" class="form-control" id="fullName" value="Kevin Anderson">
+                            <input name="fullName" type="text" class="form-control" id="fullName" value="{{Auth::user()->name}}">
                           </div>
                         </div>
-    
-                        <div class="row mb-3">
-                          <label for="about" class="col-md-4 col-lg-3 col-form-label">About</label>
-                          <div class="col-md-8 col-lg-9">
-                            <textarea name="about" class="form-control" id="about" style="height: 100px"> </textarea>
-                          </div>
-                        </div>
-    
-                        <div class="row mb-3">
-                          <label for="company" class="col-md-4 col-lg-3 col-form-label">Company</label>
-                          <div class="col-md-8 col-lg-9">
-                            <input name="company" type="text" class="form-control" id="company" value="Lueilwitz, Wisoky and Leuschke">
-                          </div>
-                        </div>
-    
-                        <div class="row mb-3">
-                          <label for="Job" class="col-md-4 col-lg-3 col-form-label">Job</label>
-                          <div class="col-md-8 col-lg-9">
-                            <input name="job" type="text" class="form-control" id="Job" value="Web Designer">
-                          </div>
-                        </div>
-    
-                        <div class="row mb-3">
-                          <label for="Country" class="col-md-4 col-lg-3 col-form-label">Country</label>
-                          <div class="col-md-8 col-lg-9">
-                            <input name="country" type="text" class="form-control" id="Country" value="USA">
-                          </div>
-                        </div>
-    
-                        <div class="row mb-3">
-                          <label for="Address" class="col-md-4 col-lg-3 col-form-label">Address</label>
-                          <div class="col-md-8 col-lg-9">
-                            <input name="address" type="text" class="form-control" id="Address" value="A108 Adam Street, New York, NY 535022">
-                          </div>
-                        </div>
-    
+
+                        
                         <div class="row mb-3">
                           <label for="Phone" class="col-md-4 col-lg-3 col-form-label">Phone</label>
                           <div class="col-md-8 col-lg-9">
-                            <input name="phone" type="text" class="form-control" id="Phone" value="(436) 486-3538 x29071">
+                            <input name="phone" type="text" class="form-control" id="Phone" value="{{Auth::user()->phone}}">
                           </div>
                         </div>
     
                         <div class="row mb-3">
                           <label for="Email" class="col-md-4 col-lg-3 col-form-label">Email</label>
                           <div class="col-md-8 col-lg-9">
-                            <input name="email" type="email" class="form-control" id="Email" value="k.anderson@example.com">
+                            <input name="email" type="email" class="form-control" id="Email" value="{{Auth::user()->email}}">
                           </div>
                         </div> 
+    
+                        <div class="row mb-3">
+                          <label for="about" class="col-md-4 col-lg-3 col-form-label">About</label>
+                          <div class="col-md-8 col-lg-9">
+                            <textarea name="about" class="form-control" id="about" style="height: 100px">{{Auth::user()->about}} </textarea>
+                          </div>
+                        </div>
+    
+                        <div class="row mb-3">
+                          <label for="house_number" class="col-md-4 col-lg-3 col-form-label">House Number</label>
+                          <div class="col-md-8 col-lg-9">
+                            <input name="house_number" type="text" class="form-control" id="house_number" value="{{Auth::user()->house_number}}">
+                          </div>
+                        </div>
+    
+                        <div class="row mb-3">
+                          <label for="street_name" class="col-md-4 col-lg-3 col-form-label">Street</label>
+                          <div class="col-md-8 col-lg-9">
+                            <input name="street_name" type="text" class="form-control" id="street_name" value="{{Auth::user()->street_name}}">
+                          </div>
+                        </div>
+    
+                        <div class="row mb-3">
+                          <label for="town" class="col-md-4 col-lg-3 col-form-label">City</label>
+                          <div class="col-md-8 col-lg-9">
+                            <input name="town" type="text" class="form-control" id="town" value="{{Auth::user()->town}}">
+                          </div>
+                        </div>
+    
+                        <div class="row mb-3">
+                          <label for="postcode" class="col-md-4 col-lg-3 col-form-label">Post code</label>
+                          <div class="col-md-8 col-lg-9">
+                            <input name="postcode" type="text" class="form-control" id="postcode" value="{{Auth::user()->postcode}}">
+                          </div>
+                        </div>
+    
+                        <div class="row mb-3">
+                          <label for="country" class="col-md-4 col-lg-3 col-form-label">Country</label>
+                          <div class="col-md-8 col-lg-9">
+                            <input name="country" type="text" class="form-control" id="country" value="{{Auth::user()->country}}">
+                          </div>
+                        </div>
+    
     
                         <div class="text-center">
                           <button type="submit" class="btn-theme px-4">Save Changes</button>
                         </div>
                       </form><!-- End Profile Edit Form -->
-    
-                    </div>
-    
-                    <div class="tab-pane fade pt-3" id="profile-settings" role="tabpanel">
-    
-                      <!-- Settings Form -->
-                      <form>
-    
-                        <div class="row mb-3">
-                          <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Email Notifications</label>
-                          <div class="col-md-8 col-lg-9">
-                            <div class="form-check">
-                              <input class="form-check-input" type="checkbox" id="changesMade" checked="">
-                              <label class="form-check-label" for="changesMade">
-                                Changes made to your account
-                              </label>
-                            </div>
-                            <div class="form-check">
-                              <input class="form-check-input" type="checkbox" id="newProducts" checked="">
-                              <label class="form-check-label" for="newProducts">
-                                Information on new products and services
-                              </label>
-                            </div>
-                            <div class="form-check">
-                              <input class="form-check-input" type="checkbox" id="proOffers">
-                              <label class="form-check-label" for="proOffers">
-                                Marketing and promo offers
-                              </label>
-                            </div>
-                            <div class="form-check">
-                              <input class="form-check-input" type="checkbox" id="securityNotify" checked="" disabled="">
-                              <label class="form-check-label" for="securityNotify">
-                                Security alerts
-                              </label>
-                            </div>
-                          </div>
-                        </div>
-    
-                        <div class="text-center">
-                          <button type="submit" class="btn-theme px-4">Save Changes</button>
-                        </div>
-                      </form><!-- End settings Form -->
     
                     </div>
     
@@ -411,7 +382,7 @@
                 var form_data = new FormData();
                 form_data.append('image', file_data);
                 form_data.append("name", $("#name").val());
-                form_data.append("sur_name", $("#sur_name").val());
+                // form_data.append("sur_name", $("#sur_name").val());
                 form_data.append("phone", $("#phone").val());
                 form_data.append("email", $("#email").val());
                 form_data.append("house_number", $("#house_number").val());
