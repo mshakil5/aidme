@@ -184,31 +184,32 @@
     
                     <div class="tab-pane fade pt-3 " id="profile-change-password" role="tabpanel">
                       <!-- Change Password Form -->
+                      <div class="permsg"></div>
                       <form>
     
                         <div class="row mb-3">
-                          <label for="currentPassword" class="col-md-4 col-lg-3 col-form-label">Current Password</label>
+                          <label for="old_password" class="col-md-4 col-lg-3 col-form-label">Current Password</label>
                           <div class="col-md-8 col-lg-9">
-                            <input name="password" type="password" class="form-control" id="currentPassword">
+                            <input name="old_password" type="password" class="form-control" id="old_password">
                           </div>
                         </div>
     
                         <div class="row mb-3">
-                          <label for="newPassword" class="col-md-4 col-lg-3 col-form-label">New Password</label>
+                          <label for="new_password" class="col-md-4 col-lg-3 col-form-label">New Password</label>
                           <div class="col-md-8 col-lg-9">
-                            <input name="newpassword" type="password" class="form-control" id="newPassword">
+                            <input name="new_password" type="password" class="form-control" id="new_password">
                           </div>
                         </div>
     
                         <div class="row mb-3">
-                          <label for="renewPassword" class="col-md-4 col-lg-3 col-form-label">Re-enter New Password</label>
+                          <label for="password_confirmation" class="col-md-4 col-lg-3 col-form-label">Re-enter New Password</label>
                           <div class="col-md-8 col-lg-9">
-                            <input name="renewpassword" type="password" class="form-control" id="renewPassword">
+                            <input name="password_confirmation" type="password" class="form-control" id="password_confirmation">
                           </div>
                         </div>
     
                         <div class="text-center">
-                          <button type="submit" class="btn-theme px-4">Change Password</button>
+                          <button class="btn-theme px-4 passwordBtn" type="button">Change Password</button>
                         </div>
                       </form><!-- End Change Password Form -->
     
@@ -279,6 +280,33 @@
                         }else if(d.status == 300){
                             pagetop();
                             $(".ermsg").html(d.message);
+                            window.setTimeout(function(){location.reload()},2000)
+                        }
+                    },
+                    error: function (d) {
+                        console.log(d);
+                    }
+                });
+            });
+
+            var passwordurl = "{{URL::to('/user/changepassword')}}";
+            $(".passwordBtn").click(function(){
+                //alert('btn work');
+                var password= $("#new_password").val();
+                var confirmpassword= $("#password_confirmation").val();
+                var opassword= $("#old_password").val();
+                // console.log(password);
+                $.ajax({
+                    url: passwordurl,
+                    method: "POST",
+                    data: {password:password,confirmpassword:confirmpassword,opassword:opassword},
+                    success: function (d) {
+                        console.log(d);
+                        if (d.status == 303) {
+                            $(".permsg").html(d.message);
+                        }else if(d.status == 300){
+                            pagetop();
+                            $(".permsg").html(d.message);
                             window.setTimeout(function(){location.reload()},2000)
                         }
                     },

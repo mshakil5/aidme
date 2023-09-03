@@ -111,7 +111,14 @@
                                     <li class="nav-item dropdown px-3 d-flex align-items-center">
                                         <a class="nav-link nav-profile  pe-0 show d-flex align-items-center cursor-pointer"
                                             id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+
+                                            @if (isset(Auth::user()->photo))
+                                                
+                                            <img width="45px" src="{{ asset('images/'.Auth::user()->photo)}}" alt="Profile" class="rounded-circle">
+                                            @else
+                                                
                                             <img width="45px" src="{{ asset('assets/images/posts/1.jpg')}}" alt="Profile" class="rounded-circle">
+                                            @endif
                                             <span class="d-none d-md-block dropdown-toggle ps-2">{{Auth::user()->name}}</span>
                                         </a><!-- End Profile Iamge Icon -->
                                         <ul class="dropdown-menu shadow-sm" aria-labelledby="dropdownMenuButton1">

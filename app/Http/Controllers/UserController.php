@@ -91,6 +91,57 @@ class UserController extends Controller
         }
     }
 
+    public function changeUserPassword(Request $request)
+    {
+
+            if(empty($request->opassword)){
+                $message ="<div class='alert alert-warning'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><b>Please fill \"Old Password\" field..!</b></div>";
+                return response()->json(['status'=> 303,'message'=>$message]);
+                exit();
+            }
+
+            if(empty($request->password)){
+                $message ="<div class='alert alert-warning'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><b>Please fill \"New Password\" field..!</b></div>";
+                return response()->json(['status'=> 303,'message'=>$message]);
+                exit();
+            }
+
+            if(empty($request->password === $request->confirmpassword)){
+                $message ="<div class='alert alert-warning'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><b>New password doesn't match.</b></div>";
+                return response()->json(['status'=> 303,'message'=>$message]);
+                exit();
+            }
+
+        $hashedPassword = Auth::user()->password;
+
+       if (\Hash::check($request->opassword , $hashedPassword )) {
+
+         if (!\Hash::check($request->password , $hashedPassword)) {
+                $where = [
+                    'id'=>auth()->user()->id
+                ];
+                $passwordchange = User::where($where)->get()->first();
+                $passwordchange->password =Hash::make($request->password);
+
+                if ($passwordchange->save()) {
+                    $message ="<div class='alert alert-success'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><b>Password Change Successfully.</b></div>";
+                    return response()->json(['status'=> 300,'message'=>$message]);
+                }else{
+                    return response()->json(['status'=> 303,'message'=>'Server Error!!']);
+                }
+
+        }else{
+            $message ="<div class='alert alert-warning'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><b>New password can not be the old password.</b></div>";
+            return response()->json(['status'=> 303,'message'=>$message]);
+            }
+
+           }else{
+            $message ="<div class='alert alert-warning'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><b>Old password doesn't match.</b></div>";
+            return response()->json(['status'=> 303,'message'=>$message]);
+             }
+
+    }
+
     public function updateCharityProfile(Request $request)
     {
         if(empty($request->name)){
