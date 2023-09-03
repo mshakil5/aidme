@@ -37,6 +37,16 @@
     <script src="{{ asset('assets/js/cdn.datatables.net_1.13.5_js_jquery.dataTables.min.js')}}" type="text/javascript"></script>
     <script src="https://raw.githubusercontent.com/graingert/WOW/master/src/WOW.js" type="text/javascript"></script>
 
+    <script>
+        // page schroll top
+        function pagetop() {
+            window.scrollTo({
+                top: 100,
+                behavior: 'smooth',
+            });
+        }
+    </script>
+
     <script type="text/javascript">
         new WOW().init();
         $(document).ready(function () {

@@ -83,7 +83,7 @@
     
                       <div class="row">
                         <div class="col-lg-3 col-md-4 label txt-primary">Country</div>
-                        <div class="col-lg-9 co txt-secondary l-md-8">:{{Auth::user()->country}}</div>
+                        <div class="col-lg-9 co txt-secondary l-md-8">: {{Auth::user()->country}}</div>
                       </div>
     
     
@@ -92,7 +92,7 @@
                     <div class="tab-pane fade profile-edit pt-3" id="profile-edit" role="tabpanel">
     
                       <!-- Profile Edit Form -->
-                      <form>
+                      <div class="ermsg"></div>
                         <div class="row mb-3">
                           <label for="profileImage" class="col-md-4 col-lg-3 col-form-label">Profile Image</label>
                           <div class="col-md-8 col-lg-9">
@@ -104,32 +104,32 @@
                             @endif
 
                             <div class="pt-2 d-flex align-items-center gap-3">
-                               <input type="file" class="form-control" name="" id="">
-                               <button class="btn btn-danger" title="Remove my profile image"> <iconify-icon icon="ph:trash"></iconify-icon></button>
+                               <input type="file" class="form-control" name="image" id="image">
+                               {{-- <button class="btn btn-danger" title="Remove my profile image"> <iconify-icon icon="ph:trash"></iconify-icon></button> --}}
                             </div>
 
                           </div>
                         </div>
     
                         <div class="row mb-3">
-                          <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Full Name</label>
+                          <label for="name" class="col-md-4 col-lg-3 col-form-label">Full Name</label>
                           <div class="col-md-8 col-lg-9">
-                            <input name="fullName" type="text" class="form-control" id="fullName" value="{{Auth::user()->name}}">
+                            <input name="name" type="text" class="form-control" id="name" value="{{Auth::user()->name}}">
                           </div>
                         </div>
 
                         
                         <div class="row mb-3">
-                          <label for="Phone" class="col-md-4 col-lg-3 col-form-label">Phone</label>
+                          <label for="phone" class="col-md-4 col-lg-3 col-form-label">Phone</label>
                           <div class="col-md-8 col-lg-9">
-                            <input name="phone" type="text" class="form-control" id="Phone" value="{{Auth::user()->phone}}">
+                            <input name="phone" type="text" class="form-control" id="phone" value="{{Auth::user()->phone}}">
                           </div>
                         </div>
     
                         <div class="row mb-3">
-                          <label for="Email" class="col-md-4 col-lg-3 col-form-label">Email</label>
+                          <label for="email" class="col-md-4 col-lg-3 col-form-label">Email</label>
                           <div class="col-md-8 col-lg-9">
-                            <input name="email" type="email" class="form-control" id="Email" value="{{Auth::user()->email}}">
+                            <input name="email" type="email" class="form-control" id="email" value="{{Auth::user()->email}}">
                           </div>
                         </div> 
     
@@ -177,9 +177,8 @@
     
     
                         <div class="text-center">
-                          <button type="submit" class="btn-theme px-4">Save Changes</button>
+                          <button type="submit" id="updateBtn" class="btn-theme px-4">Save Changes</button>
                         </div>
-                      </form><!-- End Profile Edit Form -->
     
                     </div>
     
@@ -225,132 +224,6 @@
     </div>
 </section>
 
-{{-- <section class="campaign default" id="viewContainer">
-    <div class="container">
-       
-       <div class="col-lg-10 mx-auto">
-        <h3 class="fw-bold darkerGrotesque-bold txt-primary mb-5">Your Profile</h3>
-        <div class="row">
-            <div class="col-lg-4 fs-5 shadow-sm p-4 border">
-                @if (isset(Auth::user()->photo))
-                    <img src="{{ asset('images/'.Auth::user()->photo)}}" class="img-fluid" alt="">
-                @else
-                    <img src="https://via.placeholder.com/510x440.png" class="img-fluid" alt="">
-                @endif
-                
-            </div>
-            <div class="col-lg-8 fs-5 shadow-sm p-4 border d-flex align-items-center position-relative">
-                <div class="row darkerGrotesque-semibold "> 
-
-                        <p class="mb-1"> Name: {{ Auth::user()->name }} </p>
-                        <p class="mb-1"> Surname: {{ Auth::user()->sur_name }} </p>
-                        <p class="mb-1"> Phone: {{ Auth::user()->phone }} </p>
-                        <p class="mb-1"> Email: {{ Auth::user()->email }} </p>
-                        <p class="mb-1"> House Number: {{ Auth::user()->house_number }} </p>
-                        <p class="mb-1"> Street: {{ Auth::user()->street_name }} </p>
-                        <p class="mb-1"> Town: {{ Auth::user()->town }} </p>
-                        <p class="mb-1"> Post Code: {{ Auth::user()->postcode }} </p>
-                   
-                   
-
-                </div>
-                <button class="editProfile" id="editProfileBtn"><iconify-icon icon="material-symbols:edit"></iconify-icon></button>
-            </div>
-
-        </div>
-       </div>
-    </div>
-</section>
-
-<section class="campaign default" id="editContainer">
-    <div class="container">
-        <div class="row">
-            <h3 class="fw-bold darkerGrotesque-bold txt-primary mb-5">Update Profile</h3>
-        </div>
-        <div class="row">
-            <div class="col-lg-12 fs-5 shadow-sm p-4 border">
-                <div class="row darkerGrotesque-semibold">
-                    <div class="col-lg-10">
-                        <div class="ermsg"></div>
-                        <div class="row">
-                            <div class="col-lg-4 ">
-                                <div class="form-group mb-3">
-                                    <input class="form-control fs-5" type="text" id="name" name="name" value="{{Auth::user()->name}}">
-                                </div>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="form-group mb-3">
-                                    <input class="form-control fs-5" type="text" id="sur_name" name="sur_name" value="{{Auth::user()->sur_name}}">
-                                </div>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="form-group mb-3">
-                                    <input class="form-control fs-5" type="text" id="phone" name="phone" value="{{Auth::user()->phone}}">
-                                </div> 
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="form-group mb-3">
-                                    <input class="form-control fs-5" type="email" id="email" name="email" value="{{Auth::user()->email}}">
-                                </div> 
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="form-group mb-3">
-                                    <input class="form-control fs-5" type="text" id="house_number" name="house_number" value="{{Auth::user()->house_number}}">
-                                </div> 
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="form-group mb-3">
-                                    <input class="form-control fs-5" type="text" id="street_name" name="street_name" value="{{Auth::user()->street_name}}">
-                                </div> 
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="form-group mb-3">
-                                    <input class="form-control fs-5" type="text" id="town" name="town" value="{{Auth::user()->town}}">
-                                </div> 
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="form-group mb-3">
-                                    <input class="form-control fs-5" type="text" id="postcode" name="postcode" value="{{Auth::user()->postcode}}">
-                                </div> 
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="form-group mb-3">
-                                    <input class="form-control fs-5" type="password" id="password" name="password" placeholder="Password">
-                                </div> 
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="form-group mb-3">
-                                    <input class="form-control fs-5" type="password" id="confirm_password" name="" placeholder="Confirm Password">
-                                </div> 
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-2">
-                        <div class="form-group mb-3 text-center">
-                            @if (isset(Auth::user()->photo))
-                                <img src="{{ asset('images/'.Auth::user()->photo)}}" class="img-fluid mb-2 mx-auto rounded " width="120px" alt="">
-                            @else
-                                <img src="https://via.placeholder.com/510x440.png" class="img-fluid mb-2 mx-auto rounded " width="120px" alt="">
-                            @endif
-                            <p class="mb-1 text-start">Change profile Photo</p>
-                            <input class="form-control fs-5" type="file" id="image" name="image">
-                        </div>
-                    </div>
-                   
-                    
-                    <div class="col-lg-12 mt-3">
-                        <div class="form-group">
-                            <button id="updateBtn" class="ms-0 btn-theme bg-primary">Update Profile</button>
-                            <button id="FormCloseBtn" class="ms-0 btn-theme bg-secondary">Close</button>
-                        </div>
-                    </div>
-                    
-                </div>
-
-            </div>
-        </div>
-    </div>
-</section>  --}}
 
 
 @endsection
@@ -389,8 +262,10 @@
                 form_data.append("street_name", $("#street_name").val());
                 form_data.append("town", $("#town").val());
                 form_data.append("postcode", $("#postcode").val());
-                form_data.append("password", $("#password").val());
-                form_data.append("confirm_password", $("#confirm_password").val());
+                form_data.append("about", $("#about").val());
+                form_data.append("country", $("#country").val());
+                // form_data.append("password", $("#password").val());
+                // form_data.append("confirm_password", $("#confirm_password").val());
                 
                 $.ajax({
                     url: url,

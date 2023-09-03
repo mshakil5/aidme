@@ -28,14 +28,6 @@ class UserController extends Controller
             exit();
         }
 
-        if(empty($request->sur_name)){
-            $message ="<div class='alert alert-warning'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><b>Please fill \"Surname \" field..!</b></div>";
-            return response()->json(['status'=> 303,'message'=>$message]);
-            exit();
-        }
-
-        
-
         if(empty($request->house_number)){
             $message ="<div class='alert alert-warning'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><b>Please fill \"House Number \" field..!</b></div>";
             return response()->json(['status'=> 303,'message'=>$message]);
@@ -77,35 +69,20 @@ class UserController extends Controller
 
         $data = User::find(Auth::user()->id);
         if($request->image != 'null'){
-            $request->validate([
-                'image' => 'required|mimes:jpeg,png,jpg,gif,svg,pdf|max:8048',
-            ]);
             $rand = mt_rand(100000, 999999);
             $imageName = time(). $rand .'.'.$request->image->extension();
             $request->image->move(public_path('images'), $imageName);
             $data->photo= $imageName;
         }
-        if($request->r_photo != 'null'){
-            $request->validate([
-                'r_photo' => 'required|mimes:jpeg,png,jpg,gif,svg,pdf|max:8048',
-            ]);
-            $rand = mt_rand(100000, 999999);
-            $imageName = time(). $rand .'.'.$request->r_photo->extension();
-            $request->r_photo->move(public_path('images'), $imageName);
-            $data->r_photo= $imageName;
-        }
         $data->name = $request->name;
-        $data->sur_name = $request->sur_name;
-        $data->phone = $request->phone;
         $data->email = $request->email;
+        $data->phone = $request->phone;
         $data->house_number = $request->house_number;
         $data->street_name = $request->street_name;
         $data->town = $request->town;
         $data->postcode = $request->postcode;
-        $data->charity_reg_number = $request->charity_reg_number;
-        if(isset($request->password)){
-            $data->password = Hash::make($request->password);
-        }
+        $data->about = $request->about;
+        $data->country = $request->country;
         if ($data->save()) {
             $message ="<div class='alert alert-success'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><b>Data Updated Successfully.</b></div>";
             return response()->json(['status'=> 300,'message'=>$message]);
@@ -128,12 +105,6 @@ class UserController extends Controller
             exit();
         }
 
-        if(empty($request->sur_name)){
-            $message ="<div class='alert alert-warning'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><b>Please fill \"Surname \" field..!</b></div>";
-            return response()->json(['status'=> 303,'message'=>$message]);
-            exit();
-        }
-
         
 
         if(empty($request->house_number)){
@@ -160,19 +131,12 @@ class UserController extends Controller
             exit();
         }
 
-        if(isset($request->password) && ($request->password != $request->confirm_password)){
-            $message ="<div class='alert alert-warning'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><b>Password doesn't match.</b></div>";
-            return response()->json(['status'=> 303,'message'=>$message]);
-            exit();
-        }
-
         $chkemail = User::where('email',$request->email)->where('id','!=', Auth::user()->id)->first();
         if($chkemail){
             $message ="<div class='alert alert-warning'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><b>This email already added.</b></div>";
             return response()->json(['status'=> 303,'message'=>$message]);
             exit();
         }
-
 
 
         $data = User::find(Auth::user()->id);
@@ -185,33 +149,16 @@ class UserController extends Controller
             $request->image->move(public_path('images'), $imageName);
             $data->photo= $imageName;
         }
-        if($request->r_photo != 'null'){
-            $request->validate([
-                'r_photo' => 'required|mimes:jpeg,png,jpg,gif,svg,pdf|max:8048',
-            ]);
-            $rand = mt_rand(100000, 999999);
-            $imageName = time(). $rand .'.'.$request->r_photo->extension();
-            $request->r_photo->move(public_path('images'), $imageName);
-            $data->r_photo= $imageName;
-        }
-
-        
-
 
         $data->name = $request->name;
-        $data->sur_name = $request->sur_name;
-        $data->r_phone = $request->r_phone;
-        $data->r_name = $request->r_name;
-        $data->r_position = $request->r_position;
         $data->email = $request->email;
+        $data->phone = $request->phone;
         $data->house_number = $request->house_number;
         $data->street_name = $request->street_name;
         $data->town = $request->town;
         $data->postcode = $request->postcode;
-        $data->charity_reg_number = $request->charity_reg_number;
-        if(isset($request->password)){
-            $data->password = Hash::make($request->password);
-        }
+        $data->about = $request->about;
+        $data->country = $request->country;
         if ($data->save()) {
             $message ="<div class='alert alert-success'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><b>Data Updated Successfully.</b></div>";
             return response()->json(['status'=> 300,'message'=>$message]);
