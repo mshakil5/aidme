@@ -47,27 +47,65 @@
                     <div class="collapse navbar-collapse" id="navbarNavDropdown">
                         <ul class="navbar-nav mx-auto navCustom">
                             <!-- "me-auto" for left align | "ms-auto" for right align | "mx-auto" for center align--->
-                            <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="{{ route('homepage')}}">Home</a>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="dropdownItem" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Appeals
+                                    <iconify-icon icon="tabler:chevron-down" class="down ms-1"></iconify-icon>
+                                    <iconify-icon icon="tabler:chevron-up" class="up ms-1"></iconify-icon>
+                                </a>
+                                <ul class="dropdown-menu rounded-0 shadow-sm"  aria-labelledby="dropdownItem">
+                                    <li><a class="dropdown-item" href="#">Refugee Support</a></li>
+                                    <li><a class="dropdown-item" href="#">Orphan Sponsorship</a></li>
+                                    <li><a class="dropdown-item" href="#">Sadaqah</a></li>
+                                    <li><a class="dropdown-item" href="#">Zakat</a></li>
+                                </ul>
                             </li>
-                            <li class="nav-item">
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="dropdownItem" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Projects
+                                    <iconify-icon icon="tabler:chevron-down" class="down ms-1"></iconify-icon>
+                                    <iconify-icon icon="tabler:chevron-up" class="up ms-1"></iconify-icon>
+                                </a>
+                                <ul class="dropdown-menu rounded-0 shadow-sm"  aria-labelledby="dropdownItem">
+                                    <li><a class="dropdown-item" href="#">Emergency</a></li>
+                                    <li><a class="dropdown-item" href="#">Orphan Shelter</a></li>
+                                    <li><a class="dropdown-item" href="#">Education</a></li>
+                                    <li><a class="dropdown-item" href="#">Health & Medical</a></li>
+                                    <li><a class="dropdown-item" href="#">Food, Water & Sanitation</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="dropdownItem" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Get Involved
+                                    <iconify-icon icon="tabler:chevron-down" class="down ms-1"></iconify-icon>
+                                    <iconify-icon icon="tabler:chevron-up" class="up ms-1"></iconify-icon>
+                                </a>
+                                <ul class="dropdown-menu rounded-0 shadow-sm"  aria-labelledby="dropdownItem">
+                                    <li><a class="dropdown-item" href="#">Work with us</a></li>
+                                    <li><a class="dropdown-item" href="#">Volunteer with us</a></li>
+                                    <li><a class="dropdown-item" href="#">Our Network</a></li>
+                                </ul>
+                            </li>
+
+                            {{-- <li class="nav-item">
                                 <a class="nav-link " aria-current="page" href="{{ route('frontend.about')}}">About</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link " aria-current="page" href="{{route('frontend.contact')}}">contact</a>
-                            </li>
+                            </li> --}}
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="dropdownItem" role="button"
                                     data-bs-toggle="dropdown" aria-expanded="false">
-                                    other links
+                                    About Us
                                     <iconify-icon icon="tabler:chevron-down" class="down ms-1"></iconify-icon>
                                     <iconify-icon icon="tabler:chevron-up" class="up ms-1"></iconify-icon>
                                 </a>
-                                <ul class="dropdown-menu rounded-0 shadow-sm" aria-labelledby="dropdownItem">
-
-                                    <li><a class="dropdown-item" href="#">Mission</a></li>
-                                    <li><a class="dropdown-item" href="#">Vission</a></li>
-                                    <li><a class="dropdown-item" href="#">Certificate</a></li>
+                                <ul class="dropdown-menu rounded-0 shadow-sm"  aria-labelledby="dropdownItem">
+                                    <li><a class="dropdown-item" href="#">Board of trustees</a></li>
+                                    <li><a class="dropdown-item" href="#">Board of directors</a></li>
+                                    <li><a class="dropdown-item" href="#">News</a></li>
                                 </ul>
                             </li>
 
