@@ -96,11 +96,7 @@
                                 <a class="nav-link " aria-current="page" href="{{route('frontend.contact')}}">contact</a>
                             </li> --}}
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="dropdownItem" role="button"
-                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                    About Us
-                                    <iconify-icon icon="tabler:chevron-down" class="down ms-1"></iconify-icon>
-                                    <iconify-icon icon="tabler:chevron-up" class="up ms-1"></iconify-icon>
+                                <a class="nav-link dropdown-toggle" href="{{ route('frontend.about')}}" id="dropdownItem" role="button" data-bs-toggle="dropdown" aria-expanded="false"> About Us <iconify-icon icon="tabler:chevron-down" class="down ms-1"></iconify-icon> <iconify-icon icon="tabler:chevron-up" class="up ms-1"></iconify-icon>
                                 </a>
                                 <ul class="dropdown-menu rounded-0 shadow-sm"  aria-labelledby="dropdownItem">
                                     <li><a class="dropdown-item" href="#">Board of trustees</a></li>
