@@ -10,6 +10,7 @@ use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\StripeController;
 use App\Http\Controllers\PaypalController;
+use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\SocialLoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
@@ -50,6 +51,13 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/', [FrontendController::class, 'index'])->name('homepage');
 Route::get('/about', [FrontendController::class, 'about'])->name('frontend.about');
 Route::get('/work', [FrontendController::class, 'work'])->name('frontend.work');
+Route::get('/volunteer', [FrontendController::class, 'volunteer'])->name('frontend.volunteer');
+Route::get('/network', [FrontendController::class, 'network'])->name('frontend.network');
+Route::get('/trustees', [FrontendController::class, 'trustees'])->name('frontend.trustees');
+Route::get('/directors', [FrontendController::class, 'directors'])->name('frontend.directors');
+Route::get('/news', [FrontendController::class, 'news'])->name('frontend.news');
+
+
 Route::get('/contact', [FrontendController::class, 'contact'])->name('frontend.contact');
 Route::get('/privacy', [FrontendController::class, 'privacy'])->name('frontend.privacy');
 Route::get('/terms', [FrontendController::class, 'terms'])->name('frontend.terms');
@@ -62,6 +70,9 @@ Route::post('charity-pay', [PaypalController::class, 'charitypaymentpay'])->name
 Route::get('charity-success', [PaypalController::class, 'charitypaymentsuccess']);
 Route::get('charity-error', [PaypalController::class, 'charitypaymenterror']);
 // paypal payment end 
+
+
+Route::get('/project-details/{id}', [ProjectController::class, 'projectDetails'])->name('projectDetails');
 
 
 

@@ -54,10 +54,9 @@
                                     <iconify-icon icon="tabler:chevron-up" class="up ms-1"></iconify-icon>
                                 </a>
                                 <ul class="dropdown-menu rounded-0 shadow-sm"  aria-labelledby="dropdownItem">
-                                    <li><a class="dropdown-item" href="#">Refugee Support</a></li>
-                                    <li><a class="dropdown-item" href="#">Orphan Sponsorship</a></li>
-                                    <li><a class="dropdown-item" href="#">Sadaqah</a></li>
-                                    <li><a class="dropdown-item" href="#">Zakat</a></li>
+                                    @foreach (\App\Models\DonationType::where('type', 'Appeals')->get() as $appeals)
+                                    <li><a class="dropdown-item" href="{{route('projectDetails', $appeals->id)}}">{{$appeals->menu}}</a></li>
+                                    @endforeach
                                 </ul>
                             </li>
 
@@ -68,11 +67,9 @@
                                     <iconify-icon icon="tabler:chevron-up" class="up ms-1"></iconify-icon>
                                 </a>
                                 <ul class="dropdown-menu rounded-0 shadow-sm"  aria-labelledby="dropdownItem">
-                                    <li><a class="dropdown-item" href="#">Emergency</a></li>
-                                    <li><a class="dropdown-item" href="#">Orphan Shelter</a></li>
-                                    <li><a class="dropdown-item" href="#">Education</a></li>
-                                    <li><a class="dropdown-item" href="#">Health & Medical</a></li>
-                                    <li><a class="dropdown-item" href="#">Food, Water & Sanitation</a></li>
+                                    @foreach (\App\Models\DonationType::where('type', 'Projects')->get() as $projects)
+                                    <li><a class="dropdown-item" href="{{route('projectDetails', $projects->id)}}">{{$projects->menu}}</a></li>
+                                    @endforeach
                                 </ul>
                             </li>
 
@@ -83,9 +80,22 @@
                                     <iconify-icon icon="tabler:chevron-up" class="up ms-1"></iconify-icon>
                                 </a>
                                 <ul class="dropdown-menu rounded-0 shadow-sm"  aria-labelledby="dropdownItem">
-                                    <li><a class="dropdown-item" href="#">Work with us</a></li>
-                                    <li><a class="dropdown-item" href="#">Volunteer with us</a></li>
-                                    <li><a class="dropdown-item" href="#">Our Network</a></li>
+                                    <li><a class="dropdown-item" href="{{route('frontend.work')}}">Work with us</a></li>
+                                    <li><a class="dropdown-item" href="{{route('frontend.volunteer')}}">Volunteer with us</a></li>
+                                    <li><a class="dropdown-item" href="{{route('frontend.network')}}">Our Network</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="{{ route('frontend.about')}}" id="dropdownItem" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    About Us
+                                    <iconify-icon icon="tabler:chevron-down" class="down ms-1"></iconify-icon>
+                                    <iconify-icon icon="tabler:chevron-up" class="up ms-1"></iconify-icon>
+                                </a>
+                                <ul class="dropdown-menu rounded-0 shadow-sm"  aria-labelledby="dropdownItem">
+                                    <li><a class="dropdown-item" href="{{ route('frontend.trustees')}}">Board of trustees</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('frontend.directors')}}">Board of directors</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('frontend.news')}}">News</a></li>
                                 </ul>
                             </li>
 
@@ -95,16 +105,16 @@
                             <li class="nav-item">
                                 <a class="nav-link " aria-current="page" href="{{route('frontend.contact')}}">contact</a>
                             </li> --}}
-                            <li class="nav-item dropdown">
+                            {{-- <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="{{ route('frontend.about')}}" > About Us
                                     <span id="dropdownItem" role="button" data-bs-toggle="dropdown" aria-expanded="false"> <iconify-icon icon="tabler:chevron-down" class="down ms-1" ></iconify-icon> <iconify-icon icon="tabler:chevron-up" class="up ms-1"></iconify-icon></span>
                                 </a>
                                 <ul class="dropdown-menu rounded-0 shadow-sm" aria-labelledby="dropdownItem">
-                                    <li><a class="dropdown-item" href="#">Board of trustees</a></li>
-                                    <li><a class="dropdown-item" href="#">Board of directors</a></li>
-                                    <li><a class="dropdown-item" href="#">News</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('frontend.trustees')}}">Board of trustees</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('frontend.directors')}}">Board of directors</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('frontend.news')}}">News</a></li>
                                 </ul>
-                            </li>
+                            </li> --}}
 
                         </ul>
                         <ul class="navbar-nav ms-auto navCustom">

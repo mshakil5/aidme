@@ -36,6 +36,32 @@ class FrontendController extends Controller
         return view('frontend.work');
     }
 
+    public function volunteer()
+    {
+        return view('frontend.volunteer');
+    }
+
+    public function network()
+    {
+        return view('frontend.network');
+    }
+
+    public function trustees()
+    {
+        return view('frontend.trustees');
+    }
+
+    public function directors()
+    {
+        return view('frontend.directors');
+    }
+
+    public function news()
+    {
+        return view('frontend.news');
+    }
+
+
     public function contact()
     {
         return view('frontend.contact');
