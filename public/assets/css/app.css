@@ -780,3 +780,48 @@ p {
   background: #0e0e4e;
   color: #fff;
 }/*# sourceMappingURL=app.css.map */
+
+.authBox {
+  background: #ffffff;
+  padding: 25px;
+  box-shadow: 0px 2px 5px 0px #b1b1b1;
+}
+
+.auth .title {
+  font-size: 40px;
+  line-height: 0.8;
+  color: #ee9a40;
+  font-family: "DarkerGrotesque-semibold";
+}
+@media (max-width: 768px) {
+  .auth .title {
+    text-align: center !important;
+    font-size: 3.6rem;
+  }
+}
+
+.form-control {
+  font-size: 22px!important;
+  line-height: 1;
+  font-weight: 700;
+  min-height: 43px;
+}
+
+
+.form-custom .form-control {
+  background-color: #fff;
+  font-family: "DarkerGrotesque-semibold";
+  border-radius: 0;
+  margin: 15px 0;
+  min-height: 43px;
+  border: 0;
+  font-size: 19px;
+  color: #003057;
+  border: 1px solid #ebe1e1;
+  box-shadow: 0;
+  outline: 0;
+}
+.form-custom .form-control:focus {
+  box-shadow: none;
+  border-color: grey;
+}

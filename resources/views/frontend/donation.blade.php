@@ -46,7 +46,7 @@
             </div>
             <p class="fs-5 mt-3">
                 Amount <br>
-                <input type="number" id="amount" name="amount" class="form-control">
+                <input type="number" id="amount" name="amount" step="any" class="form-control">
             </p>
 
             <label>
@@ -117,7 +117,6 @@
                                 Add  £<span id="process" class="txt-secondary fs-5 fw-bold mx-1"></span> 
                                 to cover our payment processing fees 
                             </div>
-                           
                         </div>
                     
                     <div class="form-group mt-3">
@@ -164,6 +163,25 @@ function catchAmount(event) {
   let donate = (document.getElementById("donate").innerHTML =
     event.target.value); 
 }
+
+var myCarousel = document.querySelector("#carouselExampleFade");
+var carousel = new bootstrap.Carousel(myCarousel, {
+  interval: 4000,
+  wrap: true,
+});
+
+
+function addDonate(event) {
+  let prodeccingfee = document.getElementById("prodeccingfee").value;  
+  let donateVal = document.getElementById("donate").innerHTML;  
+   Number(donateVal);
+   Number(prodeccingfee); 
+  let result = document.getElementById("donate").innerHTML = Number(prodeccingfee) + Number(donateVal)
+
+}
+
+
+
 </script>
 
 <script>
@@ -173,22 +191,6 @@ function catchAmount(event) {
             console.log(amt);
             $("#others").val('');
             $("#amount").val(amt);
-
-
-
-            // title = $(this).attr('title');
-            // $("#charityamount").val(amt);
-            // $("#charitytitle").html(title);
-            // $("#camntshowdiv").html(amt);
-            
-            // var amount = parseInt(amt)
-            // var commission = (amount * 10)/100;
-            // var net_amount = amount + commission;
-            // $("#amount").val(net_amount.toFixed(2));
-            // $("#paypalamount").val(net_amount.toFixed(2));
-            // $("#c_amount").val(commission.toFixed(2));
-            // $("#paypalcommission").val(commission.toFixed(2));
-
         });
 
         $(document).on('click', '#prodeccingfee', function () {
