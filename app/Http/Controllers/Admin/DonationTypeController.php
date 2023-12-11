@@ -21,6 +21,7 @@ class DonationTypeController extends Controller
         $data = new DonationType();
         $data->title = $request->title;
         $data->type = $request->type;
+        $data->menu = $request->menu;
         $data->description = $request->description;
 
         // image
@@ -70,6 +71,7 @@ class DonationTypeController extends Controller
         }
             $data->title = $request->title;
             $data->type = $request->type;
+            $data->menu = $request->menu;
             $data->description = $request->description;
             $data->status = "0";
             $data->updated_by = Auth::user()->id;

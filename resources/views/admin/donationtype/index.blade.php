@@ -34,10 +34,17 @@
                                       <input type="text" id="title" name="title" class="form-control">
                                   </div>
 
-                                  
                                   <div>
-                                    <label for="type">Type (Show in menu)</label>
-                                    <input type="text" id="type" name="type" class="form-control">
+                                    <label for="menu">Menu (Show in menu)</label>
+                                    <input type="text" id="menu" name="menu" class="form-control">
+                                </div>
+                                  <div>
+                                    <label for="type">Type</label>
+                                    <select name="type" id="type" class="form-control">
+                                        <option value="">Select</option>
+                                        <option value="Appeals">Appeals</option>
+                                        <option value="Projects">Projects</option>
+                                    </select>
                                 </div>
 
                                   <div>
@@ -166,6 +173,7 @@
                     form_data.append('image', file_data);
                     form_data.append("title", $("#title").val());
                     form_data.append("type", $("#type").val());
+                    form_data.append("menu", $("#menu").val());
                     form_data.append("description", $("#description").val());
                     $.ajax({
                       url: url,
@@ -200,6 +208,7 @@
                     form_data.append('image', file_data);
                     form_data.append("title", $("#title").val());
                     form_data.append("type", $("#type").val());
+                    form_data.append("menu", $("#menu").val());
                     form_data.append("description", $("#description").val());
                     form_data.append('_method', 'put');
                     $.ajax({
@@ -239,7 +248,7 @@
                 });
             });
             //Edit  end
-            
+
             //Delete
             $("#contentContainer").on('click','#deleteBtn', function(){
                 if(!confirm('Sure?')) return;
@@ -272,6 +281,7 @@
                  CKEDITOR.replace( 'description' );
                 $("#title").val(data.title);
                 $("#type").val(data.type);
+                $("#menu").val(data.menu);
                 $("#codeid").val(data.id);
                 $("#addBtn").val('Update');
                 $("#addThisFormContainer").show(300);
