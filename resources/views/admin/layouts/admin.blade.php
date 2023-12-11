@@ -157,6 +157,8 @@
                 <li><a href="{{route('admin.contact-mail')}}" class="nav-link {{ (request()->is('admin/contact-mail*')) ? 'current' : '' }}">Contact Mail</a></li>
                 
                 <li><a href="{{route('admin.emailcontent')}}" class="nav-link {{ (request()->is('admin/email-content*')) ? 'current' : '' }}">Email Content</a></li>
+                
+                <li><a href="{{route('admin.donationtype')}}" class="nav-link {{ (request()->is('admin/donation-type*')) ? 'current' : '' }}">Donation Type</a></li>
 
                 {{-- <li><a href="order-voucher-books.html">Order voucher books</a></li>
                 <li><a href="tevini-card.html">Tevini card</a></li>

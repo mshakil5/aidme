@@ -19,6 +19,7 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\FundraisingSourceController;
 use App\Http\Controllers\Admin\EmailContentController;
 use App\Http\Controllers\Admin\GivingLevelController;
+use App\Http\Controllers\Admin\DonationTypeController;
 
 
 
@@ -178,6 +179,14 @@ Route::group(['prefix' =>'admin/', 'middleware' => ['auth', 'is_admin']], functi
     Route::get('/giving-level/{id}/edit', [GivingLevelController::class, 'edit']);
     Route::put('/giving-level/{id}', [GivingLevelController::class, 'update']);
     Route::get('/giving-level/{id}', [GivingLevelController::class, 'delete']);
+
+    
+    // donation-type
+    Route::get('/donation-type', [DonationTypeController::class, 'index'])->name('admin.donationtype');
+    Route::post('/donation-type', [DonationTypeController::class, 'store']);
+    Route::get('/donation-type/{id}/edit', [DonationTypeController::class, 'edit']);
+    Route::put('/donation-type/{id}', [DonationTypeController::class, 'update']);
+    Route::get('/donation-type/{id}', [DonationTypeController::class, 'delete']);
 
     
     // event
