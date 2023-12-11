@@ -116,9 +116,7 @@
                                 <th style="text-align: center">Surname</th>
                                 <th style="text-align: center">Email</th>
                                 <th style="text-align: center">Phone</th>
-                                <th style="text-align: center">Balance</th>
                                 <th style="text-align: center">Status</th>
-                                <th style="text-align: center">Campaign</th>
                                 <th style="text-align: center">Action</th>
                             </tr>
                             </thead>
@@ -131,25 +129,15 @@
                                         <td style="text-align: center">{{$data->sur_name}}</td>
                                         <td style="text-align: center">{{$data->email}}</td>
                                         <td style="text-align: center">{{$data->phone}}</td>
-                                        <td style="text-align: center">{{$data->balance}}</td>
                                         <td style="text-align: center">
                                             <div class="form-check form-switch">
                                                 <input class="form-check-input fundraiserstatus" type="checkbox" role="switch"  data-id="{{$data->id}}" id="fundraiserstatus" @if ($data->status == 1) checked @endif >
                                             </div>
                                         </td>
-                                        <td style="text-align: center">
-                                        
-                                        <a href="{{route('admin.usercampaignView',$data->id)}}" class="text-decoration-none bg-primary text-white py-1 px-3 rounded mb-1 text-center">Campaign</a>
-                                        </td>
                                         
                                         <td style="text-align: center">
-                                            {{-- <a class="text-decoration-none bg-success text-white py-1 px-3 rounded mb-1" href="{{route('admin.fundraiserPay',$data->id)}}" target="blank"> Pay </a> --}}
-                                                <br>
-                                            <a href="{{route('admin.fundraiserProfile',$data->id)}}"> <i class="fa fa-eye" style="color: #26ab5b;font-size:16px;"> </i></a>
                                             <a id="EditBtn" rid="{{$data->id}}"> <i class="fa fa-edit" style="color: #2196f3;font-size:16px;"> </i></a>
                                             <a id="deleteBtn" rid="{{$data->id}}"> <i class="fa fa-trash-o" style="color: red;font-size:16px;"></i></a>
-
-                                            
                                         </td>
                                     </tr>
                                 @endforeach
@@ -172,7 +160,7 @@
 <script>
     $(function() {
       $('.fundraiserstatus').change(function() {
-        var url = "{{URL::to('/admin/active-fundraiser')}}";
+        var url = "{{URL::to('/admin/active-donor')}}";
           var status = $(this).prop('checked') == true ? 1 : 0;
           var id = $(this).data('id');
            console.log(id);
@@ -219,8 +207,8 @@
         //header for csrf-token is must in laravel
         $.ajaxSetup({ headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') } });
             //
-            var url = "{{URL::to('/admin/new-fundraiser')}}";
-            var updateurl = "{{URL::to('/admin/new-fundraiser-update')}}";
+            var url = "{{URL::to('/admin/donor')}}";
+            var updateurl = "{{URL::to('/admin/donor-update')}}";
             // console.log(url);
             $("#addBtn").click(function(){
                 // fundraiser create 

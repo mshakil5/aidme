@@ -141,107 +141,13 @@ class UserController extends Controller
              }
 
     }
-
-    public function updateCharityProfile(Request $request)
-    {
-        if(empty($request->name)){
-            $message ="<div class='alert alert-warning'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><b>Please fill \"Name \" field..!</b></div>";
-            return response()->json(['status'=> 303,'message'=>$message]);
-            exit();
-        }
-
-        if(empty($request->email)){
-            $message ="<div class='alert alert-warning'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><b>Please fill \"Email \" field..!</b></div>";
-            return response()->json(['status'=> 303,'message'=>$message]);
-            exit();
-        }
-
-        
-
-        if(empty($request->house_number)){
-            $message ="<div class='alert alert-warning'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><b>Please fill \"House Number \" field..!</b></div>";
-            return response()->json(['status'=> 303,'message'=>$message]);
-            exit();
-        }
-
-        if(empty($request->street_name)){
-            $message ="<div class='alert alert-warning'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><b>Please fill \"Street Name \" field..!</b></div>";
-            return response()->json(['status'=> 303,'message'=>$message]);
-            exit();
-        }
-
-        if(empty($request->town)){
-            $message ="<div class='alert alert-warning'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><b>Please fill \"Town \" field..!</b></div>";
-            return response()->json(['status'=> 303,'message'=>$message]);
-            exit();
-        }
-
-        if(empty($request->postcode)){
-            $message ="<div class='alert alert-warning'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><b>Please fill \"Postcode \" field..!</b></div>";
-            return response()->json(['status'=> 303,'message'=>$message]);
-            exit();
-        }
-
-        $chkemail = User::where('email',$request->email)->where('id','!=', Auth::user()->id)->first();
-        if($chkemail){
-            $message ="<div class='alert alert-warning'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><b>This email already added.</b></div>";
-            return response()->json(['status'=> 303,'message'=>$message]);
-            exit();
-        }
-
-
-        $data = User::find(Auth::user()->id);
-        if($request->image != 'null'){
-            $request->validate([
-                'image' => 'required|mimes:jpeg,png,jpg,gif,svg,pdf|max:8048',
-            ]);
-            $rand = mt_rand(100000, 999999);
-            $imageName = time(). $rand .'.'.$request->image->extension();
-            $request->image->move(public_path('images'), $imageName);
-            $data->photo= $imageName;
-        }
-
-        $data->name = $request->name;
-        $data->email = $request->email;
-        $data->phone = $request->phone;
-        $data->house_number = $request->house_number;
-        $data->street_name = $request->street_name;
-        $data->town = $request->town;
-        $data->postcode = $request->postcode;
-        $data->about = $request->about;
-        $data->country = $request->country;
-        if ($data->save()) {
-            $message ="<div class='alert alert-success'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><b>Data Updated Successfully.</b></div>";
-            return response()->json(['status'=> 300,'message'=>$message]);
-        }else{
-            return response()->json(['status'=> 303,'message'=>'Server Error!!']);
-        }
-    }
-
-    // new fundraiser 
-    public function newfundraiser()
-    {
-        $fundraiser = Campaign::select('id','user_id', 'status')->pluck('user_id');
-        $data = User::where('is_type', '0')->whereIn('id', $fundraiser)->orderby('id','DESC')->get();
-        return view('admin.fundraiser.fundraiser', compact('data'));
-    }
-
-    public function fundraiserBalance()
-    {
-        $fundraiser = Campaign::select('id','user_id', 'status')->pluck('user_id');
-        $data = User::where('is_type', '0')->whereIn('id', $fundraiser)->where('balance','>', 0)->orderby('id','DESC')->get();
-        return view('admin.fundraiser.fundraiser', compact('data'));
-    }
-
-    // all donor
     public function getAllDonor()
     {
-        $fundraiser = Campaign::select('id','user_id', 'status')->pluck('user_id');
-        $data = User::where('is_type', '0')->whereNotIn('id', $fundraiser)->orderby('id','DESC')->get();
-        return view('admin.fundraiser.fundraiser', compact('data'));
+        $data = User::where('is_type', '0')->orderby('id','DESC')->get();
+        return view('admin.donor.index', compact('data'));
     }
 
-    public function newfundraiserstore(Request $request)
+    public function newDonorStore(Request $request)
     {
         if(empty($request->name)){
             $message ="<div class='alert alert-warning'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><b>Please fill \"Username \" field..!</b></div>";
@@ -294,82 +200,8 @@ class UserController extends Controller
         }
     }
 
-    public function newfundraiseredit($id)
+    public function donorDelete($id)
     {
-        $where = [
-            'id'=>$id
-        ];
-        $info = User::where($where)->get()->first();
-        return response()->json($info);
-    }
-
-    public function newfundraiserupdate(Request $request)
-    {
-
-        
-        if(empty($request->name)){
-            $message ="<div class='alert alert-warning'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><b>Please fill \"Username \" field..!</b></div>";
-            return response()->json(['status'=> 303,'message'=>$message]);
-            exit();
-        }
-        if(empty($request->email)){
-            $message ="<div class='alert alert-warning'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><b>Please fill \"Email \" field..!</b></div>";
-            return response()->json(['status'=> 303,'message'=>$message]);
-            exit();
-        }
-        if(empty($request->phone)){
-            $message ="<div class='alert alert-warning'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><b>Please fill \"Phone \" field..!</b></div>";
-            return response()->json(['status'=> 303,'message'=>$message]);
-            exit();
-        }
-        
-        if(isset($request->password) && ($request->password != $request->confirm_password)){
-            $message ="<div class='alert alert-warning'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><b>Password doesn't match.</b></div>";
-            return response()->json(['status'=> 303,'message'=>$message]);
-            exit();
-        }
-
-        $duplicateemail = User::where('email',$request->email)->where('id','!=', $request->codeid)->first();
-        if($duplicateemail){
-            $message ="<div class='alert alert-warning'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><b>This email already added.</b></div>";
-            return response()->json(['status'=> 303,'message'=>$message]);
-            exit();
-        }
-
-
-        $data = User::find($request->codeid);
-        // if($request->image != 'null'){
-        //     $request->validate([
-        //         'image' => 'required|mimes:jpeg,png,jpg,gif,svg,pdf|max:8048',
-        //     ]);
-        //     $rand = mt_rand(100000, 999999);
-        //     $imageName = time(). $rand .'.'.$request->image->extension();
-        //     $request->image->move(public_path('images'), $imageName);
-        //     $data->photo= $imageName;
-        // }
-        $data->name = $request->name;
-        $data->sur_name = $request->sur_name;
-        $data->phone = $request->phone;
-        $data->email = $request->email;
-        $data->house_number = $request->house_number;
-        $data->street_name = $request->street_name;
-        $data->town = $request->town;
-        $data->postcode = $request->postcode;
-        if(isset($request->password)){
-            $data->password = Hash::make($request->password);
-        }
-        if ($data->save()) {
-            $message ="<div class='alert alert-success'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><b>Data Updated Successfully.</b></div>";
-            return response()->json(['status'=> 300,'message'=>$message]);
-        }
-        else{
-            return response()->json(['status'=> 303,'message'=>'Server Error!!']);
-        } 
-    }
-
-    public function newfundraiserdelete($id)
-    {
-
         if(User::destroy($id)){
             return response()->json(['success'=>true,'message'=>'User has been deleted successfully']);
         }else{
@@ -377,13 +209,8 @@ class UserController extends Controller
         }
     }
 
-    public function fundraiserProfile($id)
-    {
-        $data = User::where('id', $id)->first();
-        return view('admin.fundraiser.fundraiserprofile', compact('data'));
-    }
 
-    public function activefundraiser(Request $request)
+    public function activeDonor(Request $request)
     {
         $data = User::find($request->id);
         $data->status = $request->status;
@@ -404,15 +231,5 @@ class UserController extends Controller
         }
 
     }
-
-    // close campaign by admin
-    public function fundraisersCampaign($id)
-    {
-        $todate = Carbon::now();
-        $countries = Country::select('id','name')->get();
-        $source = FundraisingSource::select('id','name')->get();
-        $users = User::select('id','name','email')->where('is_type','0')->get();
-        $data = Campaign::orderby('id','DESC')->where('user_id',$id)->get();
-        return view('admin.campaign.index',compact('countries','source','data','users'));
-    }
+    
 }

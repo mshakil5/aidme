@@ -2,9 +2,6 @@
 
 @section('content')
 
-@php
-    $withdrawreqs = \App\Models\EventWithdrawReq::where('admin_notification','=', 0)->get();
-@endphp
 
   <!-- content area -->
   <div class="content">
@@ -15,17 +12,13 @@
                   <div class="col-lg-12 mt-4">
                       <div class=" p-3 py-4 mt-2" style="background-color: #D9D9D9;">
                           <div>
-                              <div class="txt-secondary fs-20 fw-bold  text-center fw-800">Withdraw request notification</div>  <br>
+                              <div class="txt-secondary fs-20 fw-bold  text-center fw-800"> Notification</div>  <br>
                               
                                 <div class="ermsg"></div>
                               <div class="txt-secondary fs-14 my-2 fw-500"> 
-                                @if (isset($withdrawreqs))
-                                @foreach ($withdrawreqs as $item)
-                                    <p>You have event withdraw request. Please click <a href="{{route('admin.eventtransaction', $item->event_id)}}" class="bg-primary">here</a>
-                                    <input type="button" value="x" dataid="{{$item->id}}"  class="bg-warning withdrawclose">
+                                    <p>You have event withdraw request. Please click <a href="#" class="bg-primary">here</a>
+                                    <input type="button" value="x" dataid=""  class="bg-warning withdrawclose">
                                     </p>
-                                @endforeach
-                                @endif
                                 
                             </div> 
                               

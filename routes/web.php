@@ -8,15 +8,9 @@ use App\Http\Controllers\DonationController;
 use App\Http\Controllers\FundraiserController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\CommentController;
-use App\Http\Controllers\CampaignController;
-use App\Http\Controllers\CharityController;
 use App\Http\Controllers\StripeController;
-use App\Http\Controllers\EventController;
 use App\Http\Controllers\PaypalController;
 use App\Http\Controllers\SocialLoginController;
-use App\Http\Controllers\CharityCampaignController;
-use App\Http\Controllers\EventTransactionController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
 
@@ -61,6 +55,7 @@ Route::get('/privacy', [FrontendController::class, 'privacy'])->name('frontend.p
 Route::get('/terms', [FrontendController::class, 'terms'])->name('frontend.terms');
 Route::get('/faq', [FrontendController::class, 'faq'])->name('frontend.faq');
 Route::get('/donation', [FrontendController::class, 'donation'])->name('frontend.donation');
+Route::post('/contact-submit', [FrontendController::class, 'visitorContact'])->name('contact.submit');
 
 // paypal payment 
 Route::post('charity-pay', [PaypalController::class, 'charitypaymentpay'])->name('paypalcharitypayment');
@@ -70,20 +65,6 @@ Route::get('charity-error', [PaypalController::class, 'charitypaymenterror']);
 
 
 
-Route::get('/individual', [FrontendController::class, 'individual'])->name('frontend.individual');
-Route::get('/fundriser', [FrontendController::class, 'fundriser'])->name('frontend.fundriser');
-Route::post('/contact-submit', [FrontendController::class, 'visitorContact'])->name('contact.submit');
-Route::get('/campaign/{id}', [FrontendController::class, 'campaignDetails'])->name('frontend.campaignDetails');
-Route::get('/event/{id}', [FrontendController::class, 'eventDetails'])->name('frontend.eventDetails');
-Route::get('/charity-info/{id}', [FrontendController::class, 'charityDetails'])->name('frontend.charityDetails');
-/*----------------------Charity Registration-----------------------*/
-Route::get('/charity-registration', [CharityController::class, 'charity'])->name('charity.register');
-Route::post('/charity-registration', [CharityController::class, 'charityregistration'])->name('charity.registration');
-// get event type
-Route::post('gettype', [EventController::class, 'getEventTicketType']);
-//search
-Route::post('/get-charity-campaign', [CharityController::class, 'getCharityForCampaign']);
-Route::get('charity/charity-images/{id}', [CharityController::class, 'charityImageDelete']);
 
 /*------------------------------------------
 --------------------------------------------
@@ -92,66 +73,7 @@ All Normal Authenticate Routes List
 --------------------------------------------*/
 Route::group(['middleware' => ['auth']], function(){
 
-    // start a new campaign
-    Route::get('/start-a-new-campaign', [CampaignController::class, 'step1_show_startCampaign'])->name('newcampaign_show');
-    Route::post('/start-a-new-campaign', [CampaignController::class, 'step1_post_startCampaign'])->name('newcampaign_post');
 
-    Route::get('/campaign-information', [CampaignController::class, 'step2_show_CampaignGeneralInfo'])->name('newcampaigngeninfo_show');
-    Route::post('/campaign-information', [CampaignController::class, 'step2_post_CampaignGeneralInfo'])->name('newcampaigngeninfo_post');
-
-    Route::get('/campaign-basic-information', [CampaignController::class, 'step3_show_CampaignBasicInfo'])->name('campaignBasicInfo_show');
-    Route::post('/campaign-basic-information', [CampaignController::class, 'step3_post_CampaignBasicInfo'])->name('campaignBasicInfo_post');
-
-    //step 4
-    Route::get('/campaign-personal-information', [CampaignController::class, 'step4_show_CampaignPersonalInfo'])->name('campaignPersonalInfo_show');
-    Route::post('/campaign-personal-information', [CampaignController::class, 'step4_post_CampaignPersonalInfo'])->name('campaignPersonalInfo_post');
-
-    //step 5
-    Route::get('/campaign-bank-information', [CampaignController::class, 'step5_show_startCampaignBankInfo'])->name('campaignBankInfo_show');
-    Route::post('/campaign-bank-information', [CampaignController::class, 'step5_post_startCampaignBankInfo'])->name('campaignBankInfo_post');
-
-    //step 6
-    Route::get('/campaign-terms-condition', [CampaignController::class, 'step6_show_CampaignTermsCondition'])->name('campaignTermCondition_show');
-    Route::post('/campaign-confirmations', [CampaignController::class, 'step6_post_Campaignconfirmation'])->name('campaignTermCondition_post');
-
-    // new campaign data store
-    Route::post('/campaign-confirmations', [CampaignController::class, 'startCampaign_dataStore'])->name('campaignConfirmation_post');
-
-    // campaign donate
-    Route::get('/campaign-donate/{id}', [CampaignController::class, 'campaignDonate'])->name('frontend.campaignDonate');
-    Route::get('/charity-donate/{id}', [CharityController::class, 'charityDonate'])->name('frontend.charityDonate');
-
-    Route::post('/campaign-message', [FrontendController::class, 'campaignMessage'])->name('campaign.message');
-
-    // comment 
-    Route::post('/campaign-comment', [CommentController::class, 'campaignComment'])->name('campaign.comment');
-    
-    // Route::get('stripe', [StripeController::class, 'stripe']);
-    Route::post('/campaign-payment', [StripeController::class,'CampaignPyament'])->name("stripe.post");
-    Route::post('/charity-payment', [StripeController::class,'charityPyament'])->name("charitypayment");
-    Route::post('/event-payment', [StripeController::class,'eventPyament'])->name("eventpayment");
-    
-    Route::get('/referral/campaign', [FundraiserController::class, 'getCampaignReferralLink']);
-    Route::post('/referral/campaign', [FundraiserController::class, 'storeCampaignReferralLink'])->name('user.confirmrefcapmaign');
-
-    
-    // paypal payments
-    Route::post('pay', [PaypalController::class, 'pay'])->name('payment');
-    Route::get('success', [PaypalController::class, 'success']);
-    Route::get('error', [PaypalController::class, 'error']);
-    
-    Route::post('campaign-pay', [PaypalController::class, 'campaignpaymentpay'])->name('campaignpayment');
-    Route::get('campaign-success', [PaypalController::class, 'campaignpaymentsuccess']);
-    Route::get('campaign-error', [PaypalController::class, 'campaignpaymenterror']);
-
-    
-    
-    // image download
-    Route::get('image-download/{id}', [CampaignController::class, 'downloadImage'])->name('download.campaignimage');
-    Route::get('feature-image-download/{id}', [CampaignController::class, 'downloadFeatureImage'])->name('download.featureimage');
-    Route::get('bankdoc-download/{id}', [CampaignController::class, 'downloadBankDoc'])->name('download.bankdoc');
-
-    Route::post('event-book', [EventController::class, 'freeEventbooked']);
 
 });
 
@@ -171,35 +93,7 @@ Route::group(['prefix' =>'user/', 'middleware' => ['auth', 'is_user']], function
 
 
     Route::get('donation-history', [DonationController::class, 'donationHistory'])->name('user.donationhistory');
-    Route::get('my-campaign', [FundraiserController::class, 'activeCampaign'])->name('user.activecampaign');
-    Route::get('ref-campaign', [FundraiserController::class, 'referralCampaign'])->name('user.refcampaign');
     Route::get('all-transaction', [TransactionController::class, 'allTransaction'])->name('user.alltransaction');
-    Route::get('start-a-new-campaign', [CampaignController::class, 'newCampaign'])->name('user.newcampaign');
-    Route::post('fund-raise', [CampaignController::class, 'newCampaignStore'])->name('user.newcampaignstore');
-    Route::post('/campaign-update', [CampaignController::class, 'updateCampaignByUser']);
-    Route::post('/campaign-image-store', [CampaignController::class, 'campaignDocStoreByUser']);
-    Route::get('/campaign-image-delete/{id}', [CampaignController::class, 'deleteCampaignImageByAdmin']);
-    Route::get('/campaign-transaction/{id}', [CampaignController::class, 'getCamTranByUser'])->name('user.camtransaction');
-    // campaign edit 
-    Route::get('campaign-edit/{id}', [CampaignController::class, 'campaignEdit'])->name('user.campaignedit');
-    Route::get('my-event', [EventController::class, 'getEventByUser'])->name('user.myevent');
-    Route::get('my-event-document', [EventController::class, 'getEventDocByUser'])->name('user.eventdocument');
-    // start a new event
-    Route::get('/start-a-new-event', [EventController::class, 'start_new_event'])->name('start_new_event');
-    Route::post('create-a-event', [EventController::class, 'eventCreateByUser']);
-    Route::get('/event-edit/{id}', [EventController::class, 'eventEditByUser'])->name('user.eventEdit');
-    Route::get('/event-ticket-sale/{id}', [EventController::class, 'eventTicketSaleShowByUser'])->name('user.eventTicketSales');
-    Route::post('update-event', [EventController::class, 'eventUpdateByUser']);
-    Route::get('/event-price/{id}', [EventController::class, 'viewEventPriceByUser'])->name('user.eventPrice');
-    Route::post('event-withdraw-request', [EventController::class, 'eventWithReqByUser']);
-    Route::get('/event-transaction/{id}', [EventTransactionController::class, 'getEventTran'])->name('user.eventtransaction');
-
-    
-    // charity campaign
-    Route::get('/charity-campaign', [FrontendController::class, 'charityCampaign'])->name('frontend.charityCampaign');
-    
-    Route::get('/start-a-charity-campaign/{id}', [CharityCampaignController::class, 'startCharityCampaign'])->name('frontend.startcharitycampaign');
-    Route::post('/create-a-charity-campaign', [CharityCampaignController::class, 'storeCharityCampaign']);
 
 });
   
@@ -210,21 +104,7 @@ All Agent Routes List
 --------------------------------------------*/
 Route::group(['prefix' =>'charity/', 'middleware' => ['auth', 'is_agent']], function(){
   
-    Route::get('charity-profile', [HomeController::class, 'charityHome'])->name('charity.profile');
-    Route::post('profile-update', [UserController::class, 'updateCharityProfile'])->name('charity.updateprofile');
-    Route::get('all-transaction', [TransactionController::class, 'allCharityTransaction'])->name('charity.alltransaction');
-    Route::get('charity-details', [CharityController::class, 'charityDetails'])->name('charity.charity_details');
-    Route::get('bank-information', [CharityController::class, 'charityBankDetails'])->name('charity.bank_details');
-
     
-    Route::post('charity-images', [CharityController::class, 'charityImageStore'])->name('charity.image');
-    Route::get('charity-images/{id}', [CharityController::class, 'charityImageDelete']);
-    
-    Route::post('charity-description', [CharityController::class, 'charityDescription'])->name('charity.description');
-    Route::post('charity-bank-info', [CharityController::class, 'charitybankInfo']);
-
-    // transaction
-    Route::get('/charity-transaction/{id}', [CharityController::class, 'getCharityTranByUser'])->name('charity.charitytransaction');
 });
   
 

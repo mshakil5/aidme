@@ -60,23 +60,6 @@
             <ul class="navigation">
                 <li><a href="{{route('admin.dashboard')}}" class="nav-link {{ (request()->is('admin/dashboard*')) ? 'current' : '' }}">Dashboard</a></li>
 
-                
-
-                <div class="accordion" id="dropdownLink">
-                    <div class="accordion-item">
-                      <h2 class="accordion-header" id="headingTwo">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#fundtab" aria-expanded="false" aria-controls="fundtab">
-                            Fundraisers
-                        </button>
-                      </h2>
-                      <div id="fundtab" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#dropdownLink">
-                        <div class="accordion-body">
-                            <li><a href="{{route('admin.newfundraiser')}}" class="nav-link {{ (request()->is('admin/new-fundraiser*')) ? 'current' : '' }}">Fundraiser</a></li>
-                            <li><a href="{{route('admin.fundraiserBalance')}}" class="nav-link {{ (request()->is('admin/fundraiser-balance*')) ? 'current' : '' }}">Fundraiser Balance</a></li>
-                        </div>
-                      </div>
-                    </div> 
-                </div>
 
                 <div class="accordion" id="dropdownLink">
                     <div class="accordion-item">
@@ -88,68 +71,17 @@
                       <div id="donortab" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#dropdownLink">
                         <div class="accordion-body">
                             <li><a href="{{route('admin.alldonor')}}" class="nav-link {{ (request()->is('admin/donor*')) ? 'current' : '' }}">Donor</a></li>
-                            <li><a href="{{route('admin.alldonor')}}" class="nav-link {{ (request()->is('admin/donor*')) ? 'current' : '' }}">Donor Plus</a></li>
+                            {{-- <li><a href="{{route('admin.alldonor')}}" class="nav-link {{ (request()->is('admin/donor*')) ? 'current' : '' }}">Donor Plus</a></li> --}}
                         </div>
                       </div>
                     </div> 
                 </div>
-
-                <div class="accordion" id="dropdownLink">
-                    <div class="accordion-item">
-                      <h2 class="accordion-header" id="headingTwo">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#charitytab" aria-expanded="false" aria-controls="charitytab">
-                            Charity
-                        </button>
-                      </h2>
-                      <div id="charitytab" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#dropdownLink">
-                        <div class="accordion-body">
-                            <li><a href="{{route('admin.allcharity')}}" class="nav-link {{ (request()->is('admin/charity*')) ? 'current' : '' }}">Charity</a></li>
-                            <li><a href="{{route('admin.charityBalance')}}" class="nav-link {{ (request()->is('admin/charity-balance*')) ? 'current' : '' }}">Charity Balance</a></li>
-                        </div>
-                      </div>
-                    </div> 
-                </div>
-
-                <div class="accordion" id="dropdownLink">
-                    <div class="accordion-item">
-                      <h2 class="accordion-header" id="headingTwo">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCampaignTwo" aria-expanded="false" aria-controls="collapseTwo">
-                            Campaign
-                        </button>
-                      </h2>
-                      <div id="collapseCampaignTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#dropdownLink">
-                        <div class="accordion-body">
-                            <li><a href="{{route('admin.fundraisingsource')}}" class="nav-link {{ (request()->is('admin/fundraising-source*')) ? 'current' : '' }}">Fundraising Source</a></li>
-                            <li><a href="{{route('admin.campaign')}}" class="nav-link {{ (request()->is('admin/campaign*')) ? 'current' : '' }}">New Campaign</a></li>
-                            <li><a href="{{route('admin.livecampaign')}}" class="nav-link {{ (request()->is('admin/live-campaign*')) ? 'current' : '' }}">Live Campaign</a></li>
-                            <li><a href="{{route('admin.closecampaign')}}" class="nav-link {{ (request()->is('admin/close-campaign*')) ? 'current' : '' }}">Close Campaign</a></li>
-                            <li><a href="{{route('admin.givinglevel')}}" class="nav-link {{ (request()->is('admin/giving-level*')) ? 'current' : '' }}">Giving Level</a></li>
-                        </div>
-                      </div>
-                    </div> 
-                </div>
-
-                <div class="accordion" id="dropdownLink">
-                    <div class="accordion-item">
-                      <h2 class="accordion-header" id="headingTwo">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEventTwo" aria-expanded="false" aria-controls="collapseTwo">
-                            Event
-                        </button>
-                      </h2>
-                      <div id="collapseEventTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#dropdownLink">
-                        <div class="accordion-body">
-                            
-                            <li><a href="{{route('admin.event')}}" class="nav-link {{ (request()->is('admin/event*')) ? 'current' : '' }}">New Event</a></li>
-                            <li><a href="#" class="nav-link {{ (request()->is('admin/live-campaign*')) ? 'current' : '' }}">Live Event</a></li>
-                            <li><a href="#" class="nav-link {{ (request()->is('admin/close-campaign*')) ? 'current' : '' }}">Close Event</a></li>
-                            
-                        </div>
-                      </div>
-                    </div> 
-                </div>
-
 
                 
+                <li><a href="{{route('admin.donationtype')}}" class="nav-link {{ (request()->is('admin/donation-type*')) ? 'current' : '' }}">Donation Type</a></li>
+
+                
+
                 <li><a href="{{url('admin/company-detail')}}" class="nav-link {{ (request()->is('admin/company-detail*')) ? 'current' : '' }}">Company Details</a></li>
                 <li><a href="{{route('admin.whychooseus')}}" class="nav-link {{ (request()->is('admin/why-choose-us*')) ? 'current' : '' }}">Why Choose Us</a></li>
                 <li><a href="{{route('admin.master')}}" class="nav-link {{ (request()->is('admin/all-data*')) ? 'current' : '' }}">All Data</a></li>
@@ -158,7 +90,6 @@
                 
                 <li><a href="{{route('admin.emailcontent')}}" class="nav-link {{ (request()->is('admin/email-content*')) ? 'current' : '' }}">Email Content</a></li>
                 
-                <li><a href="{{route('admin.donationtype')}}" class="nav-link {{ (request()->is('admin/donation-type*')) ? 'current' : '' }}">Donation Type</a></li>
 
                 {{-- <li><a href="order-voucher-books.html">Order voucher books</a></li>
                 <li><a href="tevini-card.html">Tevini card</a></li>

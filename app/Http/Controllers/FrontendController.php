@@ -61,15 +61,9 @@ class FrontendController extends Controller
         return view('frontend.donation');
     }
 
-    public function individual()
-    {
-        return view('frontend.individual');
-    }
+    
 
-    public function fundriser()
-    {
-        return view('frontend.fundriser');
-    }
+    
 
     public function campaignDetails($id)
     {
