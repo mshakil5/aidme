@@ -245,6 +245,7 @@
                 $.get(info_url,{},function(d){
                     populateForm(d);
                     pagetop();
+                    window.scrollTo(0, 300);
                 });
             });
             //Edit  end

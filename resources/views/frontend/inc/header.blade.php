@@ -6,7 +6,7 @@
             <div class="row z-index ">
                 <div class="col-md-3"></div>
                 <div class="col-md-6 text-center  text-dark">
-                    <small>Welcome To Aidmeuk. Most Popular Charity Foundation Web Site</small>
+                    <small>Welcome To Aidmeuk. Popular Charity</small>
                 </div>
                 <div class="col-md-3 d-flex justify-content-center-sm ">
                     <ul class="social-links my-1">
@@ -80,7 +80,7 @@
                                     <iconify-icon icon="tabler:chevron-up" class="up ms-1"></iconify-icon>
                                 </a>
                                 <ul class="dropdown-menu rounded-0 shadow-sm"  aria-labelledby="dropdownItem">
-                                    <li><a class="dropdown-item" href="{{route('frontend.work')}}">Work with us</a></li>
+                                    <li><a class="dropdown-item" href="{{route('frontend.work')}}">How you can help</a></li>
                                     <li><a class="dropdown-item" href="{{route('frontend.volunteer')}}">Volunteer with us</a></li>
                                     <li><a class="dropdown-item" href="{{route('frontend.network')}}">Our Network</a></li>
                                 </ul>
@@ -88,14 +88,14 @@
 
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="{{ route('frontend.about')}}" id="dropdownItem" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    About Us
+                                    About
                                     <iconify-icon icon="tabler:chevron-down" class="down ms-1"></iconify-icon>
                                     <iconify-icon icon="tabler:chevron-up" class="up ms-1"></iconify-icon>
                                 </a>
                                 <ul class="dropdown-menu rounded-0 shadow-sm"  aria-labelledby="dropdownItem">
-                                    <li><a class="dropdown-item" href="{{ route('frontend.trustees')}}">Board of trustees</a></li>
-                                    <li><a class="dropdown-item" href="{{ route('frontend.directors')}}">Board of directors</a></li>
-                                    <li><a class="dropdown-item" href="{{ route('frontend.news')}}">News</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('frontend.trustees')}}">About AidMe</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('frontend.directors')}}">Director & Member</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('frontend.news')}}">Transparency</a></li>
                                 </ul>
                             </li>
 

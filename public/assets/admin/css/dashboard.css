@@ -109,8 +109,11 @@ a {
   font-size: 19px;
 }
 
+html { height: 100%; overflow:auto; }
+
 body {
   font-family: "DarkerGrotesque-regular", sans-serif;
+  height: 100%;
 }
 
 body::-webkit-scrollbar {
