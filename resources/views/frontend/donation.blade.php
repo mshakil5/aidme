@@ -5,6 +5,11 @@
 
 @section('content')
 
+@php
+if(isset($_GET["pid"])) {
+$pid = $_GET["pid"];
+}
+@endphp
 
 <section class="donation ">
     <div class="container">
@@ -79,6 +84,44 @@
             </p>
             <div class="row my-4">
                 <div class="col-md-6">
+                    @if (isset($pid))
+                    @php
+                    $projectname = \App\Models\DonationType::where('id', $pid)->first()->title;
+                    @endphp
+
+                    <div class="form-group mb-3">
+                        <p class="txt-primary mt-4 fs-4 d-flex align-items-center mb-3">
+                            {{$projectname}}
+                        </p>
+                    </div>
+
+                    @else
+
+                    <div class="form-group mb-3">
+                        <label for="projects" class="mb-1 txt-secondary fw-bold">Projects</label>
+                        <select name="projects" id="projects" class="form-control">
+                            <option value="">Projects</option>
+                            
+                            @foreach (\App\Models\DonationType::where('type', 'Projects')->orderby('id', 'DESC')->get() as $projects)
+                            <option value="{{$projects->id}}" @if (isset($pid)) @if ($pid == $projects->id) selected @endif @endif>{{$projects->title}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label for="appeals" class="mb-1 txt-secondary fw-bold">Appeals</label>
+                        <select name="appeals" id="appeals" class="form-control">
+                            <option value="">Appeals</option>
+                            
+                            @foreach (\App\Models\DonationType::where('type', 'Appeals')->orderby('id', 'DESC')->get() as $appeals)
+                            <option value="{{$appeals->id}}" @if (isset($pid)) @if ($pid == $appeals->id) selected @endif @endif>{{$appeals->title}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+
+                    @endif
+
+                        
                    
                         <div class="form-group mb-3">
                             <label for="name" class="mb-1 txt-secondary fw-bold">First name </label>
