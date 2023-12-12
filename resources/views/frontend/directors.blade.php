@@ -5,6 +5,100 @@
 
 @section('content')
 
+<style>
+    
+.director-post .inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+  -moz-column-gap: 25px;
+       column-gap: 25px;
+  position: relative;
+  z-index: 1;
+  background: #fff;
+}
+.director-post .inner .items {
+  flex: 1;
+  margin-bottom: 15px;
+}
+.director-post .inner .items .photo {
+  width: 100%;
+  overflow: hidden;
+}
+.director-post .inner .items .photo img {
+  width: 100%;
+  transition: transform 0.4s ease-in-out;
+}
+.director-post .inner .items .photo img:hover {
+  transform: scale(1.1);
+}
+@media (max-width: 992px) {
+  .director-post .inner .items {
+    flex-basis: 48%;
+  }
+}
+@media (max-width: 992px) {
+  .director-post .inner .items {
+    flex-basis: 100%;
+  }
+}
+.director-post .inner .items .bottom-part {
+  display: flex;
+  position: relative;
+  background-color: #0e0e4e;
+}
+.director-post .inner .items .bottom-part .items:nth-child(1) {
+  flex: 3;
+  padding: 20px;
+}
+.director-post .inner .items .bottom-part .items:nth-child(2) {
+  flex: auto;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  height: 100%;
+  width: 85px;
+  transition: width 0.3s ease-in-out;
+}
+.director-post .inner .items .bottom-part .items:nth-child(2):hover {
+  width: 105px;
+}
+.director-post .inner .items .bottom-part .items .title {
+  font-size: 22px;
+  color: #ee9a40;
+}
+.director-post .inner .items .bottom-part .items .sub-title {
+  font-size: 17px;
+  color: #fff;
+}
+.director-post .inner .items .bottom-part .items .link {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.director-post .inner .items .bottom-part .items .link a {
+  position: relative;
+  z-index: 1;
+  color: #fff;
+  font-size: 4rem;
+}
+.director-post .inner .items .bottom-part .items .link:before {
+  content: "";
+  position: absolute;
+  background: orange;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+  transform: skew(10deg, 0deg) translate(9.4px, 0px);
+}
+</style>
 
 <section class="director-post">
     <div class="container">
@@ -134,7 +228,7 @@
                 </div>
             </div>
 
-            
+
         </div>
     </div>
 </section>
