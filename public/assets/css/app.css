@@ -831,7 +831,6 @@ p {
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-evenly;
-  padding: 25px;
   -moz-column-gap: 25px;
        column-gap: 25px;
   position: relative;
