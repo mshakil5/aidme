@@ -80,7 +80,7 @@
 
                     <div class="d-flex justify-content-between my-3 ">
                         
-                            <a href="#" class="btn-theme bg-secondary w-100 me-1 ms-0">Donate Now</a>
+                            <a href="{{url('donation?pid='.$data->id)}}" class="btn-theme bg-secondary w-100 me-1 ms-0">Donate Now</a>
                         
                         <button class="btn-theme bg-primary w-100 ms-1" data-bs-toggle="modal"
                             data-bs-target="#shareModal">Share</button>

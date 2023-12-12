@@ -61,12 +61,12 @@
                         </div>
                         <div class="bottom-part">
                             <div class="items">
-                                <a href="#" class="title fw-bold">{{$projects->title}}</a>
+                                <a href="{{route('projectDetails', $projects->id)}}" class="title fw-bold">{{$projects->title}}</a>
                                 {{-- <div class="sub-title">Giving money to food </div> --}}
                             </div>
                             <div class="items">
                                 <div class="link">
-                                    <a href="">
+                                    <a href="{{route('projectDetails', $projects->id)}}">
                                         <iconify-icon icon="ci:chevron-right-duo"></iconify-icon>
                                     </a>
                                 </div>
@@ -166,12 +166,12 @@
                                 <h4 class="subtitle">Encare</h4>
                             </div>
                             <div class="items">
-                                <a href="#" class="text-white">Donate</a>
+                                <a href="{{route('projectDetails', $appeals->id)}}" class="text-white">Donate</a>
                             </div>
                         </div>
                         
                         
-                        <a href="" class="fs-3 link-title d-block my-3">
+                        <a href="{{route('projectDetails', $appeals->id)}}" class="fs-3 link-title d-block my-3">
                             {{$appeals->title}}
                         </a>
                         <p>
