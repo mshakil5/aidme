@@ -7,7 +7,7 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="pagetitle pb-2">
-                 Appeals
+                 Projects
             </div>
         </div>
     </div>

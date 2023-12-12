@@ -78,7 +78,9 @@
                 </div>
 
                 
-                <li><a href="{{route('admin.donationtype')}}" class="nav-link {{ (request()->is('admin/donation-type*')) ? 'current' : '' }}">Donation Type</a></li>
+                <li><a href="{{route('admin.donationtype')}}" class="nav-link {{ (request()->is('admin/donation-type*')) ? 'current' : '' }}">Appeals</a></li>
+
+                <li><a href="{{route('admin.projects')}}" class="nav-link {{ (request()->is('admin/projects*')) ? 'current' : '' }}">Projects</a></li>
 
                 
 

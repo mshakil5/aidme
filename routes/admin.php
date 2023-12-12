@@ -115,6 +115,7 @@ Route::group(['prefix' =>'admin/', 'middleware' => ['auth', 'is_admin']], functi
     
     // donation-type
     Route::get('/donation-type', [DonationTypeController::class, 'index'])->name('admin.donationtype');
+    Route::get('/projects', [DonationTypeController::class, 'projects'])->name('admin.projects');
     Route::post('/donation-type', [DonationTypeController::class, 'store']);
     Route::get('/donation-type/{id}/edit', [DonationTypeController::class, 'edit']);
     Route::put('/donation-type/{id}', [DonationTypeController::class, 'update']);

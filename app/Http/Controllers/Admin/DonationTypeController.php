@@ -12,8 +12,14 @@ class DonationTypeController extends Controller
 {
     public function index()
     {
-        $data = DonationType::orderby('id','DESC')->get();
+        $data = DonationType::where('type', 'Appeals')->orderby('id','DESC')->get();
         return view('admin.donationtype.index',compact('data'));
+    }
+
+    public function projects()
+    {
+        $data = DonationType::where('type', 'Projects')->orderby('id','DESC')->get();
+        return view('admin.donationtype.projects',compact('data'));
     }
     
     public function store(Request $request)
