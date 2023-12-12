@@ -38,7 +38,7 @@
                         <div class="carousel-inner">
                                 <div class="carousel-item  active">
                                     <a href="{{asset('images/'.$data->image)}}" class="img-fluid" title="Some Text for the image">
-                                        <img src="{{asset('images/'.$data->image)}}" style="height: 711;width:304" class="img-fluid" alt="Alt text" />
+                                        <img src="{{asset('images/'.$data->image)}}" style="width:100%;height:330px" class="img-fluid" alt="Alt text" />
                                     </a>
                                 </div>
                           
@@ -51,6 +51,22 @@
                           <span class="carousel-control-next-icon" aria-hidden="true"></span>
                           <span class="visually-hidden">Next</span>
                         </button>
+                    </div>
+                </div>
+                <div>
+                    <ul class="nav nav-tabs justify-content-start mt-4 mb-2 rounded-0" id="myTab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link fs-5 active" id="home-tab" data-bs-toggle="tab"
+                                data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane"
+                                aria-selected="true">Story</button>
+                        </li>
+                        
+                    </ul>
+                    <div class="tab-content fs-5 mb-4" id="myTabContent">
+                        <div class="tab-pane fade p-4 bg-white show text-justify active" id="home-tab-pane" role="tabpanel"
+                            aria-labelledby="home-tab" tabindex="0">
+                            {!!$data->description!!}
+                        </div>
                     </div>
                 </div>
             </div>
@@ -98,81 +114,9 @@
         <div class="row">
             <div class="col-lg-8">
                 
-                <ul class="nav nav-tabs justify-content-start mt-4 mb-2 rounded-0" id="myTab" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link fs-5 active" id="home-tab" data-bs-toggle="tab"
-                            data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane"
-                            aria-selected="true">Story</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link fs-5" id="profile-tab" data-bs-toggle="tab"
-                            data-bs-target="#profile-tab-pane" type="button" role="tab"
-                            aria-controls="profile-tab-pane" aria-selected="false">Update</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link fs-5" id="contact-tab" data-bs-toggle="tab"
-                            data-bs-target="#contact-tab-pane" type="button" role="tab"
-                            aria-controls="contact-tab-pane" aria-selected="false">Comments</button>
-                    </li>
-                    
-                </ul>
-                <div class="tab-content fs-5 mb-4" id="myTabContent">
-                    <div class="tab-pane fade p-4 bg-white show active" id="home-tab-pane" role="tabpanel"
-                        aria-labelledby="home-tab" tabindex="0">
-                        {!!$data->description!!}
-                    </div>
-                    <div class="tab-pane fade p-4 bg-white" id="profile-tab-pane" role="tabpanel"
-                        aria-labelledby="profile-tab" tabindex="0">
-                        test info
-                    </div>
-                    <div class="tab-pane fade p-4 bg-white" id="contact-tab-pane" role="tabpanel"
-                        aria-labelledby="contact-tab" tabindex="0">
-
-                        @foreach (\App\Models\Comment::where('campaign_id', $data->id)->orderby('id','DESC')->get(); as $comment)
-                        <div class=" my-2 d-flex align-items-center justify-content-between">
-                            <div>
-                                <h5 class="user d-inline ms-2 fw-bold">
-                                    {{$comment->user->name}}
-                                </h5>
-                                <p>{{$comment->comment}}</p>
-                            </div>
-                        </div>
-                        @endforeach
-                        
-                        
-                        <div class="cmntermsg"></div>
-                        <div class="form-custom">
-                            <div class="title text-center txt-secondary">Comment</div>
-                            <div class="form-group">
-                                <textarea class="form-control" rows="3" id="comment" name="comment" placeholder="Message" required></textarea> 
-                            </div>
-                            <br>
-                            <div class="form-group">
-
-
-                                
-                            @if (Auth::user())
-                                <!-- Button trigger modal -->
-                                
-                                <button id="commentsubmit" class="btn-theme bg-primary d-block text-center mx-0 w-100"> Comment</button>
-                            @else
-                                <!-- Button trigger modal -->
-                                <button type="button"  class="btn-theme bg-secondary w-100 me-1 ms-0 btn-contact" style="border: none;background: #18988b;color: white;" data-bs-toggle="modal" data-bs-target="#loginModal">
-                                    Comment
-                                </button>
-                            @endif
-
-                            </div>
-                        </div>
-
-                    </div>
-                    
-                </div>
+                
             </div>
             <div class="col-lg-4">
-                
-
-                
 
                 {{-- qr code scanner  --}}
                 {{-- <div class="card p-4 rounded">

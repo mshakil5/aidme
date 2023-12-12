@@ -50,52 +50,19 @@
 <section class="featured-post">
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
+
+            @foreach (\App\Models\DonationType::where('type', 'Projects')->orderby('id', 'DESC')->limit(3)->get() as $projects)
+
+            <div class="col-md-4">
                 <div class="inner">
                     <div class="items wow fadeIn" data-wow-delay="0.6s">
                         <div class="photo">
-                            <img src="{{ asset('assets/images/posts/1.jpg')}}" alt="" class="img-fluid">
+                            <img src="{{ asset('images/'.$projects->image)}}" alt="" class="img-fluid">
                         </div>
                         <div class="bottom-part">
                             <div class="items">
-                                <a href="#" class="title fw-bold">Charity For Food</a>
-                                <div class="sub-title">Giving money to food </div>
-                            </div>
-                            <div class="items">
-                                <div class="link">
-                                    <a href="">
-                                        <iconify-icon icon="ci:chevron-right-duo"></iconify-icon>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="items wow fadeIn" data-wow-delay="0.6s">
-                        <div class="photo">
-                            <img src="{{ asset('assets/images/posts/2.jpg')}}" alt="" class="img-fluid">
-                        </div>
-                        <div class="bottom-part">
-                            <div class="items">
-                                <a href="#" class="title fw-bold">Children Support</a>
-                                <div class="sub-title">Giving money to food </div>
-                            </div>
-                            <div class="items">
-                                <div class="link">
-                                    <a href="">
-                                        <iconify-icon icon="ci:chevron-right-duo"></iconify-icon>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="items  wow fadeIn" data-wow-delay="0.6s">
-                        <div class="photo">
-                            <img src="{{ asset('assets/images/posts/3.jpg')}}" alt="" class="img-fluid">
-                        </div>
-                        <div class="bottom-part">
-                            <div class="items">
-                                <a href="#" class="title fw-bold">Refuge Shelter</a>
-                                <div class="sub-title">Giving money to food </div>
+                                <a href="#" class="title fw-bold">{{$projects->title}}</a>
+                                {{-- <div class="sub-title">Giving money to food </div> --}}
                             </div>
                             <div class="items">
                                 <div class="link">
@@ -108,6 +75,10 @@
                     </div>
                 </div>
             </div>
+            @endforeach
+
+
+
         </div>
     </div>
 </section>
@@ -166,77 +137,26 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8 mx-auto ">
-                <h6 class="txt-primary fs-4 d-flex justify-content-center  align-items-center">
+                {{-- <h6 class="txt-primary fs-4 d-flex justify-content-center  align-items-center">
                     <iconify-icon icon="ph:heart-fill"></iconify-icon>
-                    About EnaCare
-                </h6>
+                    Appeals
+                </h6> --}}
                 <h2 class="title-global text-center">
-                    Donate Our Popular Charity Causes <br>
-                    Around The World
+                    Appeals
                 </h2>
             </div>
         </div>
         <div class="row mt-5">
-            <div class="col-md-4 col-sm-6 col-xs-12  wow fadeInUp " data-wow-delay="0.6s">
-                <div class="card-theme">
-                    <div class="photo">
-                        <img src="{{ asset('assets/images/posts/c7.jpg')}}" class="img-fluid" alt="">
 
-                    </div>
-                    <div class="content p-4">
-                        <div class="box">
-                            <div class="items  d-flex">
-                                <img src="{{ asset('assets/images/posts/0bfb6b93d39038dda4594645e16a8cc1.png')}}" class="me-2"
-                                    width="50px" alt="">
-                                <h4 class="subtitle">Encare</h4>
-                            </div>
-                            <div class="items">
-                                <a href="#" class="text-white">Donate</a>
-                            </div>
-                        </div>
-                        
-                        
-                        <a href="" class="fs-3 link-title d-block my-3">
-                            Let them take pure water from country government.
-                        </a>
-                        <p>
-                            Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6 col-xs-12  wow fadeInUp " data-wow-delay="0.6s">
-                <div class="card-theme">
-                    <div class="photo">
-                        <img src="{{ asset('assets/images/posts/c7.jpg')}}" class="img-fluid" alt="">
 
-                    </div>
-                    <div class="content p-4">
-                        <div class="box">
-                            <div class="items  d-flex">
-                                <img src="{{ asset('assets/images/posts/0bfb6b93d39038dda4594645e16a8cc1.png')}}" class="me-2"
-                                    width="50px" alt="">
-                                <h4 class="subtitle">Encare</h4>
-                            </div>
-                            <div class="items">
-                                <a href="#" class="text-white">Donate</a>
-                            </div>
-                        </div>
-                        
-                        
-                        <a href="" class="fs-3 link-title d-block my-3">
-                            Let them take pure water from country government.
-                        </a>
-                        <p>
-                            Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                        </p>
-                    </div>
-                </div>
-            </div>
+
+
+            @foreach (\App\Models\DonationType::where('type', 'Appeals')->orderby('id', 'DESC')->limit(6)->get() as $appeals)
+
             <div class="col-md-4 col-sm-6 col-xs-12  wow fadeInUp " data-wow-delay="0.6s">
                 <div class="card-theme">
                     <div class="photo">
-                        <img src="{{ asset('assets/images/posts/c7.jpg')}}" class="img-fluid" alt="">
+                        <img src="{{ asset('images/'.$appeals->image)}}" class="img-fluid" alt="">
                     </div>
                     <div class="content p-4">
                         <div class="box">
@@ -252,7 +172,7 @@
                         
                         
                         <a href="" class="fs-3 link-title d-block my-3">
-                            Let them take pure water from country government.
+                            {{$appeals->title}}
                         </a>
                         <p>
                             Sed ut perspiciatis unde omnis iste natus error sit voluptatem
@@ -260,6 +180,12 @@
                     </div>
                 </div>
             </div>
+
+            @endforeach
+            
+
+
+
         </div>
     </div>
 </section>
