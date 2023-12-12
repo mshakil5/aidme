@@ -32,12 +32,12 @@
         </div>
     </section>
 
-    <section class="app-header bg-white py-3">
+    <section class="app-header bg-white">
         <div class="container">
             <div class="row">
                 <nav class="navbar navbar-expand-lg px-3">
                     <a class="navbar-brand" href="{{ route('homepage')}}">
-                        <img src="{{ asset('images/company/'.\App\Models\CompanyDetail::where('id',1)->first()->header_logo)}}" class="img-fluid mx-auto" width="150">
+                        <img src="{{ asset('images/company/'.\App\Models\CompanyDetail::where('id',1)->first()->header_logo)}}" class="img-fluid mx-auto" width="100">
                     </a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
