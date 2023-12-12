@@ -194,19 +194,8 @@
                                 <a href="#" class="text-white">Donate</a>
                             </div>
                         </div>
-                        <div class="d-flex justify-content-between fw-bold">
-                            <h5 class="family-bold mb-0 text-dark">Raised <span class=" txt-primary">$0.00</span>
-                            </h5>
-                            <h5 class="mb-0 txt-primary">
-                                0%
-                            </h5>
-                        </div>
-                        <div class="mt-3">
-                            <div class="progress " style="height: 7px;">
-                                <div class="progress-bar bg-primary" role="progressbar" style="width: 25%;"
-                                    aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        </div>
+                        
+                        
                         <a href="" class="fs-3 link-title d-block my-3">
                             Let them take pure water from country government.
                         </a>
@@ -233,19 +222,8 @@
                                 <a href="#" class="text-white">Donate</a>
                             </div>
                         </div>
-                        <div class="d-flex justify-content-between fw-bold">
-                            <h5 class="family-bold mb-0 text-dark">Raised <span class=" txt-primary">$0.00</span>
-                            </h5>
-                            <h5 class="mb-0 txt-primary">
-                                0%
-                            </h5>
-                        </div>
-                        <div class="mt-3">
-                            <div class="progress " style="height: 7px;">
-                                <div class="progress-bar bg-primary" role="progressbar" style="width: 25%;"
-                                    aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        </div>
+                        
+                        
                         <a href="" class="fs-3 link-title d-block my-3">
                             Let them take pure water from country government.
                         </a>
@@ -271,19 +249,8 @@
                                 <a href="#" class="text-white">Donate</a>
                             </div>
                         </div>
-                        <div class="d-flex justify-content-between fw-bold">
-                            <h5 class="family-bold mb-0 text-dark">Raised <span class=" txt-primary">$0.00</span>
-                            </h5>
-                            <h5 class="mb-0 txt-primary">
-                                0%
-                            </h5>
-                        </div>
-                        <div class="mt-3">
-                            <div class="progress " style="height: 7px;">
-                                <div class="progress-bar bg-primary" role="progressbar" style="width: 25%;"
-                                    aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        </div>
+                        
+                        
                         <a href="" class="fs-3 link-title d-block my-3">
                             Let them take pure water from country government.
                         </a>
@@ -297,31 +264,7 @@
     </div>
 </section>
 
-<section class="donate spacer">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 text-center">
-                <h6 class="txt-primary fs-4  ">
-                    <iconify-icon icon="ph:heart-fill"></iconify-icon>
-                    About EnaCare
-                </h6>
-                <h2 class="display-6  text-center family-bold my-3 text-white">
-                    Ready To Donate Our 250 Million Refugee?
-                </h2>
-            </div>
-            <div class="col-md-6 d-flex align-items-center justify-content-center">
-                <div class="d-flex align-items-center flex-wrap justify-content-center">
-                    <input type="text" class="donate-input mb-2" value="$5">
-                    <a class="btn-theme " href="">Donate Now
-                        <div class="icon">
-                            <iconify-icon icon="ph:heart-fill"></iconify-icon>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+
 
 
 <section class="blog-section spacer">
@@ -445,7 +388,7 @@
     </div>
 </section>
 
-<section class="py-5 partners-section">
+<section class="py-5 partners-section" style="display: none">
     <div class="container">
         <div class="partners ">
             <div class="mx-1 d-flex justify-content-center align-items-center">
