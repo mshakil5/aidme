@@ -93,6 +93,7 @@ $pid = $_GET["pid"];
                         <p class="txt-primary mt-4 fs-4 d-flex align-items-center mb-3">
                             {{$projectname}}
                         </p>
+                        <input type="hidden" name="project_id" value="{{$pid}}">
                     </div>
 
                     @else
@@ -102,23 +103,20 @@ $pid = $_GET["pid"];
                         <select name="projects" id="projects" class="form-control">
                             <option value="">Projects</option>
                             
+                            <hr>
                             @foreach (\App\Models\DonationType::where('type', 'Projects')->orderby('id', 'DESC')->get() as $projects)
                             <option value="{{$projects->id}}" @if (isset($pid)) @if ($pid == $projects->id) selected @endif @endif>{{$projects->title}}</option>
                             @endforeach
-                        </select>
-                    </div>
-
-                    <div class="form-group mb-3">
-                        <label for="appeals" class="mb-1 txt-secondary fw-bold">Appeals</label>
-                        <select name="appeals" id="appeals" class="form-control">
+                            <hr>
                             <option value="">Appeals</option>
-                            
+                            <hr>
+
                             @foreach (\App\Models\DonationType::where('type', 'Appeals')->orderby('id', 'DESC')->get() as $appeals)
                             <option value="{{$appeals->id}}" @if (isset($pid)) @if ($pid == $appeals->id) selected @endif @endif>{{$appeals->title}}</option>
                             @endforeach
+
                         </select>
                     </div>
-
                     @endif
 
                         
