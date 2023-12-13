@@ -121,6 +121,9 @@ Route::group(['prefix' =>'admin/', 'middleware' => ['auth', 'is_admin']], functi
     Route::put('/donation-type/{id}', [DonationTypeController::class, 'update']);
     Route::get('/donation-type/{id}', [DonationTypeController::class, 'delete']);
 
+    
+    Route::get('/transaction-view/{id}', [TransactionController::class, 'viewTransactionByAdmin'])->name('admin.transactionView');
+
 
 });
 //admin part end

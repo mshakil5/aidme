@@ -111,6 +111,9 @@
                                         <td style="text-align: center">{!! $data->description !!}</td>
                                         
                                         <td style="text-align: center">
+                                            
+                                        <a href="{{route('admin.transactionView',$data->id)}}" ><i class="fa fa-eye" style="color: #548058;font-size:16px;"></i></a>
+
                                         <a id="EditBtn" rid="{{$data->id}}"><i class="fa fa-edit" style="color: #2196f3;font-size:16px;"></i></a>
                                         <a id="deleteBtn" rid="{{$data->id}}"><i class="fa fa-trash-o" style="color: red;font-size:16px;"></i></a>
                                         </td>
