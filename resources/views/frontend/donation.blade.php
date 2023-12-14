@@ -4,7 +4,12 @@
 @endsection
 
 @section('content')
-
+<style>
+    input.largerCheckbox {
+      width: 25px;
+      height: 25px;
+    }
+  </style>
 @php
 if(isset($_GET["pid"])) {
 $pid = $_GET["pid"];
@@ -19,6 +24,12 @@ $pid = $_GET["pid"];
             <h6 class="title-global my-3">
                 Your donation
             </h6>
+            @if (isset($message))
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @endif
+            
             <p class="txt-primary fs-4 d-flex align-items-center">Please select a donation amount (required)</p>
             <div class="donationSelect">
                 <div class="items">
@@ -51,7 +62,13 @@ $pid = $_GET["pid"];
             </div>
             <p class="fs-5 mt-3">
                 Amount <br>
-                <input type="number" id="amount" name="amount" step="any" class="form-control">
+                <input type="number" id="amount" name="amount" step="any" class="form-control @error('amount') is-invalid @enderror">
+                
+                @error('amount')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
             </p>
 
             <label>
@@ -100,7 +117,7 @@ $pid = $_GET["pid"];
 
                     <div class="form-group mb-3">
                         <label for="projects" class="mb-1 txt-secondary fw-bold">Projects</label>
-                        <select name="projects" id="projects" class="form-control">
+                        <select name="projects" id="projects" class="form-control @error('projects') is-invalid @enderror" required >
                             <option value="">Projects</option>
                             
                             <hr>
@@ -116,6 +133,12 @@ $pid = $_GET["pid"];
                             @endforeach
 
                         </select>
+
+                        @error('projects')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
                     </div>
                     @endif
 
@@ -123,9 +146,15 @@ $pid = $_GET["pid"];
                    
                         <div class="form-group mb-3">
                             <label for="name" class="mb-1 txt-secondary fw-bold">First name </label>
-                            <input type="text" id="name" name="name" class="form-control">
+                            <input type="text" id="name" name="name" class="form-control @error('name') is-invalid @enderror" value="@if (Auth::user()) {{Auth::user()->name}} @endif" required>
+
+                            @error('name')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
-                        <div class="form-group mb-3">
+                        <div class="form-group mb-3" style="display: none">
                             <label for="donating_cause" class="mb-1 txt-secondary fw-bold">Why are you donating?</label>
                             <select name="donating_cause" id="donating_cause" class="form-control">
                                 <option value="">values goes here </option>
@@ -136,14 +165,28 @@ $pid = $_GET["pid"];
                         </div>
                         <div class="form-group mb-3">
                             <label for="email" class="mb-1 txt-secondary fw-bold">Email name </label>
-                            <input type="email" name="email" id="email" class="form-control">
+                            <input type="email" name="email" id="email" class="form-control @error('email') is-invalid @enderror" value="@if (Auth::user()) {{Auth::user()->email}} @endif" required>
+
+                            
+                            @error('email')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
                      
                 </div>
                 <div class="col-md-6">
                     <div class="form-group mb-3">
                         <label for="phone" class="mb-1 txt-secondary fw-bold">Phone</label>
-                        <input type="text" id="phone" name="phone" class="form-control">
+                        <input type="text" id="phone" name="phone" class="form-control @error('phone') is-invalid @enderror" value="@if (Auth::user()) {{Auth::user()->phone}} @endif" required>
+
+                        
+                        @error('phone')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
                     </div>
 
                     <div class="mb-3 form-group">
@@ -153,7 +196,7 @@ $pid = $_GET["pid"];
                     </div>
                     
                         <div class=" d-flex align-items-center alert alert-warning flex-wrap">
-                            <input type="checkbox" onfocus="addDonate(event)" class="me-2  " id="prodeccingfee" name="prodeccingfee" value=""> 
+                            <input type="checkbox" class="me-2  largerCheckbox" id="prodeccingfee2" name="prodeccingfee" value=""> 
                             <div class="d-flex flex-wrap align-items-center">
                                 Add  £<span id="process" class="txt-secondary fs-5 fw-bold mx-1"></span> 
                                 to cover our payment processing fees 
@@ -198,7 +241,7 @@ $pid = $_GET["pid"];
 <script>
     
 function catchAmount(event) {
-  let prodeccingfee = (document.getElementById("prodeccingfee").value =
+  let prodeccingfee = (document.getElementById("prodeccingfee2").value =
     (event.target.value * 2) / 100);
   let process = (document.getElementById("process").innerHTML = prodeccingfee);
   let donate = (document.getElementById("donate").innerHTML =
@@ -232,23 +275,41 @@ function addDonate(event) {
             console.log(amt);
             $("#others").val('');
             $("#amount").val(amt);
+            $('#prodeccingfee2').attr('checked', false);
         });
 
-        $(document).on('click', '#prodeccingfee', function () {
+        $(document).on('click', '#prodeccingfee2', function () {
             
             var amount = Number($("#amount").val());
 
-            var prodeccingfee = ( amount/100 * 2 );
-            var amt = amount + prodeccingfee;
 
-            console.log(prodeccingfee);
-            $("#amount").val(amt);
+            if(this.checked){
+                var prodeccingfee = ( amount/100 * 2 );
+                var amt = amount + prodeccingfee;
+                $("#amount").val(amt);
+                $("#donate").html(amt.toFixed(2));
+            } else {
+
+                var prodeccingfee = ( 100/102);
+                var amt = amount * prodeccingfee;
+
+                $("#amount").val(amt);
+                $("#donate").html(amt.toFixed(2));
+            }
+
         });
         
         $("#others").keyup(function(){
             var amount = Number($("#others").val());
             $("#amount").val(amount);
+
+            
+            var prodeccingfee = ( amount/100 * 2 );
+            $("#process").html(prodeccingfee.toFixed(2));
+            $("#donate").html(amount.toFixed(2));
+
             $(".btn-amount").attr('checked', false);
+            $('#prodeccingfee2').attr('checked', false);
 
         });
         //calculation end 
