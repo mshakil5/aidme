@@ -39,7 +39,7 @@ class PaymentMail extends Mailable
     
      public function build()
      {
-        return $this->from('do-not-reply@gogiving.co.uk', 'Gogiving')
+        return $this->from('do-not-reply@aidmeuk.com', 'Aidme')
                     ->subject($this->array['subject'])
                     ->markdown('emails.paymentmail');
  

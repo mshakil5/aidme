@@ -154,7 +154,7 @@
                           if (d.status == 303) {
                               $(".ermsg").html(d.message);
                           }else if(d.status == 300){
-                                success("Data Insert Successfully!!");
+                              $(".ermsg").html(d.message);
                                 window.setTimeout(function(){location.reload()},2000)
                           }
                       },
@@ -186,7 +186,7 @@
                                 $(".ermsg").html(d.message);
                                 pagetop();
                             }else if(d.status == 300){
-                                success("Data Update Successfully!!");
+                              $(".ermsg").html(d.message);
                                 window.setTimeout(function(){location.reload()},2000)
                             }
                         },
