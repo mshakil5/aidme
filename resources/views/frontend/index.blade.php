@@ -182,7 +182,6 @@
 
 
 
-
 <section class="blog-section spacer">
     <div class="container">
         <div class="row justify-content-center mb-5">
@@ -192,7 +191,7 @@
                     Latest news
                 </h6>
                 <h2 class="title-global text-center">
-                    Get Our EnaCare Every <br>
+                    Get Our AidMeUK Every <br>
                     News & Blog
                 </h2>
             </div>
@@ -218,17 +217,7 @@
                         <p>
                             Sed perspiciatis unde omnis iste natus error sit atem accntium doloremque laudantium
                         </p>
-                        <div class="d-flex mt-3 justify-content-between align-items-center">
-                            <div class="d-flex align-items-center">
-                                <img src="{{ asset('assets/images/posts/0bfb6b93d39038dda4594645e16a8cc1.png')}}" alt="">
-                                <a href="" class="mx-2 txt-secondary fw-bold fs-5">Encare</a>
-                            </div>
-                            <div class="d-flex align-items-center">
-
-                                <iconify-icon class="fs-5 mx-2 txt-primary"
-                                    icon="simple-line-icons:calender"></iconify-icon> 27 Apr 2021
-                            </div>
-                        </div>
+                        
                     </div>
                 </div>
             </div>
@@ -252,17 +241,7 @@
                         <p>
                             Sed perspiciatis unde omnis iste natus error sit atem accntium doloremque laudantium
                         </p>
-                        <div class="d-flex mt-3 justify-content-between align-items-center">
-                            <div class="d-flex align-items-center">
-                                <img src="{{ asset('assets/images/posts/0bfb6b93d39038dda4594645e16a8cc1.png')}}" alt="">
-                                <a href="" class="mx-2 txt-secondary fw-bold fs-5">Encare</a>
-                            </div>
-                            <div class="d-flex align-items-center">
-
-                                <iconify-icon class="fs-5 mx-2 txt-primary"
-                                    icon="simple-line-icons:calender"></iconify-icon> 27 Apr 2021
-                            </div>
-                        </div>
+                        
                     </div>
                 </div>
             </div>
@@ -286,23 +265,15 @@
                         <p>
                             Sed perspiciatis unde omnis iste natus error sit atem accntium doloremque laudantium
                         </p>
-                        <div class="d-flex mt-3 justify-content-between align-items-center">
-                            <div class="d-flex align-items-center">
-                                <img src="{{ asset('assets/images/posts/0bfb6b93d39038dda4594645e16a8cc1.png')}}" alt="">
-                                <a href="" class="mx-2 txt-secondary fw-bold fs-5">Encare</a>
-                            </div>
-                            <div class="d-flex align-items-center">
-
-                                <iconify-icon class="fs-5 mx-2 txt-primary"
-                                    icon="simple-line-icons:calender"></iconify-icon> 27 Apr 2021
-                            </div>
-                        </div>
+                        
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
+
+
 
 <section class="py-5 partners-section" style="display: none">
     <div class="container">

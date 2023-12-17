@@ -99,6 +99,10 @@
                                 </ul>
                             </li>
 
+                            <li class="nav-item">
+                                <a class="nav-link " aria-current="page" href="{{route('frontend.contact')}}">contact</a>
+                            </li>
+
                             {{-- <li class="nav-item">
                                 <a class="nav-link " aria-current="page" href="{{ route('frontend.about')}}">About</a>
                             </li>

@@ -59,14 +59,14 @@
 
                 <div class="col-xl-3 col-lg-3 col-md-6 footer-col-3">
                     <div>
-                        <h5 class="fw-bold txt-primary">Events</h5>
+                        <h5 class="fw-bold txt-primary">Contact Us</h5>
                         <div>
                             <ul>
                                 <li>
                                     <div class="eventBox">
                                         <div class="basis-40 txt-primary">
-                                            <h4 class="semi-02-title">25
-                                                <span>DEC</span>
+                                            <h4 class="semi-02-title">
+                                                <iconify-icon class="me-2" icon="material-symbols:add-home-outline"></iconify-icon>
                                             </h4>
                                         </div>
                                         <div class="flex-4 pt-2">
@@ -80,14 +80,13 @@
                                 <li>
                                     <div class="eventBox">
                                         <div class="basis-40 txt-primary">
-                                            <h4 class="semi-02-title">25
-                                                <span>DEC</span>
+                                            <h4 class="semi-02-title">
+                                                <iconify-icon class="me-2" icon="memory:email"></iconify-icon>
                                             </h4>
                                         </div>
                                         <div class="flex-4 pt-2">
-                                            <span><i class="fal fa-map-marker-alt"></i> 55 Street, USA</span>
-                                            <h4 class="semi-02-title"><a href="">Clean
-                                                    Environment</a>
+                                            
+                                            <h4 class="semi-02-title">info@aidmeuk.com
                                             </h4>
                                         </div>
                                     </div>
@@ -95,14 +94,13 @@
                                 <li>
                                     <div class="eventBox">
                                         <div class="basis-40 txt-primary">
-                                            <h4 class="semi-02-title">25
-                                                <span>DEC</span>
+                                            <h4 class="semi-02-title">
+                                                <iconify-icon class="me-2" icon="fluent:call-16-regular"></iconify-icon>
                                             </h4>
                                         </div>
                                         <div class="flex-4 pt-2">
-                                            <span><i class="fal fa-map-marker-alt"></i> 55 Street, USA</span>
-                                            <h4 class="semi-02-title"><a href="">Clean
-                                                    Environment</a>
+                                            <h4 class="semi-02-title">
+                                                    000000000000
                                             </h4>
                                         </div>
                                     </div>

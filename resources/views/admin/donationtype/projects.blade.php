@@ -95,6 +95,7 @@
                                     <th style="text-align: center">Title</th>
                                     <th style="text-align: center">Image</th>
                                     <th style="text-align: center">Description</th>
+                                    <th style="text-align: center">Collection</th>
                                     <th style="text-align: center">Action</th>
                                 </tr>
                             </thead>
@@ -109,8 +110,14 @@
                                             @endif
                                         </td>
                                         <td style="text-align: center">{!! $data->description !!}</td>
-                                        
                                         <td style="text-align: center">
+                                            <a href="{{route('admin.transactionView',$data->id)}}" class="text-decoration-none bg-primary text-white py-1 px-3 rounded mb-1 text-center">£{{$data->collection}}</a>    
+                                        </td>
+                                        
+                                        
+
+                                        <td style="text-align: center">
+
                                         <a id="EditBtn" rid="{{$data->id}}"><i class="fa fa-edit" style="color: #2196f3;font-size:16px;"></i></a>
                                         <a id="deleteBtn" rid="{{$data->id}}"><i class="fa fa-trash-o" style="color: red;font-size:16px;"></i></a>
                                         </td>
