@@ -11,36 +11,28 @@
 <section class="about spacer">
     <div class="container">
         <div class="row">
-            <div class="col-md-6">
-                <div class="photo-container position-relative">
-                    <img src="{{ asset('assets/images/home/1.jpg')}}"  class="img-fluid  wow fadeIn " data-wow-delay="0.6s" alt="">
-                    <div class="info-box">
-                        <h1 class="mb-0">25</h1>
-                        <h4 class="mb-0">years <br>
-                            experience
-                        </h4>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 ">
+            
+            
                 <div class="about-right mt-5">
                     {{-- <h2 class="title-global">{{\App\Models\Master::where('name','about')->first()->title}}</h2>
                     {!! \App\Models\Master::where('name','about')->first()->description !!} --}}
 
-                    <h2 class="title-global">About us</h2>
+                    <h2 class="title-global">Honouring Generosity: Our Distinguished Contributors</h2>
 
-                     <p>AID ME UK is a non-profit organisation working to strengthen humanity’s fight against poverty, social injustice and natural disaster. Through the provision of immediate relief and the establishment of local community media, we aim to invest in real, effective solutions.</p>
-                    <p>We work to establish healthcare, education, and livelihood programmes that pave the way for empowered, self-serving communities. We also provide food, medical aid, and disaster relief during emergencies, a critical intervention that saves lives.</p>
+                     <p>Introduction: AidmeUK, we believe in the power of collective kindness to make a lasting impact on the lives of those in need. In our ongoing efforts to support and uplift communities, we are thrilled to introduce a special initiative that recognizes the extraordinary generosity of individuals who have gone above and beyond in their commitment to making a difference</p></br>
+                     
+                    <p>We are proud to present our distinguished contributor list, featuring the names, photos, and details of those remarkable individuals who have donated £10,000 or more to our cause. These philanthropic leaders have not only demonstrated a deep sense of compassion but have also become integral partners in our mission to create positive change.</p>
                     
-                    <h2 class="title-global">Our mission </h2>
+                    <h2 class="title-global">How to Become a Recognized Contributor </h2>
                     
-                    <p>We are a humanitarian welfare organisation. We save lives, alleviate poverty, transform and empower local communities, build shelter, supply water, education, support health and medical to vulnerable people.</p>
+                    <p>If you share our vision and are interested in becoming a distinguished contributor, we welcome you to reach out to our team. Your substantial contribution will not only make a tangible impact on the lives of those in need but will also earn you a well-deserved place among our esteemed list of contributors</p>
                     
-                    <h2 class="title-global">Our vision</h2>
+                    <h2 class="title-global">Why Recognition Matters</h2>
                     
-                    To become a successful worldwide organisation of change for a caring, healthy and sustainable local community.
+                    <p> Recognizing our generous contributors is not just about acknowledging their financial support; it's about celebrating a shared commitment to making the world a better place. By showcasing these individuals on our charity website, we aim to inspire others to join in our cause, fostering a sense of community and collective responsibility.</p>
                     
-                        
+                        </br>
+                         <p style="color: #fc0fc0;"><b></b><span style="color: #ff00ff;"><a style="color: #000000;" href="#" target="_blank" rel="noopener noreferrer"><h1> Meet Our Generous Contributors</h1></a></span></p>
                     
                 </div>
             </div>

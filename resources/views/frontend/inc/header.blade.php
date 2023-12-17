@@ -82,7 +82,7 @@
                                 <ul class="dropdown-menu rounded-0 shadow-sm"  aria-labelledby="dropdownItem">
                                     <li><a class="dropdown-item" href="{{route('frontend.work')}}">How you can help</a></li>
                                     <li><a class="dropdown-item" href="{{route('frontend.volunteer')}}">Volunteer with us</a></li>
-                                    <li><a class="dropdown-item" href="{{route('frontend.network')}}">Our Network</a></li>
+                                    <li><a class="dropdown-item" href="{{route('frontend.network')}}">Our Contributors</a></li>
                                 </ul>
                             </li>
 
@@ -93,7 +93,7 @@
                                     <iconify-icon icon="tabler:chevron-up" class="up ms-1"></iconify-icon>
                                 </a>
                                 <ul class="dropdown-menu rounded-0 shadow-sm"  aria-labelledby="dropdownItem">
-                                    <li><a class="dropdown-item" href="{{ route('frontend.trustees')}}">About AidMe</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('frontend.about')}}">About AidMe</a></li>
                                     <li><a class="dropdown-item" href="{{ route('frontend.directors')}}">Director & Member</a></li>
                                     <li><a class="dropdown-item" href="{{ route('frontend.news')}}">Transparency</a></li>
                                 </ul>

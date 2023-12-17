@@ -11,36 +11,29 @@
 <section class="about spacer">
     <div class="container">
         <div class="row">
-            <div class="col-md-6">
-                <div class="photo-container position-relative">
-                    <img src="{{ asset('assets/images/home/1.jpg')}}"  class="img-fluid  wow fadeIn " data-wow-delay="0.6s" alt="">
-                    <div class="info-box">
-                        <h1 class="mb-0"></h1>
-                        <h4 class="mb-0">years <br>
-                            experience
-                        </h4>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 ">
-                <div class="about-right mt-5">
+            
+            
                     {{-- <h2 class="title-global">{{\App\Models\Master::where('name','about')->first()->title}}</h2>
                     {!! \App\Models\Master::where('name','about')->first()->description !!} --}}
-
-                    <h2 class="title-global">Annual Report</h2>
+<p>
+    At AIDME, we are committed to maintaining the highest standards of transparency and accountability. We believe that openness with our stakeholders, including donors, beneficiaries, and the public, is crucial in building trust and ensuring the effective use of resources for our charitable mission.
+</p>                    <h2 class="title-global">Annual Financial Report</h2>
 </br>
-                     <p>AID ME UK will publish annual report on our website page.</p>
+                     <p> One of the keyways we demonstrate transparency is through the publication of our annual financial report. This comprehensive document provides a detailed overview of our financial activities, including income, expenses, and the allocation of funds to various programs and initiatives. Our stakeholders can access this report on our website.</p>
                     </br>
-                    <h2 class="title-global">Our Finance </h2>
+                    <h2 class="title-global">Impact Reports</h2>
                     
-                    <p>How much money we collect and how much we spend to help underprivileged people to survive and thrive, will all be published in details on our website.  We believe in transparency.</p>
+                    <p> In addition to financial transparency, we are committed to sharing the impact of our work. Our annual impact reports showcase the outcomes and achievements of our programs and initiatives. These reports highlight the tangible difference we are making in the lives of those we serve and contribute to our commitment to accountability.</p>
                     </br>
-                    <h2 class="title-global">Our accountability</h2>
+                    <h2 class="title-global">Donor Privacy and Acknowledgment</h2>
                     
-                    We are accountable to our supporters, donor, member, people and communities with whom we work with.
+                   <p>  Respecting the privacy of our donors is of utmost importance. We adhere to strict confidentiality standards, ensuring that donor information is handled with the utmost care and used only for the intended purpose. Donors are acknowledged and recognized in a manner consistent with their preferences and our ethical guidelines.</p>
                     
-                        
+                         <h2 class="title-global">Open Communication Channels</h2>
                     
+                    <p>  We encourage open communication with our stakeholders. Our team is readily available to answer queries, provide additional information, and address any concerns. Contact information, including email addresses and phone numbers, is easily accessible on our website.</p>
+                    </br></br>
+                    <p>At present, our organization operates without any paid personnel. Instead, our dedicated team is composed of directors and members who generously contribute their time and skills on a voluntary basis, uniting in a collective effort to further our mission</p>
                 </div>
             </div>
         </div>

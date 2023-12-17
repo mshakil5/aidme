@@ -83,37 +83,7 @@
     </div>
 </section>
 
-<section class="about spacer">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <div class="photo-container position-relative">
-                    <img src="{{ asset('assets/images/home/1.jpg')}}" class="img-fluid  wow fadeInLeft " data-wow-delay="0.6s" >
-                    <div class="info-box">
-                        <h1 class="mb-0">25</h1>
-                        <h4 class="mb-0">years <br>
-                            experience
-                        </h4>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 ">
-                <div class="about-right mt-5">
-                    {{-- <h6 class="txt-primary fs-4 d-flex align-items-center">
-                        <iconify-icon icon="ph:heart-fill"></iconify-icon>
-                        About EnaCare
-                    </h6> --}}
-                    
-                    <h2 class="title-global">{{\App\Models\Master::where('name','about')->first()->title}}</h2>
-                    
 
-                    {!! \App\Models\Master::where('name','about')->first()->description !!}
-                    
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 
 <section class="join py-5">
     <div class="container">
@@ -159,24 +129,23 @@
                         <img src="{{ asset('images/'.$appeals->image)}}" class="img-fluid" alt="">
                     </div>
                     <div class="content p-4">
-                        <div class="box">
-                            <div class="items  d-flex">
-                                <img src="{{ asset('assets/images/posts/0bfb6b93d39038dda4594645e16a8cc1.png')}}" class="me-2"
-                                    width="50px" alt="">
-                                <h4 class="subtitle">Encare</h4>
-                            </div>
-                            <div class="items">
-                                <a href="{{route('projectDetails', $appeals->id)}}" class="text-white">Donate</a>
-                            </div>
+                        <div class="text-center">
+                            <a href="{{route('frontend.donation')}}" class="btn-theme " style="top: -50px">
+                                <div class="icon">
+                                    <iconify-icon icon="mdi:hand-heart" class=" mx-2"></iconify-icon>
+                                </div>
+                                Donation
+                            </a>
                         </div>
                         
-                        
-                        <a href="{{route('projectDetails', $appeals->id)}}" class="fs-3 link-title d-block my-3">
-                            {{$appeals->title}}
-                        </a>
-                        <p>
-                            Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                        </p>
+                        <div>
+                            <a href="{{route('projectDetails', $appeals->id)}}" class="fs-3 link-title d-block my-3" style="top: -50px">
+                                {{$appeals->title}}
+                            </a>
+                            <p>
+                                {!!  Str::limit($appeals->description , 70) !!}
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -186,6 +155,27 @@
 
 
 
+        </div>
+    </div>
+</section>
+
+<section class="about spacer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="about-right mt-5">
+                    {{-- <h6 class="txt-primary fs-4 d-flex align-items-center">
+                        <iconify-icon icon="ph:heart-fill"></iconify-icon>
+                        About EnaCare
+                    </h6> --}}
+                    
+                    <h2 class="title-global">{{\App\Models\Master::where('name','about')->first()->title}}</h2>
+                    
+
+                    {!! \App\Models\Master::where('name','about')->first()->description !!}
+                    
+                </div>
+            </div>
         </div>
     </div>
 </section>

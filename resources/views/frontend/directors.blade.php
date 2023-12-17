@@ -99,7 +99,7 @@
   transform: skew(10deg, 0deg) translate(9.4px, 0px);
 }
 </style>
-
+</br>
 <section class="director-post">
     <div class="container">
         <div class="row">
@@ -114,8 +114,8 @@
                         </div>
                         <div class="bottom-part">
                             <div class="items">
-                                <a href="#" class="title fw-bold">Charity For Food</a>
-                                <div class="sub-title">Giving money to food </div>
+                                <a href="#" class="title fw-bold">Mr. Makshud Rahman</a>
+                                <div class="sub-title">CEO </div>
                             </div>
                             
                         </div>
@@ -133,8 +133,8 @@
                         </div>
                         <div class="bottom-part">
                             <div class="items">
-                                <a href="#" class="title fw-bold">Charity For Food</a>
-                                <div class="sub-title">Giving money to food </div>
+                                <a href="#" class="title fw-bold">Mr. Zehan Chowdhury</a>
+                                <div class="sub-title">Project & Planning Director </div>
                             </div>
                             
                         </div>
@@ -153,8 +153,8 @@
                         </div>
                         <div class="bottom-part">
                             <div class="items">
-                                <a href="#" class="title fw-bold">Charity For Food</a>
-                                <div class="sub-title">Giving money to food </div>
+                                <a href="#" class="title fw-bold">Mr. Dewan Soyef Ahmed</a>
+                                <div class="sub-title">Finance  Director</div>
                             </div>
                             
                         </div>
@@ -164,13 +164,13 @@
         </div>
     </div>
 </section>
-
+</br>
 
 <section class="director-post">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h2 class="title-global text-center">Others</h2>
+                <h2 class="title-global text-center">Honorable Members</h2>
             </div>
             <div class="col-md-4">
                 <div class="inner">
@@ -180,8 +180,8 @@
                         </div>
                         <div class="bottom-part">
                             <div class="items">
-                                <a href="#" class="title fw-bold">Charity For Food</a>
-                                <div class="sub-title">Giving money to food </div>
+                                <a href="#" class="title fw-bold">Mr. Anamu Haque Kayez</a>
+                                <div class="sub-title">Head of Event Management </div>
                             </div>
                             
                         </div>
@@ -199,8 +199,8 @@
                         </div>
                         <div class="bottom-part">
                             <div class="items">
-                                <a href="#" class="title fw-bold">Charity For Food</a>
-                                <div class="sub-title">Giving money to food </div>
+                                <a href="#" class="title fw-bold">Mr. Abdus Shahid</a>
+                                <div class="sub-title">Head of Volunteer Management </div>
                             </div>
                             
                         </div>
@@ -219,7 +219,23 @@
                         </div>
                         <div class="bottom-part">
                             <div class="items">
-                                <a href="#" class="title fw-bold">Charity For Food</a>
+                                <a href="#" class="title fw-bold">Mr. Reaz Chowdhury </a>
+                                <div class="sub-title">Head of Communications  </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+<div class="col-md-4">
+                <div class="inner">
+                    <div class="items wow fadeIn" data-wow-delay="0.6s">
+                        <div class="photo">
+                            <img src="{{ asset('assets/images/posts/1.jpg')}}" alt="" class="img-fluid">
+                        </div>
+                        <div class="bottom-part">
+                            <div class="items">
+                                <a href="#" class="title fw-bold">Mr.  Monir Uddin</a>
                                 <div class="sub-title">Giving money to food </div>
                             </div>
                             
@@ -227,7 +243,6 @@
                     </div>
                 </div>
             </div>
-
 
         </div>
     </div>

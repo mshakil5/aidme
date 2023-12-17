@@ -8,39 +8,60 @@
 
 
 
-<section class="about spacer">
+
+            
+            <section class="about spacer">
     <div class="container">
         <div class="row">
-            <div class="col-md-6">
-                <div class="photo-container position-relative">
-                    <img src="{{ asset('assets/images/home/1.jpg')}}"  class="img-fluid  wow fadeIn " data-wow-delay="0.6s" alt="">
-                    <div class="info-box">
-                        <h1 class="mb-0">25</h1>
-                        <h4 class="mb-0">years <br>
-                            experience
-                        </h4>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 ">
-                <div class="about-right mt-5">
+            
+            
+            
+              
                     {{-- <h2 class="title-global">{{\App\Models\Master::where('name','about')->first()->title}}</h2>
                     {!! \App\Models\Master::where('name','about')->first()->description !!} --}}
 
-                    <h2 class="title-global">About us</h2>
+                    <h2 class="title-global">Ways to Contribute and Make a Difference</h2>
 
-                     <p>AID ME UK is a non-profit organisation working to strengthen humanity’s fight against poverty, social injustice and natural disaster. Through the provision of immediate relief and the establishment of local community media, we aim to invest in real, effective solutions.</p>
-                    <p>We work to establish healthcare, education, and livelihood programmes that pave the way for empowered, self-serving communities. We also provide food, medical aid, and disaster relief during emergencies, a critical intervention that saves lives.</p>
+                     <p>Thank you for considering a contribution to AIDME. Your support plays a crucial role in enabling us to make a positive impact on the lives of those in need. Here are various ways you can contribute and help us further our mission</p>
+                    </br><br/>
                     
-                    <h2 class="title-global">Our mission </h2>
+                     <h3 class="title-global">Monetary Donations:</h3>
+                    <p> Financial contributions provide essential resources to fund our programs and initiatives. You can make a one-time donation or set up a recurring donation to provide sustained support</p>
+                    </br>
+                    <h2 class="title-global">Online Giving:</h2>
+
+                     <p>Visit our official website to make a secure online donation. We accept major credit cards, and the process is quick and convenient</p>
+                    </br>
+                    <h2 class="title-global">Bank Transfers:</h2>
+
+                     <p>You can directly transfer funds to our bank account. Contact us for our banking details, and we'll guide you through the process.</p>
+                    </br>
+                    <h2 class="title-global">Corporate Sponsorship:</h2>
+
+                     <p>Businesses looking to make a meaningful impact can explore corporate sponsorship opportunities. Collaborate with us to support specific projects or become a long-term partner.</p>
+                    </br>
+                    <h2 class="title-global">In-Kind Donations:</h2>
+
+                     <p>Non-monetary contributions such as goods, services, or expertise are invaluable. Reach out to us to discuss how your in-kind donation can meet specific needs.</p>
+                    </br>
+                    <h2 class="title-global">Volunteer Your Time:</h2>
+
+                     <p>If you prefer a hands-on approach, consider volunteering your time and skills. Your expertise could make a significant difference in the success of our programs.</p>
+                    </br>
+                    <h2 class="title-global">Fundraising Events:</h2>
+
+                     <p>Organize or participate in fundraising events to mobilize resources and generate awareness. From charity runs to community events, every effort counts.</p>
+                    </br>
                     
-                    <p>We are a humanitarian welfare organisation. We save lives, alleviate poverty, transform and empower local communities, build shelter, supply water, education, support health and medical to vulnerable people.</p>
-                    
-                    <h2 class="title-global">Our vision</h2>
-                    
-                    To become a successful worldwide organisation of change for a caring, healthy and sustainable local community.
-                    
-                        
+                       <h2 class="title-global">Social Media Advocacy:</h2>
+
+                     <p>Help spread the word about our mission on social media platforms. Follow us, share our content, and encourage others to get involved.</p>
+                    </br>
+                     <h2 class="title-global">Partnerships and Collaborations:</h2>
+
+                     <p>Explore partnership opportunities if you represent an organization or group. Together, we can amplify our impact and reach even more individuals.</p>
+                    </br></br>
+                    <p>Your support, regardless of the form it takes, is instrumental in empowering us to create lasting change. Contact us at info@aidmeuk.com for more details on any of these contribution avenues. Together, we can make a meaningful difference in the lives of those we serve</p>
                     
                 </div>
             </div>
