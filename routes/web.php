@@ -52,6 +52,7 @@ Route::get('/', [FrontendController::class, 'index'])->name('homepage');
 Route::get('/about', [FrontendController::class, 'about'])->name('frontend.about');
 Route::get('/work', [FrontendController::class, 'work'])->name('frontend.work');
 Route::get('/volunteer', [FrontendController::class, 'volunteer'])->name('frontend.volunteer');
+Route::get('/volunteer-create', [FrontendController::class, 'volunteerCreate'])->name('frontend.volunteerform');
 Route::get('/our-contributors', [FrontendController::class, 'network'])->name('frontend.network');
 Route::get('/trustees', [FrontendController::class, 'trustees'])->name('frontend.trustees');
 Route::get('/directors', [FrontendController::class, 'directors'])->name('frontend.directors');

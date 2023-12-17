@@ -93,7 +93,7 @@
                     Volunteer Team </h2>
             </div>
             <div class=" col-md-4 d-flex align-items-center justify-content-center">
-                <a class="btn-theme " href="{{route('frontend.volunteer')}}">learn more
+                <a class="btn-theme " href="{{route('frontend.volunteerform')}}">learn more
                     <div class="icon">
                         <iconify-icon icon="ph:heart-fill"></iconify-icon>
                     </div>
