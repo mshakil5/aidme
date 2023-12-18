@@ -10,9 +10,9 @@
                             <p class="text-white">
                                 {{\App\Models\CompanyDetail::where('id',1)->first()->footer_content}}
                             </p>
-                            <div class="footer-log mt-4">
-                                <a href="{{ route('homepage')}}" class="footer-logo mb-30">
-                                    <img src="{{ asset('images/company/'.\App\Models\CompanyDetail::where('id',1)->first()->header_logo)}}" class="img-fluid mb-3" width="190px"></a>
+                            <div class="footer-log">
+                                <a href="{{ route('homepage')}}" class="footer-logo">
+                                    <img src="{{ asset('images/company/'.\App\Models\CompanyDetail::where('id',1)->first()->header_logo)}}" class="img-fluid" width="110px"></a>
                             </div>
                         </div>
                     </div>
