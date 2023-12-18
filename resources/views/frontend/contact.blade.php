@@ -52,7 +52,7 @@
                 </h6>
                 <h2 class="title-global">Feel Free To Write Us Message.</h2>
                 <div class="ermsg"></div>
-                <form class=" mt-4">
+                <div class=" mt-4">
                     <div class="form-group mb-3">
                         <input class="form-control fw-bold" type="text" name="name" id="name" placeholder="Name" required="">
                     </div>
@@ -68,7 +68,7 @@
                     <div class="form-group">
                         <button id="submit" class="btn-theme text-center border-0">Send</button>
                     </div>
-                </form>
+                </div>
             </div>
         </div>
     </div>
@@ -88,6 +88,7 @@
            //  make mail start
            var url = "{{URL::to('/contact-submit')}}";
            $("#submit").click(function(){
+
             
                    var name= $("#name").val();
                    var email= $("#email").val();
