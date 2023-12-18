@@ -168,7 +168,7 @@
                                                 
                                             <img width="45px" src="{{ asset('assets/images/posts/1.jpg')}}" alt="Profile" class="rounded-circle">
                                             @endif
-                                            <span class="d-none d-md-block dropdown-toggle ps-2">{{Auth::user()->name}}</span>
+                                            {{-- <span class="d-none d-md-block dropdown-toggle ps-2">{{Auth::user()->name}}</span> --}}
                                         </a><!-- End Profile Iamge Icon -->
                                         <ul class="dropdown-menu shadow-sm" aria-labelledby="dropdownMenuButton1">
                                             <li><hr class="dropdown-divider"></li>
