@@ -169,10 +169,10 @@
                         About EnaCare
                     </h6> --}}
                     
-                    <h2 class="title-global">{{\App\Models\Master::where('name','about')->first()->title}}</h2>
+                    <h2 class="title-global">{{\App\Models\Master::where('name','homepage2ndsection')->first()->title}}</h2>
                     
 
-                    {!! \App\Models\Master::where('name','about')->first()->description !!}
+                    {!! \App\Models\Master::where('name','homepage2ndsection')->first()->description !!}
                     
                 </div>
             </div>
