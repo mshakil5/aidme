@@ -60,11 +60,15 @@
        
         <div class="row my-5">
             <div class="col-lg-10 mx-auto authBox">
+                @if (session('status'))
+                            <div class="alert alert-success" role="alert">
+                                We have emailed your password reset link!
+                            </div>
+                        @endif
                 <div class="row">
-                    <div class="col-lg-7 d-flex align-items-center justify-content-center">
-                        <img src="https://via.placeholder.com/410x340.png" alt="" class="w-100">
-                    </div>
-                    <div class="col-lg-5"> 
+                    <div class="col-lg-6 d-flex mx-auto align-items-center justify-content-center"> 
+
+                        
                          
                         <form method="POST" action="{{ route('password.email') }}">
                             @csrf
@@ -75,7 +79,7 @@
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
+                                        <strong>We can't find a user with that email address.</strong>
                                     </span>
                                 @enderror
 

@@ -56,9 +56,11 @@
             <div class="col-md-4">
                 <div class="inner">
                     <div class="items wow fadeIn" data-wow-delay="0.6s">
-                        <div class="photo">
-                            <img src="{{ asset('images/'.$projects->image)}}" alt="" class="img-fluid">
-                        </div>
+                        <a href="{{route('projectDetails', $projects->id)}}" class="title fw-bold">
+                            <div class="photo">
+                                <img src="{{ asset('images/'.$projects->image)}}" alt="" class="img-fluid">
+                            </div>
+                        </a>
                         <div class="bottom-part">
                             <div class="items">
                                 <a href="{{route('projectDetails', $projects->id)}}" class="title fw-bold">{{$projects->title}}</a>
@@ -125,9 +127,12 @@
 
             <div class="col-md-4 col-sm-6 col-xs-12  wow fadeInUp " data-wow-delay="0.6s">
                 <div class="card-theme">
-                    <div class="photo">
-                        <img src="{{ asset('images/'.$appeals->image)}}" class="img-fluid" alt="">
-                    </div>
+                    <a href="{{route('projectDetails', $appeals->id)}}">
+                        <div class="photo">
+                            <img src="{{ asset('images/'.$appeals->image)}}" class="img-fluid" alt="">
+                        </div>
+                    </a>
+                    
                     <div class="content p-4">
                         <div class="text-center">
                             <a href="{{route('frontend.donation')}}" class="btn-theme " style="top: -50px">
