@@ -70,10 +70,7 @@
                                             </h4>
                                         </div>
                                         <div class="flex-4 pt-2">
-                                            <span><i class="fal fa-map-marker-alt"></i> 55 Street, USA</span>
-                                            <h4 class="semi-02-title"><a href="">Clean
-                                                    Environment</a>
-                                            </h4>
+                                            <span><i class="fal fa-map-marker-alt"></i>{{\App\Models\CompanyDetail::where('id',1)->first()->address1 }}</span>
                                         </div>
                                     </div>
                                 </li>
@@ -85,9 +82,7 @@
                                             </h4>
                                         </div>
                                         <div class="flex-4 pt-2">
-                                            
-                                            <h4 class="semi-02-title">info@aidmeuk.com
-                                            </h4>
+                                            <span><i class="fal fa-map-marker-alt"></i>{{\App\Models\CompanyDetail::where('id',1)->first()->email1 }}</span>
                                         </div>
                                     </div>
                                 </li>
@@ -99,9 +94,8 @@
                                             </h4>
                                         </div>
                                         <div class="flex-4 pt-2">
-                                            <h4 class="semi-02-title">
-                                                    000000000000
-                                            </h4>
+                                            
+                                            <span><i class="fal fa-map-marker-alt"></i>{{\App\Models\CompanyDetail::where('id',1)->first()->phone1 }}</span>
                                         </div>
                                     </div>
                                 </li>
