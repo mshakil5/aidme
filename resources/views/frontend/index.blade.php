@@ -187,7 +187,7 @@
 
 
 
-<section class="blog-section spacer">
+<section class="blog-section spacer" style="display: none">
     <div class="container">
         <div class="row justify-content-center mb-5">
             <div class="col-md-8 mx-auto ">
