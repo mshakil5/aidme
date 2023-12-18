@@ -168,7 +168,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <div class="about-right mt-5">
+                <div class="about-right mt-2">
                     {{-- <h6 class="txt-primary fs-4 d-flex align-items-center">
                         <iconify-icon icon="ph:heart-fill"></iconify-icon>
                         About EnaCare
