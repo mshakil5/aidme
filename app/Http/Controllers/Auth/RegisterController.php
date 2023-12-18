@@ -88,12 +88,6 @@ class RegisterController extends Controller
             $a = Mail::to($contactmail)
                 ->send(new RegistrationMail($array));
             
-            // $a = Mail::send('emails.register', compact('array'), function($message)use($array,$email)   
-            //     {
-            //         $message->from($array['from'], 'gogiving.co.uk');
-            //         $message->to($email)->cc('towhid10@gmail.com')->subject($array['subject']);
-            //     });
-            
         if ($a) {
            
             return User::create([

@@ -21,6 +21,6 @@ Subject: {{$array['subject']}}, <br>
 
 
 Thanks,<br>
-<a href="https://www.gogiving.co.uk" target="blank">GoGiving</a>
+<a href="https://www.aidmeuk.com" target="blank">AidMeUk</a>
 
 @endcomponent

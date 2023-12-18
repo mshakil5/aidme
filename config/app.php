@@ -54,7 +54,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'https://www.gogiving.co.uk'),
+    'url' => env('APP_URL', 'https://www.aidmeuk.com'),
 
     'asset_url' => env('ASSET_URL'),
 
