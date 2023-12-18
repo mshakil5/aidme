@@ -145,7 +145,7 @@ $pid = $_GET["pid"];
                         
                    
                         <div class="form-group mb-3">
-                            <label for="name" class="mb-1 txt-secondary fw-bold">First name </label>
+                            <label for="name" class="mb-1 txt-secondary fw-bold">Name </label>
                             <input type="text" id="name" name="name" class="form-control @error('name') is-invalid @enderror" value="@if (Auth::user()) {{Auth::user()->name}} @endif" required>
 
                             @error('name')
