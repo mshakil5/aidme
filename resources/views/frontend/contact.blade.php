@@ -10,13 +10,8 @@
     <div class="container">
         <div class="row ">
             <div class="col-md-6">
-                <h6 class="txt-primary fs-4 d-flex align-items-center"> 
-                    Get In Touch
-                </h6>
-                <h2 class="title-global">Don’t Hesited To Contact Us</h2>
-                <p>
-                    Sed perspiciatis unde omnis iste natus error sit voluptatem accntium doloremque laudantiurema periam eaque ipsa quailinve ntore
-                </p>
+                <h2 class="title-global">Contact Us</h2>
+                
                 <div class="my-3">
                     <h6 class="txt-secondary fw-bold fs-4">
                        
