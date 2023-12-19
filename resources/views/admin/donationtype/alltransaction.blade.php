@@ -61,6 +61,7 @@
                                 <tr> 
                                     <th scope="col">Date</th>
                                     <th scope="col">Transaction ID</th>
+                                    <th scope="col">Taxpayer</th>
                                     <th scope="col">Payment Process</th>
                                     <th scope="col">Transaction Fee</th>
                                     <th scope="col">Total Amount</th>
@@ -80,6 +81,15 @@
                                         <div class="d-flex flex-column">
                                             <span class="fs-20 txt-secondary fw-bold">{{$item->tran_no}}</span>
                                         </div>
+                                    </td>
+                                    <td class="fs-16 txt-secondary">
+                            
+                                        @if ($item->taxpayer == 1)
+                                            Yes
+                                        @else
+                                            No
+                                        @endif
+                                            
                                     </td>
                                     <td class="fs-16 txt-secondary">
                                         {{$item->payment_type}}
