@@ -10,8 +10,9 @@ class DonationController extends Controller
 {
     public function donationHistory()
     {
-        $data = Transaction::with('campaign')->where('user_id',Auth::user()->id)->orderby('id','DESC')->get();
+        $transaction = Transaction::where('user_id',Auth::user()->id)->orderby('id','DESC')->get();
         // dd($data);
-        return view('user.donationhistory', compact('data'));
+        $moneyIn = \App\Models\Transaction::where('user_id',Auth::user()->id)->where('tran_type','In')->sum('amount');
+        return view('user.donationhistory', compact('transaction','moneyIn'));
     }
 }

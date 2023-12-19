@@ -13,33 +13,62 @@
             <table id="example" class="table table-striped mb-4" style="width:100%">
               <thead>
                   <tr>
-                      <th>Name</th>
-                      <th>Position</th>
-                      <th>Office</th>
-                      <th>Age</th>
-                      <th>Start date</th>
-                      <th>Salary</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Transaction ID</th>
+                        <th scope="col">Payment Process</th>
+                        <th scope="col">Transaction Fee</th>
+                        <th scope="col">Total Amount</th>
+                        <th scope="col">Amount</th>
+                        <th scope="col">Balance</th>
                   </tr>
               </thead>
+
+              <?php
+                    $tbalance = $moneyIn;
+                ?>
               
               <tbody>
-                <tr>
-                    <td>Tiger Nixon</td>
-                    <td>System Architect</td>
-                    <td>Edinburgh</td>
-                    <td>61</td>
-                    <td>2011-04-25</td>
-                    <td>$320,800</td>
-                </tr>
+                @foreach ($transaction as $item)
+                    <tr> 
+                        <td class="fs-16 txt-secondary">{{$item->date}}</td>
+                        <td>
+                            <div class="d-flex flex-column">
+                                <span class="fs-20 txt-secondary fw-bold">{{$item->tran_no}}</span>
+                            </div>
+                        </td>
+                        <td class="fs-16 txt-secondary">
+                            {{$item->payment_type}}
+                        </td>
+                        
+                        <td class="fs-16 txt-secondary">
+                            {{ number_format($item->commission, 2) }}
+                        </td> 
+                        <td class="fs-16 txt-secondary">
+                            {{ number_format($item->total_amount, 2) }}
+                        </td> 
+                        <td class="fs-16 txt-secondary">
+                            @if ($item->tran_type == "In") {{ number_format($item->amount, 2) }} @endif
+                        </td>
+                        <td class="fs-16 txt-secondary">
+                            £{{ number_format($tbalance, 2) }}
+                        </td> 
+                        @php
+                        if ($item->tran_type == "In") {
+                            $tbalance = $tbalance - $item->amount;
+                        }
+                        @endphp
+                    </tr> 
+                    @endforeach
               </tbody>
               <tfoot>
                   <tr>
-                      <th>Name</th>
-                      <th>Position</th>
-                      <th>Office</th>
-                      <th>Age</th>
-                      <th>Start date</th>
-                      <th>Salary</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Transaction ID</th>
+                        <th scope="col">Payment Process</th>
+                        <th scope="col">Transaction Fee</th>
+                        <th scope="col">Total Amount</th>
+                        <th scope="col">Amount</th>
+                        <th scope="col">Balance</th>
                   </tr>
               </tfoot>
           </table>

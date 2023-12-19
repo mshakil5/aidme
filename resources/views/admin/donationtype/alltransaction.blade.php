@@ -62,7 +62,6 @@
                                     <th scope="col">Date</th>
                                     <th scope="col">Transaction ID</th>
                                     <th scope="col">Payment Process</th>
-                                    {{-- <th scope="col">User</th> --}}
                                     <th scope="col">Transaction Fee</th>
                                     <th scope="col">Total Amount</th>
                                     <th scope="col">Dr Amount</th>
