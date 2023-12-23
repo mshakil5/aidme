@@ -182,7 +182,7 @@ class UserController extends Controller
         }
         $data = new User;
         $data->name = $request->name;
-        $data->sur_name = $request->surname;
+        $data->sur_name = $request->name;
         $data->phone = $request->phone;
         $data->email = $request->email;
         $data->house_number = $request->house_number;

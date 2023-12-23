@@ -110,7 +110,7 @@
                 <div class="inner">
                     <div class="items wow fadeIn" data-wow-delay="0.6s">
                         <div class="photo">
-                            <img src="{{ asset('assets/images/posts/1.jpg')}}" alt="" class="img-fluid">
+                            <img src="{{ asset('assets/images/posts/makshud.jpeg')}}" alt="" class="img-fluid">
                         </div>
                         <div class="bottom-part">
                             <div class="items">
@@ -129,7 +129,7 @@
                 <div class="inner">
                     <div class="items wow fadeIn" data-wow-delay="0.6s">
                         <div class="photo">
-                            <img src="{{ asset('assets/images/posts/1.jpg')}}" alt="" class="img-fluid">
+                            <img src="{{ asset('assets/images/posts/zehan.jpeg')}}" alt="" class="img-fluid">
                         </div>
                         <div class="bottom-part">
                             <div class="items">
@@ -149,7 +149,7 @@
                 <div class="inner">
                     <div class="items wow fadeIn" data-wow-delay="0.6s">
                         <div class="photo">
-                            <img src="{{ asset('assets/images/posts/1.jpg')}}" alt="" class="img-fluid">
+                            <img src="{{ asset('assets/images/posts/soyef.jpeg')}}" alt="" class="img-fluid">
                         </div>
                         <div class="bottom-part">
                             <div class="items">
@@ -176,7 +176,7 @@
                 <div class="inner">
                     <div class="items wow fadeIn" data-wow-delay="0.6s">
                         <div class="photo">
-                            <img src="{{ asset('assets/images/posts/1.jpg')}}" alt="" class="img-fluid">
+                            <img src="{{ asset('assets/images/posts/kayez.jpeg')}}" alt="" class="img-fluid">
                         </div>
                         <div class="bottom-part">
                             <div class="items">
@@ -195,7 +195,7 @@
                 <div class="inner">
                     <div class="items wow fadeIn" data-wow-delay="0.6s">
                         <div class="photo">
-                            <img src="{{ asset('assets/images/posts/1.jpg')}}" alt="" class="img-fluid">
+                            <img src="{{ asset('assets/images/posts/shahid.jpeg')}}" alt="" class="img-fluid">
                         </div>
                         <div class="bottom-part">
                             <div class="items">
@@ -215,7 +215,7 @@
                 <div class="inner">
                     <div class="items wow fadeIn" data-wow-delay="0.6s">
                         <div class="photo">
-                            <img src="{{ asset('assets/images/posts/1.jpg')}}" alt="" class="img-fluid">
+                            <img src="{{ asset('assets/images/posts/reaz.jpeg')}}" alt="" class="img-fluid">
                         </div>
                         <div class="bottom-part">
                             <div class="items">
@@ -227,25 +227,7 @@
                     </div>
                 </div>
             </div>
-<div class="col-md-4">
-                <div class="inner">
-                    <div class="items wow fadeIn" data-wow-delay="0.6s">
-                        <div class="photo">
-                            <img src="{{ asset('assets/images/posts/1.jpg')}}" alt="" class="img-fluid">
-                        </div>
-                        <div class="bottom-part">
-                            <div class="items">
-                                <a href="#" class="title fw-bold">Mr.  Monir Uddin</a>
-                                <div class="sub-title">Giving money to food </div>
-                            </div>
-                            
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-        </div>
-    </div>
 </section>
 
 @endsection
