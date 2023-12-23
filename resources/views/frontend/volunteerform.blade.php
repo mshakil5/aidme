@@ -5,31 +5,214 @@
 
 @section('content')
 
-
-
-
-<section class="about spacer">
+<style>
+    .pagetitle{
+        font-size: 30px;
+    }
+</style>
+<section class="auth py-4">
     <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="about-right mt-5">
-                    {{-- <h2 class="title-global">{{\App\Models\Master::where('name','about')->first()->title}}</h2>
-                    {!! \App\Models\Master::where('name','about')->first()->description !!} --}}
+       
+        <div class="row my-5">
+            <div class="col-lg-10 mx-auto authBox">
+                <div class="row">
+                    
+                    <div class="title text-center txt-secondary">York United Group Ltd.</div>
+                    <small class="text-center mb-5">(Uniting for a better community)</small>
+                        @if (isset($message))
+                        <span class="login-head" role="alert">
+                            <strong><p style="color: red">{{ $message }}</p></strong>
+                        </span>
+                        @endif
 
-                    <h2 class="title-global">Coming soon</h2>
+                        @if(session()->has('error'))
+                        <p class="alert alert-warning"> {{ session()->get('error') }}</p>
+                        @endif
 
+                        @if(session()->has('any'))
+                        <p class="alert alert-warning"> {{ session()->get('any') }}</p>
+                        @endif
+                    <h4 class="text-center">
+                        <u style="text-decoration: underline;">Volunteer Registration Form</u>
+                    </h4>
+                    <div class="row">
+                        <div class="col-lg-10  mx-auto">
+                            <div class="pb-2 mb-2">
+                                Our ref:
+                            </div>
+                            <form method="POST" action=""  enctype="multipart/form-data">
+                                @csrf
+
+                            <div class="row mb-2">
+                                <div class="col-4">
+                                    <label for="name" style="font-size: 23px">Name </label>
+                                </div>
+                                <div class="col-8">
+                                    <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" placeholder="Name" autofocus>
+                                    @error('name')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="row mb-2">
+                                <div class="col-4">
+                                    <label for="profession" style="font-size: 23px">Profession </label>
+                                </div>
+                                <div class="col-8">
+                                    <input id="profession" type="text" class="form-control @error('profession') is-invalid @enderror" name="profession" value="{{ old('profession') }}" required autocomplete="profession" placeholder="Profession" autofocus>
+                                    @error('profession')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="row mb-2">
+                                <div class="col-4">
+                                    <label for="email" style="font-size: 23px"> Email </label>
+                                </div>
+                                <div class="col-8">
+                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Email" autofocus>
+                                    @error('email')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+
+                        <div class="row mb-2">
+                            <div class="col-4">
+                                <label for="phone" style="font-size: 23px">Tel </label>
+                            </div>
+                            <div class="col-8">
+                                <input id="phone" type="number" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" required autocomplete="phone" placeholder="Tel" autofocus>
+                                @error('phone')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="row mb-2">
+                            <div class="col-4">
+                                <label for="address" style="font-size: 23px">Address</label>
+                            </div>
+                            <div class="col-8">
+                                <input id="address" type="text" class="form-control @error('address') is-invalid @enderror" name="address" value="{{ old('address') }}" required autocomplete="address" placeholder="Address" autofocus>
+                                @error('address')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <h4 class="">
+                            <u style="text-decoration: underline;"><b>Volunteer Rules</b></u>
+                        </h4>
+
+                        <div class="col-lg-12 mt-3">
+                            <p class="para mb-3 text-muted fs-6 ">
+                                (1) Volunteer is open to individuals over 18 and above. <br>
+                                (2) Director may refuse an application if found unfit for the group’s purpose.<br>
+                                (3) Volunteer is not transferable to anyone else.<br>
+                                (4) Volunteer must adhere and comply with the team leader decision.<br>
+                                (5) Respect and listen to each other maturely and discuss any differences without any derogatory behaviour.<br>
+                                (6) Use of bad language will deem termination of your volunteer registration.<br>
+                                (7) All discussions and decisions made by the group should be private & confidential and refrain from disclosure.<br>
+                                (8) All Volunteer will have equal rights/status. <br>
+                                (9) Volunteer will be terminated if:<br>
+                                    <span style="margin-left: 35px">(i) the Volunteer dies;</span><br>
+                                    <span style="margin-left: 35px">(ii) the organisation, ceases to exist;</span><br>
+                                    <span style="margin-left: 35px">(iii) the Volunteer resigns by written notice.</span>
+
+
+                            </p>
+                        </div>
+
+                            <div class="col-lg-12 mt-3">
+                                <p class="para mb-3 text-muted fs-6 ">
+                                    <input type="checkbox" class="me-2" required>I agree to the <a href="{{route('frontend.terms')}}" style="text-decoration: none;color:#212529"> Terms & Conditions. </a><br>
+                                </p>
+                            </div>
+
+                            <div>
+                                <p> <b>Declaration</b>: I hereby read, understand and acknowledge all rules of York United Group Ltd.</p>
+                            </div>
+                            <div class="row mb-2">
+                                <div class="col-4">
+                                    <label for="print_name" style="font-size: 23px">Print Name</label>
+                                </div>
+                                <div class="col-8">
+                                    <input id="print_name" type="text" class="form-control @error('print_name') is-invalid @enderror" name="print_name" value="{{ old('print_name') }}" required autocomplete="print_name" placeholder="Print Name" autofocus>
+                                    @error('print_name')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            
+                            <div class="row mb-2">
+                                <div class="col-2">
+                                    <label for="date" style="font-size: 23px">Date</label>
+                                </div>
+                                <div class="col-4">
+                                    <input id="date" type="date" class="form-control @error('date') is-invalid @enderror" name="date" value="{{ old('date') }}" required autocomplete="date" autofocus>
+                                    @error('date')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+
+                                <div class="col-6">
+                                    <label style="font-size: 23px"> Sign: ...................................</label>
+                                </div>
+                            </div><br><br>
+
+                            <div class="row mb-2">
+                                <div class="col-12">
+                                    <label style="font-size: 23px"> Approved By: .......................................................................</label>
+                                </div>
+                            </div>
+
+
+                            <div class="col-lg-12 mt-3">
+                                <p class="para mb-3 text-muted fs-6 ">
+                                    Registered Office: 10 Newgate (2 nd Floor), York, North Yorkshire, YO1 7LA <br>
+                                    Company Registration Number: 14988459 <a href="https://www.aidmeuk.com/" target="blank">www.aidmeuk.com</a> , yorkunitedgroup@gmail.com
+    
+                                </p>
+                            </div>
+
+                            
+                            
+
+                            <div class="form-group  text-center">
+                                <button type="submit" class="btn-theme bg-primary text-center mx-0 ">Send</button>
+                            </div>
+
+
+                        </form>
+
+                        </div>
+                    </div>
                     
                     
-                        
-                    
+                   
                 </div>
             </div>
         </div>
     </div>
-</section>
-
-
-
+</section> 
 @endsection
 
 @section('scripts')
