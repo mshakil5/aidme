@@ -14,6 +14,7 @@ use App\Mail\EventPaymentMail;
 use App\Mail\PaymentMail;
 use App\Models\CampaignShare;
 use App\Models\Event;
+use App\Models\Volunteer;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\URL;
 use DB;
@@ -326,5 +327,36 @@ class FrontendController extends Controller
 
         // dd($doners);
         return view('frontend.charitydetails', compact('data','facebook','twitter'));
+    }
+
+
+    public function volunteerStore(Request $request)
+    {
+        $contactmail = ContactMail::where('id', 1)->first()->email;
+        $data = new Volunteer();
+        $data->name = $request->name;
+        $data->email = $request->email;
+        $data->phone = $request->phone;
+        $data->profession = $request->profession;
+        $data->address = $request->address;
+        $data->print_name = $request->print_name;
+        $data->date = $request->date;
+        if ($data->save()) {
+
+            $array['name'] = $request->name;
+            $array['email'] = $request->email;
+            $array['subject'] = "Volunteer Registration Form";
+            $array['message'] = "Some text here";
+            $array['contactmail'] = $contactmail;
+            // Mail::to($contactmail)
+            // ->send(new ContactFormMail($array));
+
+            
+            return view('frontend.volunteerform')
+            ->with('message','Registration Successful.');
+        } else {
+            return view('frontend.volunteerform')
+            ->with('error','Registration Fail.');
+        }
     }
 }

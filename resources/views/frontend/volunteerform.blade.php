@@ -20,9 +20,8 @@
                     <div class="title text-center txt-secondary">York United Group Ltd.</div>
                     <small class="text-center mb-5">(Uniting for a better community)</small>
                         @if (isset($message))
-                        <span class="login-head" role="alert">
-                            <strong><p style="color: red">{{ $message }}</p></strong>
-                        </span>
+                        <div class='alert alert-success title text-center txt-secondary'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><b>{{ $message }}</b></div>
+
                         @endif
 
                         @if(session()->has('error'))
@@ -40,7 +39,7 @@
                             <div class="pb-2 mb-2">
                                 Our ref:
                             </div>
-                            <form method="POST" action=""  enctype="multipart/form-data">
+                            <form method="POST" action="{{route('volunteer.store')}}"  enctype="multipart/form-data">
                                 @csrf
 
                             <div class="row mb-2">
