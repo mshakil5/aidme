@@ -1,9 +1,12 @@
 
     
 
-    <section class="topbar d-none topbar bg-light p-2">
+    <section class="topbar topbar bg-light p-2">
         <div class="container">
             <div class="row z-index ">
+                <div class="col-md-12 text-center  text-dark">
+                    <h2>The site is not ready yet, we will be live very soon</h2>
+                </div>
                 <div class="col-md-3"></div>
                 <div class="col-md-6 text-center  text-dark">
                     <small>Welcome To Aidmeuk. Popular Charity</small>

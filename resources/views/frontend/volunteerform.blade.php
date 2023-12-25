@@ -20,7 +20,7 @@
                     <div class="title text-center txt-secondary">York United Group Ltd.</div>
                     <small class="text-center mb-5">(Uniting for a better community)</small>
                         @if (isset($message))
-                        <div class='alert alert-success title text-center txt-secondary'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><b>{{ $message }}</b></div>
+                        <div class='alert alert-success title text-center txt-secondary'><b>{{ $message }}</b></div>
 
                         @endif
 
