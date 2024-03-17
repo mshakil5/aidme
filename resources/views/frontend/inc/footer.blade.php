@@ -41,7 +41,7 @@
 
                 <div class="col-xl-3 col-lg-3 col-md-6 footer-col-2">
                     <div>
-                        <h5 class="fw-bold txt-primary">Projects</h5>
+                        <h5 class="fw-bold txt-primary">What we do</h5>
                         <div>
                             <ul class="menu">
                                 @foreach (\App\Models\DonationType::where('type', 'Projects')->get() as $projects)
@@ -112,11 +112,15 @@
             <div class="row align-items-center">
                 <div class="col-xl-12">
                     <div class="copyright text-center">
-                        <p class=" txt-primary">Copyright ©2023. All Rights Reserved</p>
+                        <p class=" txt-primary">Copyright © 2024 <a href="#">AidmeUK.</a> 
+                            Design & Developed By: <a href="https://mentosoftware.co.uk" target="_blank"></a><br>
+                            <a href="https://mentosoftware.co.uk" target="_blank">Mento Software</a>
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </footer>
+
 

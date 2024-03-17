@@ -50,6 +50,23 @@
                     <div class="collapse navbar-collapse" id="navbarNavDropdown">
                         <ul class="navbar-nav mx-auto navCustom">
                             <!-- "me-auto" for left align | "ms-auto" for right align | "mx-auto" for center align--->
+                            
+                            
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="{{ route('frontend.about')}}" id="dropdownItem" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    About
+                                    <iconify-icon icon="tabler:chevron-down" class="down ms-1"></iconify-icon>
+                                    <iconify-icon icon="tabler:chevron-up" class="up ms-1"></iconify-icon>
+                                </a>
+                                <ul class="dropdown-menu rounded-0 shadow-sm"  aria-labelledby="dropdownItem">
+                                    <li><a class="dropdown-item" href="{{ route('frontend.about')}}">About AidMeUK</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('frontend.directors')}}">Who we are</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('frontend.advisor')}}">Advisory Team</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('frontend.news')}}">Transparency</a></li>
+                                </ul>
+                            </li>
+                            
+                            
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="dropdownItem" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Appeals
@@ -65,7 +82,7 @@
 
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="dropdownItem" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Projects
+                                    What we do
                                     <iconify-icon icon="tabler:chevron-down" class="down ms-1"></iconify-icon>
                                     <iconify-icon icon="tabler:chevron-up" class="up ms-1"></iconify-icon>
                                 </a>
@@ -84,11 +101,12 @@
                                 </a>
                                 <ul class="dropdown-menu rounded-0 shadow-sm"  aria-labelledby="dropdownItem">
                                     <li><a class="dropdown-item" href="{{route('frontend.work')}}">How you can help</a></li>
-                                    <li><a class="dropdown-item" href="{{route('frontend.volunteer')}}">Volunteer with us</a></li>
+                                    <li><a class="dropdown-item" href="{{route('frontend.volunteerform')}}">Volunteer with us</a></li>
                                     <li><a class="dropdown-item" href="{{route('frontend.network')}}">Our Contributors</a></li>
+                                    <li><a class="dropdown-item" href="{{route('frontend.giftaid')}}">Major Gift Giving</a></li>
                                 </ul>
                             </li>
-
+<!--
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="{{ route('frontend.about')}}" id="dropdownItem" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     About
@@ -100,7 +118,7 @@
                                     <li><a class="dropdown-item" href="{{ route('frontend.directors')}}">Director & Member</a></li>
                                     <li><a class="dropdown-item" href="{{ route('frontend.news')}}">Transparency</a></li>
                                 </ul>
-                            </li>
+                            </li>-->
 
                             <li class="nav-item">
                                 <a class="nav-link " aria-current="page" href="{{route('frontend.contact')}}">contact</a>

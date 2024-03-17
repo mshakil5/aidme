@@ -40,23 +40,24 @@
                     {{-- <h2 class="title-global">{{\App\Models\Master::where('name','about')->first()->title}}</h2>
                     {!! \App\Models\Master::where('name','about')->first()->description !!} --}}
 
-                    <h2 class="title-global">How it all started</h2>
 
-                     <p>In January 2023, Makshud Rahman gathered some of his friends to discuss and plan a social organisation to help and support underprivileged people, such as refugees, homelessness and orphaned children.  With six eagerly, interested friends they decided to form a company and pursue their charitable work; In July 2023 they settled on a company name and registered their company - York United Group Ltd. (not for profit - Registration number -14988459).
+                    <h2 class="title-global">Introduction</h2>
+
+                     <p>Living in a first-world country and seeing homelessness, especially during winter seasons, was heart-breaking for Makshud Rahman and six of his friends. They realized it was shameful to witness one of the worst humanitarian crises in the world, with no basic food or clean drinking water. With an avid intention of 'making a change' in the lives of the underprivileged, they discussed a social action to provide adequate food, clean drinking water, clothing, shelter, and sanitation to support homeless people, orphaned children, refugees, and emergencies in the UK and eventually, all across the globe. However, they came to realize that institutional action leads to sustainable outcomes rather than piecemeal philanthropy.
                      <br/><br/>
-                     Each individual friend, personally donates and contributes earnestly, but together with their passion and enthusiasm for helping and giving back to the society, they are confident in elevating their organisation collectively and to do something bigger and better with their hearts content.
+                     They decided to form a charity to pursue their social work. In July 2023, they settled on an organization name and registered as York United Group Ltd. (a non-profit organization with registration number 14988459). Today, it is known as AidmeUK. 
                      <br/><br/>
-                     Living in a first world country and having to see homelessness, especially in winter seasons is heart-breaking.  To see one of the worst humanitarian crises across the world, with no basic food or clean drinking water is shameful for all mankind.  Therefore, they intend to provide adequate food, clean drinking water, clothing, shelter and sanitation to support homeless people, orphaned children, refugee, emergencies in UK and all across the globe.
+                     Each friend personally donates and contributes earnestly, but together, with their passion and enthusiasm for helping and giving back to society, they are confident in elevating their organization collectively and doing something bigger and better with their hearts' content.
+
                      <br/><br/>
-                     They hope to facilitate in building water pumps for clean drinking water where needed; Help and support food banks; Build temporary accommodation; Support medical requirements and aid in ‘start-up’ businesses for an individual to live independently.
-                     </br><br/>
-                     They intend to broaden their line of work by forming a Community Centre which will include an education section, sports/activities section, pop-up Healthcare/clinic section and community hire rooms, which will all help to generate funding for charitable causes and an overall facility available to serve the community. 
-                     <br/><br/>
-                     They also, intend and plan to generate funds via projects and events, Zakat & voluntary donations, Gov. grants and sponsorships, which will help to support, where it will make a difference and benefit an individual/family/group.
-                     <br/><br/>
-                     They hope to make a change and their goal will only be achieved when they see a smile on the faces of the recipients. 
-                     </p>
-                     
+                     Their vision is to inspire positive change by providing clean drinking water, supporting those in need of food, shelter, and medical care, and empowering individuals to live independently through 'start-up' businesses. They aim to create a Community Centre as a hub for education, sports, healthcare, and community hire rooms, generating funds for charitable causes. Their commitment to making a difference is fuelled by the joy they see on the faces of those they help. They strive to bring hope and happiness to individuals and families in need through projects, events, donations, and sponsorships.
+
+                    <br/></br>
+                    <h2 class="title-global">Mission Statement</h2>
+                    <p>AidMeUK is set to serve and support underprivileged people, efficiently, respectfully and with integrity</p>
+                    
+                   
+                    
                     
                 
                     

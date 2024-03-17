@@ -218,7 +218,7 @@ $pid = $_GET["pid"];
                                         Paypal 
                                 </button>
                             </div>
-                            <div class="items">
+                            <div class="items" style="display: none">
                                 <button type="submit"  class="btn-theme border-0 fs-4">
                                     Visa 
                                 </button>

@@ -55,10 +55,15 @@ Route::get('/volunteer', [FrontendController::class, 'volunteer'])->name('fronte
 Route::get('/volunteer-create', [FrontendController::class, 'volunteerCreate'])->name('frontend.volunteerform');
 Route::post('/volunteer-submit', [FrontendController::class, 'volunteerStore'])->name('volunteer.store');
 Route::get('/our-contributors', [FrontendController::class, 'network'])->name('frontend.network');
+Route::get('/our-contributors-details', [FrontendController::class, 'getContributors'])->name('frontend.contributors');
 Route::get('/trustees', [FrontendController::class, 'trustees'])->name('frontend.trustees');
 Route::get('/directors', [FrontendController::class, 'directors'])->name('frontend.directors');
 Route::get('/transparency', [FrontendController::class, 'news'])->name('frontend.news');
 
+
+Route::get('/giftaid', [FrontendController::class, 'giftaid'])->name('frontend.giftaid');
+
+Route::get('/advisor', [FrontendController::class, 'advisor'])->name('frontend.advisor');
 
 Route::get('/contact', [FrontendController::class, 'contact'])->name('frontend.contact');
 Route::get('/privacy', [FrontendController::class, 'privacy'])->name('frontend.privacy');

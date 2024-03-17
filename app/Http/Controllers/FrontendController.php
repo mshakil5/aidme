@@ -36,6 +36,21 @@ class FrontendController extends Controller
     {
         return view('frontend.work');
     }
+    
+    public function getContributors()
+    {
+        return view('frontend.allcontributors');
+    }
+
+    public function giftaid()
+    {
+        return view('frontend.giftaid');
+    }
+    
+    public function advisor()
+    {
+        return view('frontend.advisor');
+    }
 
     public function volunteer()
     {
