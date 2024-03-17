@@ -7,7 +7,7 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="pagetitle pb-2">
-                 Projects
+                 Gallery Category
             </div>
         </div>
     </div>
@@ -24,41 +24,21 @@
                         </div>
                         <div class="col-md-12">
                           <div class="tile">
-                            <div class="row">
+                            <div class="row mb-3">
                                 <div class="col-lg-6">
                                   {!! Form::open(['url' => 'admin/master/create','id'=>'createThisForm']) !!}
                                   {!! Form::hidden('codeid','', ['id' => 'codeid']) !!}
                                   @csrf
                                   <div>
-                                      <label for="title">Title</label>
-                                      <input type="text" id="title" name="title" class="form-control">
+                                      <label for="name">Name</label>
+                                      <input type="text" id="name" name="name" class="form-control">
                                   </div>
 
-                                  <div>
-                                    <label for="menu">Menu (Show in menu)</label>
-                                    <input type="text" id="menu" name="menu" class="form-control">
-                                </div>
-                                  <div>
-                                    <label for="type">Type</label>
-                                    <select name="type" id="type" class="form-control">
-                                        <option value="">Select</option>
-                                        <option value="Appeals">Appeals</option>
-                                        <option value="Projects">Projects</option>
-                                    </select>
-                                </div>
-
-                                  <div>
-                                      <label for="image">Image</label>
-                                      <input class="form-control" id="image" name="image" type="file">
-                                  </div>
+                                  
                                     
                                 </div>
                                 <div class="col-lg-6">
-                                      <div>
-                                          <label for="description">Description</label>
-                                          <textarea class="form-control" id="description" name="description" rows="4" placeholder="Enter your description"></textarea>
-                                          
-                                      </div>
+                                    
                                 </div>
                               </div>
                               <div class="tile-footer">
@@ -92,10 +72,7 @@
                             <thead>
                                 <tr>
                                     <th style="text-align: center">ID</th>
-                                    <th style="text-align: center">Title</th>
-                                    <th style="text-align: center">Image</th>
-                                    <th style="text-align: center">Description</th>
-                                    <th style="text-align: center">Collection</th>
+                                    <th style="text-align: center">Name</th>
                                     <th style="text-align: center">Action</th>
                                 </tr>
                             </thead>
@@ -103,19 +80,7 @@
                                 @foreach ($data as $key => $data)
                                     <tr>
                                         <td style="text-align: center">{{ $key + 1 }}</td>
-                                        <td style="text-align: center">{{$data->title}}</td>
-                                        <td style="text-align: center">
-                                            @if ($data->image)
-                                            <img src="{{asset('images/'.$data->image)}}" height="120px" width="220px" alt="">
-                                            @endif
-                                        </td>
-                                        <td style="text-align: center">{!! $data->description !!}</td>
-                                        <td style="text-align: center">
-                                            <a href="{{route('admin.transactionView',$data->id)}}" class="text-decoration-none bg-primary text-white py-1 px-3 rounded mb-1 text-center">£{{$data->collection}}</a>    
-                                        </td>
-                                        
-                                        
-
+                                        <td style="text-align: center">{{$data->name}}</td>
                                         <td style="text-align: center">
 
                                         <a id="EditBtn" rid="{{$data->id}}"><i class="fa fa-edit" style="color: #2196f3;font-size:16px;"></i></a>
@@ -163,25 +128,15 @@
             //header for csrf-token is must in laravel
             $.ajaxSetup({ headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') } });
             //
-            var url = "{{URL::to('/admin/donation-type')}}";
+            var url = "{{URL::to('/admin/category')}}";
+            var upurl = "{{URL::to('/admin/category-update')}}";
             // console.log(url);
             $("#addBtn").click(function(){
             //   alert("#addBtn");
                 if($(this).val() == 'Create') {
-                    for ( instance in CKEDITOR.instances ) {
-                    CKEDITOR.instances[instance].updateElement();
-                    } 
-                    var file_data = $('#image').prop('files')[0];
-                    if(typeof file_data === 'undefined'){
-                        file_data = 'null';
-                    }
-
+                    
                     var form_data = new FormData();
-                    form_data.append('image', file_data);
-                    form_data.append("title", $("#title").val());
-                    form_data.append("type", $("#type").val());
-                    form_data.append("menu", $("#menu").val());
-                    form_data.append("description", $("#description").val());
+                    form_data.append("name", $("#name").val());
                     $.ajax({
                       url: url,
                       method: "POST",
@@ -204,22 +159,12 @@
                 //create  end
                 //Update
                 if($(this).val() == 'Update'){
-                    for ( instance in CKEDITOR.instances ) {
-                    CKEDITOR.instances[instance].updateElement();
-                    }  
-                    var file_data = $('#image').prop('files')[0];
-                    if(typeof file_data === 'undefined'){
-                        file_data = 'null';
-                    }
+                    
                     var form_data = new FormData();
-                    form_data.append('image', file_data);
-                    form_data.append("title", $("#title").val());
-                    form_data.append("type", $("#type").val());
-                    form_data.append("menu", $("#menu").val());
-                    form_data.append("description", $("#description").val());
-                    form_data.append('_method', 'put');
+                    form_data.append("name", $("#name").val());
+                    form_data.append("codeid", $("#codeid").val());
                     $.ajax({
-                        url:url+'/'+$("#codeid").val(),
+                        url:upurl,
                         type: "POST",
                         dataType: 'json',
                         contentType: false,
@@ -282,14 +227,7 @@
             //Delete
 
             function populateForm(data){
-                for ( instance in CKEDITOR.instances ) {
-                    CKEDITOR.instances[instance].updateElement();
-                    } 
-                $("#description").val(data.description);
-                 CKEDITOR.replace( 'description' );
-                $("#title").val(data.title);
-                $("#type").val(data.type);
-                $("#menu").val(data.menu);
+                $("#name").val(data.name);
                 $("#codeid").val(data.id);
                 $("#addBtn").val('Update');
                 $("#addThisFormContainer").show(300);

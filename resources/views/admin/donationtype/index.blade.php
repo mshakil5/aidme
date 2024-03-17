@@ -51,6 +51,12 @@
                                       <label for="image">Image</label>
                                       <input class="form-control" id="image" name="image" type="file">
                                   </div>
+
+                                  
+                                  <div>
+                                    <label for="goal">Project Goal</label>
+                                    <input type="number" id="goal" name="goal" class="form-control">
+                                </div>
                                     
                                 </div>
                                 <div class="col-lg-6">
@@ -96,6 +102,7 @@
                                     <th style="text-align: center">Image</th>
                                     <th style="text-align: center">Description</th>
                                     <th style="text-align: center">Collection</th>
+                                    <th style="text-align: center">Goal</th>
                                     <th style="text-align: center">Action</th>
                                 </tr>
                             </thead>
@@ -114,6 +121,8 @@
                                         <td style="text-align: center">
                                             <a href="{{route('admin.transactionView',$data->id)}}" class="text-decoration-none bg-primary text-white py-1 px-3 rounded mb-1 text-center">£{{$data->collection}}</a>    
                                         </td>
+                                        
+                                        <td style="text-align: center" ><p class="text-decoration-none bg-primary text-white py-1 px-3 rounded mb-1 text-center">£{{$data->goal}}</p> </td>
 
                                         <td style="text-align: center">
                                             
@@ -182,6 +191,7 @@
                     form_data.append("title", $("#title").val());
                     form_data.append("type", $("#type").val());
                     form_data.append("menu", $("#menu").val());
+                    form_data.append("goal", $("#goal").val());
                     form_data.append("description", $("#description").val());
                     $.ajax({
                       url: url,
@@ -217,6 +227,7 @@
                     form_data.append("title", $("#title").val());
                     form_data.append("type", $("#type").val());
                     form_data.append("menu", $("#menu").val());
+                    form_data.append("goal", $("#goal").val());
                     form_data.append("description", $("#description").val());
                     form_data.append('_method', 'put');
                     $.ajax({
@@ -291,6 +302,7 @@
                 $("#title").val(data.title);
                 $("#type").val(data.type);
                 $("#menu").val(data.menu);
+                $("#goal").val(data.goal);
                 $("#codeid").val(data.id);
                 $("#addBtn").val('Update');
                 $("#addThisFormContainer").show(300);

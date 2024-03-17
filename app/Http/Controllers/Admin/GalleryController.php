@@ -30,9 +30,7 @@ class GalleryController extends Controller
     {
         $data = new Gallery();
         $data->title = $request->title;
-        $data->type = $request->type;
-        $data->menu = $request->menu;
-        $data->description = $request->description;
+        $data->category_id = $request->category_id;
 
         // image
         if ($request->image != 'null') {
@@ -41,8 +39,8 @@ class GalleryController extends Controller
             ]);
             $rand = mt_rand(100000, 999999);
             $imageName = time(). $rand .'.'.$request->image->extension();
-            $request->image->move(public_path('images'), $imageName);
-            $data->image= $imageName;
+            $request->image->move(public_path('images/gallery'), $imageName);
+            $data->image = $imageName;
         }
         // end
 
@@ -65,9 +63,9 @@ class GalleryController extends Controller
         return response()->json($info);
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        $data = Gallery::find($id);
+        $data = Gallery::find($request->codeid);
 
         if($request->image != 'null'){
 
@@ -76,13 +74,11 @@ class GalleryController extends Controller
             ]);
             $rand = mt_rand(100000, 999999);
             $imageName = time(). $rand .'.'.$request->image->extension();
-            $request->image->move(public_path('images'), $imageName);
+            $request->image->move(public_path('images/gallery'), $imageName);
             $data->image= $imageName;
         }
             $data->title = $request->title;
-            $data->type = $request->type;
-            $data->menu = $request->menu;
-            $data->description = $request->description;
+            $data->category_id = $request->category_id;
             $data->status = "0";
             $data->updated_by = Auth::user()->id;
 
@@ -113,6 +109,21 @@ class GalleryController extends Controller
             $message ="<div class='alert alert-success'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><b>Data Created Successfully.</b></div>";
             return response()->json(['status'=> 300,'message'=>$message]);
         } else {
+            return response()->json(['status'=> 303,'message'=>'Server Error!!']);
+        }
+    }
+
+    public function categoryupdate(Request $request)
+    {
+        $data = Category::find($request->codeid);
+        $data->name = $request->name;
+        $data->status = "0";
+        $data->updated_by = Auth::user()->id;
+
+        if ($data->save()) {
+            $message ="<div class='alert alert-success'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><b>Data Updated Successfully.</b></div>";
+            return response()->json(['status'=> 300,'message'=>$message]);
+        }else{
             return response()->json(['status'=> 303,'message'=>'Server Error!!']);
         }
     }

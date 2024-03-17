@@ -129,14 +129,14 @@ Route::group(['prefix' =>'admin/', 'middleware' => ['auth', 'is_admin']], functi
     Route::get('/category', [GalleryController::class, 'category'])->name('admin.category');
     Route::post('/category', [GalleryController::class, 'categorystore']);
     Route::get('/category/{id}/edit', [GalleryController::class, 'categoryedit']);
-    Route::post('/category/{id}', [GalleryController::class, 'categoryupdate']);
+    Route::post('/category-update', [GalleryController::class, 'categoryupdate']);
     Route::get('/category/{id}', [GalleryController::class, 'categorydelete']);
 
     
     Route::get('/gallery', [GalleryController::class, 'index'])->name('admin.gallery');
     Route::post('/gallery', [GalleryController::class, 'store']);
     Route::get('/gallery/{id}/edit', [GalleryController::class, 'edit']);
-    Route::post('/gallery/{id}', [GalleryController::class, 'update']);
+    Route::post('/gallery-update', [GalleryController::class, 'update']);
     Route::get('/gallery/{id}', [GalleryController::class, 'delete']);
 
 
