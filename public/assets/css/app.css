@@ -92,7 +92,7 @@ a {
   padding: 0;
   list-style: none;
 }
-.custom-list li a {
+.custom-list li{
   text-decoration: none;
   padding: 5px 15px;
   display: block;
@@ -103,6 +103,15 @@ a {
 }
 .custom-list li:hover {
   background-color: rgba(211, 211, 211, 0.2588235294);
+  color: #dd9509;
+}
+
+.custom-list li:hover {
+  background-color: rgba(211, 211, 211, 0.2588235294);
+  color: #dd9509;
+}
+
+.custom-list li span.active {
   color: #dd9509;
 }
 

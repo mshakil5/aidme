@@ -13,7 +13,9 @@ use App\Mail\ContactFormMail;
 use App\Mail\EventPaymentMail;
 use App\Mail\PaymentMail;
 use App\Models\CampaignShare;
+use App\Models\Category;
 use App\Models\Event;
+use App\Models\Gallery;
 use App\Models\Volunteer;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\URL;
@@ -24,7 +26,11 @@ class FrontendController extends Controller
 {
     public function index()
     {
-        return view('frontend.index');
+        
+        $galleries = Gallery::all();
+        $categories = Category::all();
+
+        return view('frontend.index', compact('galleries', 'categories'));
     }
 
     public function about()
