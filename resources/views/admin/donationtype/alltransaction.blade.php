@@ -36,9 +36,9 @@
                 <li class="nav-item" role="presentation">
                     <button class="nav-link active" id="alltransaction-tab" data-bs-toggle="tab"
                         data-bs-target="#alltransaction" type="button" role="tab" aria-controls="alltransaction"
-                        aria-selected="true">All transaction</button>
+                        aria-selected="true">Money In</button>
                 </li>
-                <li class="nav-item" role="presentation">
+                {{-- <li class="nav-item" role="presentation">
                     <button class="nav-link" id="moneyIn-tab" data-bs-toggle="tab" data-bs-target="#moneyIn"
                         type="button" role="tab" aria-controls="moneyIn" aria-selected="false">Money
                         in</button>
@@ -47,7 +47,7 @@
                     <button class="nav-link" id="moneyOut-tab" data-bs-toggle="tab"
                         data-bs-target="#moneyOut" type="button" role="tab" aria-controls="moneyOut"
                         aria-selected="false">Money out</button>
-                </li>
+                </li> --}}
 
 
                 </ul>
@@ -62,11 +62,10 @@
                                     <th scope="col">Date</th>
                                     <th scope="col">Transaction ID</th>
                                     <th scope="col">Taxpayer</th>
-                                    <th scope="col">Payment Process</th>
-                                    <th scope="col">Transaction Fee</th>
-                                    <th scope="col">Total Amount</th>
+                                    <th scope="col">Total Received</th>
+                                    <th scope="col">Paypal Charge</th>
+                                    <th scope="col">Processing fees</th>
                                     <th scope="col">Dr Amount</th>
-                                    <th scope="col">Cr Amount</th>
                                     <th scope="col">Balance</th>
                                 </tr>
                             </thead>
@@ -83,39 +82,27 @@
                                         </div>
                                     </td>
                                     <td class="fs-16 txt-secondary">
-                            
-                                        @if ($item->taxpayer == 1)
-                                            Yes
-                                        @else
-                                            No
-                                        @endif
-                                            
+                                        @if ($item->taxpayer == 1) Yes @else No @endif
                                     </td>
+
                                     <td class="fs-16 txt-secondary">
-                                        {{$item->payment_type}}
-                                    </td>
+                                        {{ number_format($item->amount + $item->commission, 2) }}
+                                    </td> 
+                                    <td class="fs-16 txt-secondary">
+                                        {{ number_format($item->paypalcommission, 2) }}
+                                    </td> 
                                     
                                     <td class="fs-16 txt-secondary">
                                         {{ number_format($item->commission, 2) }}
                                     </td> 
                                     <td class="fs-16 txt-secondary">
-                                        {{ number_format($item->total_amount, 2) }}
-                                    </td> 
-                                    <td class="fs-16 txt-secondary">
-                                        @if ($item->tran_type == "In") {{ number_format($item->amount, 2) }} @endif
-                                    </td> 
-                                    <td class="fs-16 txt-secondary">
-                                        @if ($item->tran_type == "Out") {{ number_format($item->amount, 2) }} @endif
+                                        @if ($item->tran_type == "In") {{ number_format($item->total_amount, 2) }} @endif
                                     </td> 
                                     <td class="fs-16 txt-secondary">
                                         £{{ number_format($tbalance, 2) }}
                                     </td> 
                                     @php
-                                    if ($item->tran_type == "In") {
-                                        $tbalance = $tbalance - $item->amount;
-                                    } else {
-                                        $tbalance = $tbalance + $item->amount;
-                                    }
+                                        $tbalance = $tbalance - $item->total_amount;
                                     @endphp
                                 </tr> 
                                 @endforeach
@@ -124,7 +111,7 @@
                         </div>
 
                 </div>
-                <div class="tab-pane fade" id="moneyIn" role="tabpanel" aria-labelledby="moneyIn-tab">
+                {{-- <div class="tab-pane fade" id="moneyIn" role="tabpanel" aria-labelledby="moneyIn-tab">
                     <div class="data-container">
                         <table class="table table-theme mt-4" id="example2">
                             <thead>
@@ -218,7 +205,7 @@
                             </tbody>
                     </table>
                     </div>
-                </div>
+                </div> --}}
 
 
 

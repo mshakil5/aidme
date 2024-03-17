@@ -18,7 +18,7 @@ use App\Http\Controllers\SliderController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\FundraisingSourceController;
 use App\Http\Controllers\Admin\EmailContentController;
-use App\Http\Controllers\Admin\GivingLevelController;
+use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Admin\DonationTypeController;
 
 
@@ -123,6 +123,21 @@ Route::group(['prefix' =>'admin/', 'middleware' => ['auth', 'is_admin']], functi
 
     
     Route::get('/transaction-view/{id}', [TransactionController::class, 'viewTransactionByAdmin'])->name('admin.transactionView');
+
+    
+    // category
+    Route::get('/category', [GalleryController::class, 'category'])->name('admin.category');
+    Route::post('/category', [GalleryController::class, 'categorystore']);
+    Route::get('/category/{id}/edit', [GalleryController::class, 'categoryedit']);
+    Route::post('/category/{id}', [GalleryController::class, 'categoryupdate']);
+    Route::get('/category/{id}', [GalleryController::class, 'categorydelete']);
+
+    
+    Route::get('/gallery', [GalleryController::class, 'index'])->name('admin.gallery');
+    Route::post('/gallery', [GalleryController::class, 'store']);
+    Route::get('/gallery/{id}/edit', [GalleryController::class, 'edit']);
+    Route::post('/gallery/{id}', [GalleryController::class, 'update']);
+    Route::get('/gallery/{id}', [GalleryController::class, 'delete']);
 
 
 });

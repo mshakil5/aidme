@@ -9,7 +9,7 @@
           <div class="col-lg-6">
               <div class="row my-2">
                 
-                  <div class="col-lg-12 mt-4">
+                  <div class="col-lg-12 mt-4" style="display: none">
                       <div class=" p-3 py-4 mt-2" style="background-color: #D9D9D9;">
                           <div>
                               <div class="txt-secondary fs-20 fw-bold  text-center fw-800"> Notification</div>  <br>

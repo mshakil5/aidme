@@ -39,7 +39,20 @@
         <div style="background-color: #F6FBFB;padding: 25px;">
 
 
-            {!! $array['message'] !!}
+            <p>Dear {{$array['name']}}</p>
+
+            <p>This email is to confirm that we have received your donation.</p>
+
+            
+            <p>Donation date:  {{$array['date']}}<br>
+                Project/Appeal: {{$array['appeal']}}<br>
+                Amount:  £{{$array['amount']}}</p>
+
+            <p>Thanks for your support. </p>
+
+            <p>Regards, <br>
+
+            <p>aidmeuk.com</p>
 
         </div>
         <div style="text-align:center; background:  #f3f3f3;padding: 15px; margin-top: 5px;">
