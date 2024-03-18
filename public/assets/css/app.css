@@ -115,6 +115,10 @@ a {
   color: #dd9509;
 }
 
+
+
+
+
 .card-theme {
   margin-bottom: 15px;
   background: #f4f2f1;
@@ -944,4 +948,10 @@ p {
   height: 100%;
   width: 100%;
   transform: skew(10deg, 0deg) translate(9.4px, 0px);
+}
+
+@media(max-width:768px){
+  .featured-post .inner{
+        margin-top:unset;
+  }
 }

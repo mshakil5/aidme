@@ -208,6 +208,7 @@ $pid = $_GET["pid"];
                         <p class="txt-primary mt-4 fs-4 d-flex align-items-center">
                             Total Amount £ <span id="donate" class="txt-secondary  fw-bold ms-2"></span>
                         </p>
+                        <input type="hidden" id="processingfee" name="processingfee">
 
                         <p class="txt-primary mt-4 fs-4 d-flex align-items-center">
                             Payment Method
@@ -242,10 +243,15 @@ $pid = $_GET["pid"];
     
 function catchAmount(event) {
   let prodeccingfee = (document.getElementById("prodeccingfee2").value =
-    (event.target.value * 2) / 100);
-  let process = (document.getElementById("process").innerHTML = prodeccingfee);
-  let donate = (document.getElementById("donate").innerHTML =
+    ((event.target.value * 2.9) / 100));
+    if (prodeccingfee > 0) {
+        let pfee = Number(prodeccingfee)
+        let pcharge = pfee + .30;
+        
+    let process = (document.getElementById("process").innerHTML = pcharge.toFixed(2));
+    let donate = (document.getElementById("donate").innerHTML =
     event.target.value); 
+    }
 }
 
 var myCarousel = document.querySelector("#carouselExampleFade");
@@ -272,7 +278,7 @@ function addDonate(event) {
     $(document).ready(function() {
         $(document).on('click', '.btn-amount', function () {
             amt = $(this).attr('value');
-            console.log(amt);
+            
             $("#others").val('');
             $("#amount").val(amt);
             $('#prodeccingfee2').attr('checked', false);
@@ -284,17 +290,24 @@ function addDonate(event) {
 
 
             if(this.checked){
-                var prodeccingfee = ( amount/100 * 2 );
+                var prodeccingfee = ( amount/100 * 2.9 ) + .30;
                 var amt = amount + prodeccingfee;
-                $("#amount").val(amt);
-                $("#donate").html(amt.toFixed(2));
+                if (amount > 0) {
+                    $("#amount").val(amt);
+                    $("#processingfee").val(prodeccingfee.toFixed(2));
+                    $("#donate").html(amt.toFixed(2));
+                }
+
             } else {
 
-                var prodeccingfee = ( 100/102);
-                var amt = amount * prodeccingfee;
-
+                var prfee = Number($("#processingfee").val());
+                if (amount > 0) {
+                    
+                var amt = amount - prfee;
                 $("#amount").val(amt);
+                $("#processingfee").val(0);
                 $("#donate").html(amt.toFixed(2));
+                }
             }
 
         });
@@ -304,7 +317,7 @@ function addDonate(event) {
             $("#amount").val(amount);
 
             
-            var prodeccingfee = ( amount/100 * 2 );
+            var prodeccingfee = ( amount/100 * 2.9 ) + .30;
             $("#process").html(prodeccingfee.toFixed(2));
             $("#donate").html(amount.toFixed(2));
 

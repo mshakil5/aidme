@@ -86,7 +86,7 @@
                                     </td>
 
                                     <td class="fs-16 txt-secondary">
-                                        {{ number_format($item->amount + $item->commission, 2) }}
+                                        {{ number_format($item->amount, 2) }}
                                     </td> 
                                     <td class="fs-16 txt-secondary">
                                         {{ number_format($item->paypalcommission, 2) }}

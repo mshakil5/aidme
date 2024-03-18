@@ -189,7 +189,7 @@
                     form_data.append("title", $("#title").val());
                     form_data.append("type", $("#type").val());
                     form_data.append("menu", $("#menu").val());
-                    form_data.append("menu", $("#menu").val());
+                    form_data.append("goal", $("#goal").val());
                     form_data.append("description", $("#description").val());
                     $.ajax({
                       url: url,
@@ -225,7 +225,7 @@
                     form_data.append("title", $("#title").val());
                     form_data.append("type", $("#type").val());
                     form_data.append("menu", $("#menu").val());
-                    form_data.append("menu", $("#menu").val());
+                    form_data.append("goal", $("#goal").val());
                     form_data.append("description", $("#description").val());
                     form_data.append('_method', 'put');
                     $.ajax({

@@ -66,9 +66,9 @@
 
                 <div>
                     <div class=" display-6 fw-bold"> £@if (isset($totalcollection))
-                        {{$totalcollection}}
-                    @else 0 @endif  </div>
-                    <span class="w-100 fw-bold">raised of £{{$data->raising_goal}} goal</span> 
+                        {{$data->collection}}
+                    @else {{$data->collection}} @endif  </div>
+                    <span class="w-100 fw-bold">raised of £{{$data->goal}} goal</span> 
 
                     <div class="d-flex justify-content-between my-3 ">
                         

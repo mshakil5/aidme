@@ -60,6 +60,11 @@
     /* display: none !important; */
     }
 
+    .height-adjust{
+        max-height:75vh;
+        overflow-y:scroll;
+    }
+
 
 </style>
 
@@ -226,7 +231,7 @@
 
 
 {{-- gallery here  --}}
-@if (isset($galleries))
+@if ($galleries->count() > 0)
     
 <section class="about spacer">
     <div class="">
@@ -245,7 +250,7 @@
             <div class="row">
                 <div class="col-lg-12 mx-auto px-4">
                     <div class="row ">
-                        <div class="col-lg-8 shadow-sm border rounded-0 bg-light ">
+                        <div class="col-lg-8 shadow-sm border rounded-0 bg-light height-adjust">
                             <div class="row pt-5 px-4 photos">
 
                                 @foreach ($galleries as $gallery)
