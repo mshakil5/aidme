@@ -4,22 +4,16 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\CharityController;
-use App\Http\Controllers\CampaignController;
 use App\Http\Controllers\WhyChooseUsController;
 use App\Http\Controllers\MasterController;
 use App\Http\Controllers\FundraiserController;
 use App\Http\Controllers\TransactionController;
-use App\Http\Controllers\EventController;
-use App\Http\Controllers\EventTransactionController;
-use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Admin\ContactMailController; 
 use App\Http\Controllers\SliderController;
 use App\Http\Controllers\Admin\AdminController;
-use App\Http\Controllers\Admin\FundraisingSourceController;
 use App\Http\Controllers\Admin\EmailContentController;
-use App\Http\Controllers\Admin\GivingLevelController;
 use App\Http\Controllers\Admin\DonationTypeController;
+use App\Http\Controllers\Admin\VolunteerController;
 use App\Http\Controllers\Admin\GalleryController;
 
 
@@ -140,6 +134,11 @@ Route::group(['prefix' =>'admin/', 'middleware' => ['auth', 'is_admin']], functi
     Route::post('/gallery-update', [GalleryController::class, 'update']);
     Route::get('/gallery/{id}', [GalleryController::class, 'delete']);
 
+    Route::get('/volunteer', [VolunteerController::class, 'index'])->name('admin.volunteer');
+    Route::post('/volunteer', [VolunteerController::class, 'store']);
+    Route::get('/volunteer/{id}/edit', [VolunteerController::class, 'edit']);
+    Route::post('/volunteer-update', [VolunteerController::class, 'update']);
+    Route::get('/volunteer/{id}', [VolunteerController::class, 'delete']);
 
 });
 //admin part end

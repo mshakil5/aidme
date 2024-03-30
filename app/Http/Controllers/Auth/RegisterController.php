@@ -77,6 +77,8 @@ class RegisterController extends Controller
     protected function uregister(array $data)
     {
 
+        dd($data);
+
         $msg = EmailContent::where('title','=','user_registration_mail')->first()->description;
         $adminmail = ContactMail::where('id', 1)->first()->email;
         $contactmail = $data['email'];

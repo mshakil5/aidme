@@ -24,7 +24,7 @@
                         </span>
                         @endif
                          
-                        <form method="POST" action="{{ route('register') }}" class="form-custom py-4">
+                        <form method="POST" action="{{ route('uregister') }}" class="form-custom py-4">
                             @csrf
                               <div class="title text-center mb-5 txt-secondary">Create Account</div>
                             <div class="form-group">

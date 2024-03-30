@@ -97,6 +97,9 @@
                 
                 <li><a href="{{route('admin.gallery')}}" class="nav-link {{ (request()->is('admin/gallery*')) ? 'current' : '' }}">Gallery</a></li>
 
+                
+                <li><a href="{{route('admin.volunteer')}}" class="nav-link {{ (request()->is('admin/volunteer*')) ? 'current' : '' }}">Volunteer</a></li>
+
                 {{-- <li><a href="order-voucher-books.html">Order voucher books</a></li>
                 <li><a href="tevini-card.html">Tevini card</a></li>
                 <li><a href="view-transactions.html">View transactions</a></li>
