@@ -71,15 +71,43 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        return $data;
+    }
 
-        return User::create([
+    protected function uregister(array $data)
+    {
+
+        $msg = EmailContent::where('title','=','user_registration_mail')->first()->description;
+        $adminmail = ContactMail::where('id', 1)->first()->email;
+        $contactmail = $data['email'];
+
+            $array['contactmail'] = $contactmail;
+            $array['name'] = $data['name'];
+            $array['email'] = $data['email'];
+            $array['message'] = $msg;
+            $array['subject'] = "Welcome to Aidme";
+            $array['from'] = 'do-not-reply@aidmeuk.com';
+            $email = $data['email'];
+
+            
+            $a = Mail::to($contactmail)
+                ->send(new RegistrationMail($array));
+            
+        if ($a) {
+           
+            return User::create([
                 'name' => $data['name'],
                 'email' => $data['email'],
                 'phone' => $data['phone'],
-                'clientid' => time(),
                 'sur_name' => $data['name'],
+                'clientid' => time(),
                 'password' => Hash::make($data['password']),
             ]);
+            
+        } else {
+            return "Error";
+        }
+        
     }
 
     

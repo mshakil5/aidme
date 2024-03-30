@@ -34,7 +34,7 @@
                     <p> Recognizing our generous contributors is not just about acknowledging their financial support; it's about celebrating a shared commitment to making the world a better place. By showcasing these individuals on our charity website, we aim to inspire others to join in our cause, fostering a sense of community and collective responsibility.</p>
                     
                         </br>
-                         <p style="color: #fc0fc0;"><b></b><span style="color: #ff00ff;"><a style="color: #000000;" href="#" target="_blank" rel="noopener noreferrer"><h1> Meet Our Generous Contributors</h1></a></span></p>
+                         <p style="color: #fc0fc0;"><b></b><span style="color: #ff00ff;"><a style="color: #000000;" href="{{route('frontend.contributors')}}" target="_blank" rel="noopener noreferrer"><h1> Meet Our Generous Contributors</h1></a></span></p>
                     
                 </div>
             </div>

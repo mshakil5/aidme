@@ -42,6 +42,7 @@ Route::get('/clear', function() {
 
 Auth::routes();
 Route::post('/loginto', [LoginController::class, 'loginToDonate'])->name('logintodonate');
+Route::post('/user-registration', [RegisterController::class, 'userRegistration'])->name('uregister');
 Route::get('authorized/google', [SocialLoginController::class, 'redirectToGoogle']);
 Route::get('authorized/google/callback', [SocialLoginController::class, 'handleGoogleCallback']);
 Route::get('authorized/facebook', [SocialLoginController::class, 'redirectToFacebook']);
