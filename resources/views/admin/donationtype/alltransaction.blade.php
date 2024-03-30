@@ -60,27 +60,29 @@
                             <thead>
                                 <tr> 
                                     <th scope="col">Date</th>
-                                    <th scope="col">Transaction ID</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Phone</th>
+                                    <th scope="col">Comment</th>
                                     <th scope="col">Taxpayer</th>
                                     <th scope="col">Total Received</th>
                                     <th scope="col">Paypal Charge</th>
-                                    <th scope="col">Processing fees</th>
                                     <th scope="col">Dr Amount</th>
                                     <th scope="col">Balance</th>
                                 </tr>
                             </thead>
                             <?php
-                                $tbalance = $moneyIn - $moneyOut;
+                                $tbalance = $moneyIn;
                             ?>
                             <tbody>
                                 @foreach ($transaction as $item)
                                 <tr> 
                                     <td class="fs-16 txt-secondary">{{$item->date}}</td>
-                                    <td>
-                                        <div class="d-flex flex-column">
-                                            <span class="fs-20 txt-secondary fw-bold">{{$item->tran_no}}</span>
-                                        </div>
-                                    </td>
+                                    
+                                    <td class="fs-16 txt-secondary">{{$item->name}}</td>
+                                    <td class="fs-16 txt-secondary">{{$item->email}}</td>
+                                    <td class="fs-16 txt-secondary">{{$item->phone}}</td>
+                                    <td class="fs-16 txt-secondary">{{$item->comment}}</td>
                                     <td class="fs-16 txt-secondary">
                                         @if ($item->taxpayer == 1) Yes @else No @endif
                                     </td>
@@ -91,10 +93,7 @@
                                     <td class="fs-16 txt-secondary">
                                         {{ number_format($item->paypalcommission, 2) }}
                                     </td> 
-                                    
-                                    <td class="fs-16 txt-secondary">
-                                        {{ number_format($item->commission, 2) }}
-                                    </td> 
+
                                     <td class="fs-16 txt-secondary">
                                         @if ($item->tran_type == "In") {{ number_format($item->total_amount, 2) }} @endif
                                     </td> 
@@ -232,7 +231,7 @@
 <script type="text/javascript">
 
     $(document).ready(function() {
-        $('#example1, #example2, #example3').DataTable( {
+        $('#example1').DataTable( {
             dom: 'Bfrtip',
             buttons: [
                 'copy', 'csv', 'excel', 'pdf', 'print'

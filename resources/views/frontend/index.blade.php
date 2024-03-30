@@ -251,7 +251,7 @@
                 <div class="col-lg-12 mx-auto px-4">
                     <div class="row ">
                         <div class="col-lg-8 shadow-sm border rounded-0 bg-light height-adjust">
-                            <div class="row pt-5 px-4 photos">
+                            <div class="row pt-5 px-4 photos popup-gallery">
 
                                 @foreach ($galleries as $gallery)
                                     <div class="col-sm-6 col-md-4 col-lg-4 item" data-category="{{ $gallery->category->name }}">

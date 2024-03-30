@@ -15,7 +15,8 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/animatecss/3.5.2/animate.min.css" />
     
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/css/lightbox.min.css">
+    <link rel="stylesheet" href="{{ asset('assets/css/magnific-popup.css')}}">
+    {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/css/lightbox.min.css"> --}}
 </head>
 
 <body>
@@ -40,6 +41,8 @@
     <script src="https://raw.githubusercontent.com/graingert/WOW/master/src/WOW.js" type="text/javascript"></script>
     
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/js/lightbox.min.js"></script>
+
+<script src="{{ asset('assets/js/jquery.magnific-popup.min.js')}}" type="text/javascript"></script>
 
     <script>
         // page schroll top
@@ -105,11 +108,62 @@
             });
 
         });
-
-
-
-
     </script>
+
+
+
+<script>
+    jQuery(document).ready(function () {
+        jQuery('.popup-gallery').magnificPopup({
+            delegate: 'a',
+            type: 'image',
+            callbacks: {
+                elementParse: function (item) {
+                    console.log(item.el.context.className);
+                    if (item.el.context.className == 'video') {
+                        item.type = 'iframe',
+                            item.iframe = {
+                                patterns: {
+                                    youtube: {
+                                        index: 'youtube.com/',
+
+                                        id: 'v=',
+                                        src: '//www.youtube.com/embed/%id%?autoplay=1' // URL that will be set as a source for iframe. 
+                                    },
+                                    vimeo: {
+                                        index: 'vimeo.com/',
+                                        id: '/',
+                                        src: '//player.vimeo.com/video/%id%?autoplay=1'
+                                    },
+                                    gmaps: {
+                                        index: '//maps.google.',
+                                        src: '%id%&output=embed'
+                                    }
+                                }
+                            }
+                    } else {
+                        item.type = 'image',
+                            item.tLoading = 'Loading image #%curr%...',
+                            item.mainClass = 'mfp-img-mobile',
+                            item.image = {
+                                tError: '<a href="%url%">The image #%curr%</a> could not be loaded.'
+                            }
+                    }
+
+                }
+            },
+            gallery: {
+                enabled: true,
+                navigateByImgClick: true,
+                preload: [0, 1]
+            }
+
+        });
+
+    });
+</script>
+
+
     @yield('script')
 
 </body>
