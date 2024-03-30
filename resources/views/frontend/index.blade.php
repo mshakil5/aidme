@@ -528,40 +528,18 @@ AC :10350363</h2>
 <script>
     jQuery(document).ready(function () {
         jQuery('.popup-gallery').magnificPopup({
+            
             delegate: 'a',
             type: 'image',
             callbacks: {
                 elementParse: function (item) {
                     console.log(item.el.context.className);
-                    if (item.el.context.className == 'video') {
-                        item.type = 'iframe',
-                            item.iframe = {
-                                patterns: {
-                                    youtube: {
-                                        index: 'youtube.com/',
-
-                                        id: 'v=',
-                                        src: '//www.youtube.com/embed/%id%?autoplay=1' // URL that will be set as a source for iframe. 
-                                    },
-                                    vimeo: {
-                                        index: 'vimeo.com/',
-                                        id: '/',
-                                        src: '//player.vimeo.com/video/%id%?autoplay=1'
-                                    },
-                                    gmaps: {
-                                        index: '//maps.google.',
-                                        src: '%id%&output=embed'
-                                    }
-                                }
-                            }
-                    } else {
-                        item.type = 'image',
+                    item.type = 'image',
                             item.tLoading = 'Loading image #%curr%...',
                             item.mainClass = 'mfp-img-mobile',
                             item.image = {
                                 tError: '<a href="%url%">The image #%curr%</a> could not be loaded.'
                             }
-                    }
 
                 }
             },
@@ -575,4 +553,8 @@ AC :10350363</h2>
 
     });
 </script>
+
+
+
+
 @endsection

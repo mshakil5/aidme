@@ -31,6 +31,7 @@
 
 
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
     <script src="{{ asset('assets/js/bootstrap@5.3.0_dist_js_bootstrap.bundle.min.js')}}"></script>
     <script src="{{ asset('assets/js/iconify.min.js')}}"></script>
@@ -40,12 +41,9 @@
     <script src="{{ asset('assets/js/cdn.datatables.net_1.13.5_js_jquery.dataTables.min.js')}}" type="text/javascript"></script>
     <script src="https://raw.githubusercontent.com/graingert/WOW/master/src/WOW.js" type="text/javascript"></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/js/lightbox.min.js"></script>
-
-
-    
     <script src="{{ asset('assets/js/jquery.magnific-popup.min.js')}}" type="text/javascript"></script>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/js/lightbox.min.js"></script>
     <script>
         // page schroll top
         function pagetop() {
