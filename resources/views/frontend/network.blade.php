@@ -23,7 +23,7 @@
 
                      <p>Introduction: AidmeUK, we believe in the power of collective kindness to make a lasting impact on the lives of those in need. In our ongoing efforts to support and uplift communities, we are thrilled to introduce a special initiative that recognizes the extraordinary generosity of individuals who have gone above and beyond in their commitment to making a difference</p></br>
                      
-                    <p>We are proud to present our distinguished contributor list, featuring the names, photos, and details of those remarkable individuals who have donated £10,000 or more to our cause. These philanthropic leaders have not only demonstrated a deep sense of compassion but have also become integral partners in our mission to create positive change.</p>
+                    <p>We are proud to present our distinguished contributor list, featuring the names, photos, and details of those remarkable individuals who have donated<b> £1000.00</b> or more to our cause. These philanthropic leaders have not only demonstrated a deep sense of compassion but have also become integral partners in our mission to create positive change.</p>
                     
                     <b>How to Become a Recognized Contributor </b>
                     

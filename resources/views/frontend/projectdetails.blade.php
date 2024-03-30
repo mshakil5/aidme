@@ -65,6 +65,7 @@
             <div class='col-md-4'>
 
                 <div>
+                    
                     <div class=" display-6 fw-bold"> £@if (isset($totalcollection))
                         {{$data->collection}}
                     @else {{$data->collection}} @endif  </div>

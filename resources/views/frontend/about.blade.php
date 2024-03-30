@@ -12,35 +12,8 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6">
-                <div class="photo-container position-relative">
-                    <img src="{{ asset('assets/images/home/1.jpg')}}"  class="img-fluid  wow fadeIn " data-wow-delay="0.6s" alt="">
-                    <div class="info-box">
-                        <h1 class="mb-0"></h1>
-                        <h4 class="mb-0">years <br>
-                            experience
-                        </h4>
-                        
-                    </div>
-                </div>
-                <br/>
-               <h2 class="title-global">Who we work with</h2>
-               <p>We will work alongside underprivileged people, supporters, companies, including trusts and institutions to build a better community. The more we come together, the more opportunities will become possible for the underprivileged people.</p>
-               </br>
-               <h2 class="title-global">Where we work</h2>
-               <p>Our focus extends to the moments of greatest need for underprivileged individuals. We stand ready to provide assistance and guidance, dedicated to aiding them in constructing a more promising future.</p>
-               </br>
-               <h2 class="title-global">Our staff</h2>
-               
-               <p>At present, our organization operates without any paid personnel. Instead, our dedicated team is composed of directors and members who generously contribute their time and skills on a voluntary basis, uniting in a collective effort to further our mission.</p>
-               </br>
-            </div>
-        
-            <div class="col-md-6 ">
-                <div class="about-right mt-5">
-                    {{-- <h2 class="title-global">{{\App\Models\Master::where('name','about')->first()->title}}</h2>
-                    {!! \App\Models\Master::where('name','about')->first()->description !!} --}}
-
-
+                
+                
                     <h2 class="title-global">Introduction</h2>
 
                      <p>Living in a first-world country and seeing homelessness, especially during winter seasons, was heart-breaking for Makshud Rahman and six of his friends. They realized it was shameful to witness one of the worst humanitarian crises in the world, with no basic food or clean drinking water. With an avid intention of 'making a change' in the lives of the underprivileged, they discussed a social action to provide adequate food, clean drinking water, clothing, shelter, and sanitation to support homeless people, orphaned children, refugees, and emergencies in the UK and eventually, all across the globe. However, they came to realize that institutional action leads to sustainable outcomes rather than piecemeal philanthropy.
@@ -57,6 +30,27 @@
                     <p>AidMeUK is set to serve and support underprivileged people, efficiently, respectfully and with integrity</p>
                     
                    
+                
+                <br/>
+            
+            </div>
+        
+            <div class="col-md-6 ">
+                <div class="about-right mt-5">
+                    {{-- <h2 class="title-global">{{\App\Models\Master::where('name','about')->first()->title}}</h2>
+                    {!! \App\Models\Master::where('name','about')->first()->description !!} --}}
+
+<h2 class="title-global">Who we work with</h2>
+               <p>We will work alongside underprivileged people, supporters, companies, including trusts and institutions to build a better community. The more we come together, the more opportunities will become possible for the underprivileged people.</p>
+               </br>
+               <h2 class="title-global">Where we work</h2>
+               <p>Our focus extends to the moments of greatest need for underprivileged individuals. We stand ready to provide assistance and guidance, dedicated to aiding them in constructing a more promising future.</p>
+               </br>
+               <h2 class="title-global">Our staff</h2>
+               
+               <p>At present, our organization operates without any paid personnel. Instead, our dedicated team is composed of directors and members who generously contribute their time and skills on a voluntary basis, uniting in a collective effort to further our mission.</p>
+               </br>
+            </div>
                     
                     
                 

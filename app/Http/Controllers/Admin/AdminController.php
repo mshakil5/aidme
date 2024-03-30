@@ -168,6 +168,7 @@ class AdminController extends Controller
             $account->email = $request->email;
             $account->is_type = "admin";
             $account->phone = $request->phone;
+            $account->clientid = "1";
             $account->password = Hash::make($request->input('password'));
 
             $account->save();

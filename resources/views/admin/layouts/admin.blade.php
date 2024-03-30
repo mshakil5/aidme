@@ -92,7 +92,6 @@
                 
                 <li><a href="{{route('admin.emailcontent')}}" class="nav-link {{ (request()->is('admin/email-content*')) ? 'current' : '' }}">Email Content</a></li>
                 
-
                 <li><a href="{{route('admin.category')}}" class="nav-link {{ (request()->is('admin/category*')) ? 'current' : '' }}">Category</a></li>
 
                 

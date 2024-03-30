@@ -43,11 +43,6 @@ class FrontendController extends Controller
         return view('frontend.work');
     }
     
-    public function getContributors()
-    {
-        return view('frontend.allcontributors');
-    }
-
     public function giftaid()
     {
         return view('frontend.giftaid');
@@ -114,7 +109,10 @@ class FrontendController extends Controller
         return view('frontend.donation');
     }
 
-    
+    public function getContributors()
+    {
+        return view('frontend.allcontributors');
+    }
 
     
 

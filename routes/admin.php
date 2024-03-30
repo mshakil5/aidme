@@ -18,8 +18,9 @@ use App\Http\Controllers\SliderController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\FundraisingSourceController;
 use App\Http\Controllers\Admin\EmailContentController;
-use App\Http\Controllers\Admin\GalleryController;
+use App\Http\Controllers\Admin\GivingLevelController;
 use App\Http\Controllers\Admin\DonationTypeController;
+use App\Http\Controllers\Admin\GalleryController;
 
 
 
@@ -123,7 +124,7 @@ Route::group(['prefix' =>'admin/', 'middleware' => ['auth', 'is_admin']], functi
 
     
     Route::get('/transaction-view/{id}', [TransactionController::class, 'viewTransactionByAdmin'])->name('admin.transactionView');
-
+    
     
     // category
     Route::get('/category', [GalleryController::class, 'category'])->name('admin.category');

@@ -1,10 +1,10 @@
 
     
 
-    <section class="topbar topbar bg-light p-2">
+    <!-- <section class="topbar topbar bg-light p-2">
         <div class="container">
             <div class="row z-index ">
-                <div class="col-md-12 text-center  text-dark">
+               <div class="col-md-12 text-center  text-dark">
                     <h2>The site is not ready yet, we will be live very soon</h2>
                 </div>
                 <div class="col-md-3"></div>
@@ -34,13 +34,14 @@
             </div>
         </div>
     </section>
+    -->
 
     <section class="app-header bg-white">
         <div class="container">
             <div class="row">
                 <nav class="navbar navbar-expand-lg px-3">
                     <a class="navbar-brand" href="{{ route('homepage')}}">
-                        <img src="{{ asset('images/company/'.\App\Models\CompanyDetail::where('id',1)->first()->header_logo)}}" class="img-fluid mx-auto" width="100">
+                        <img src="{{ asset('images/company/'.\App\Models\CompanyDetail::where('id',1)->first()->header_logo)}}" class="img-fluid mx-auto" width="100" >
                     </a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"

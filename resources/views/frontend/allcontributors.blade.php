@@ -8,11 +8,6 @@
 
 
 
-
-            
-
-
-
 <section class="bleesed default">
     <div class="container">
 

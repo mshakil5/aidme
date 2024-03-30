@@ -1,7 +1,38 @@
 @extends('frontend.layouts.master')
 
 @section('content')
+
 <style>
+
+    
+    .custom-list {
+      padding: 0;
+      list-style: none;
+    }
+    .custom-list li{
+      text-decoration: none;
+      padding: 5px 15px;
+      display: block;
+      color: #34342f;
+      text-transform: capitalize;
+      line-height: 2;
+      font-weight: 600;
+    }
+    .custom-list li:hover {
+      background-color: rgba(211, 211, 211, 0.2588235294);
+      color: #dd9509;
+    }
+    
+    .custom-list li:hover {
+      background-color: rgba(211, 211, 211, 0.2588235294);
+      color: #dd9509;
+    }
+    
+    .custom-list li span.active {
+      color: #dd9509;
+    }
+
+
     .photo-gallery {
         color: #313437;
         background-color: #fff;
@@ -59,14 +90,37 @@
     .lb-outerContainer {
     /* display: none !important; */
     }
-
+    
     .height-adjust{
         max-height:75vh;
         overflow-y:scroll;
     }
 
 
+
 </style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AidmeUK - Uniting for a better communitry</title>
+    <link rel="stylesheet" href="./css/bootstrap@5.3.0_dist_css_bootstrap.min.css">
+    <!-- <link rel="stylesheet" type="text/css" href="./css/slick.css" />
+    <link rel="stylesheet" type="text/css" href="./css/slick-theme.css" /> -->
+    <link rel="stylesheet" type="text/css" href="./css/popup.css" />
+    <link rel="stylesheet" href="./css/app.css">
+    
+    
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="Welcome to Aidmeuk- A popular charity in the UK - We will work alongside underprivileged people, supporters, companies, including trusts and institutions to build a better community.">
+    <meta name="author" content="">
+    
+    <meta name="keywords" content="charity,donatio, giving, muslim aid, uk aid, pure water, ">
+    </head>
+
+
 
 <section class="slider">
     <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
@@ -150,25 +204,28 @@
     </div>
 </section>
 
-
-
 <section class="join py-5">
     <div class="container">
         <div class="row align-items-center">
             <div class=" col-md-8">
-                <h2 class="display-6 m-0 text-center">Join With Our
-                    Volunteer Team </h2>
+                <h2 class="display-6 m-0 text-center">Donate direct to our Bank account: </h2>
             </div>
             <div class=" col-md-4 d-flex align-items-center justify-content-center">
+              <p><h2>York United Group Ltd</br>
+SC :30 99 50</br>
+AC :10350363</h2>
+</p>
+                <!--
                 <a class="btn-theme " href="{{route('frontend.volunteerform')}}">learn more
                     <div class="icon">
                         <iconify-icon icon="ph:heart-fill"></iconify-icon>
                     </div>
-                </a>
+                </a>-->
             </div>
         </div>
     </div>
 </section>
+
 
 <section class="post-view spacer">
     <div class="container">
@@ -251,7 +308,7 @@
                 <div class="col-lg-12 mx-auto px-4">
                     <div class="row ">
                         <div class="col-lg-8 shadow-sm border rounded-0 bg-light height-adjust">
-                            <div class="row pt-5 px-4 photos popup-gallery">
+                            <div class="row pt-5 px-4 photos">
 
                                 @foreach ($galleries as $gallery)
                                     <div class="col-sm-6 col-md-4 col-lg-4 item" data-category="{{ $gallery->category->name }}">
@@ -316,7 +373,6 @@
         </div>
     </div>
 </section>
-
 
 
 
