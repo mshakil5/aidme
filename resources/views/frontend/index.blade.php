@@ -308,7 +308,7 @@ AC :10350363</h2>
                 <div class="col-lg-12 mx-auto px-4">
                     <div class="row ">
                         <div class="col-lg-8 shadow-sm border rounded-0 bg-light height-adjust">
-                            <div class="row pt-5 px-4 photos">
+                            <div class="row pt-5 px-4 photos popup-gallery">
 
                                 @foreach ($galleries as $gallery)
                                     <div class="col-sm-6 col-md-4 col-lg-4 item" data-category="{{ $gallery->category->name }}">
@@ -521,6 +521,58 @@ AC :10350363</h2>
                 $('.photos .item[data-category="' + selectedCategory + '"]').show();
             }
         });
+    });
+</script>
+
+
+<script>
+    jQuery(document).ready(function () {
+        jQuery('.popup-gallery').magnificPopup({
+            delegate: 'a',
+            type: 'image',
+            callbacks: {
+                elementParse: function (item) {
+                    console.log(item.el.context.className);
+                    if (item.el.context.className == 'video') {
+                        item.type = 'iframe',
+                            item.iframe = {
+                                patterns: {
+                                    youtube: {
+                                        index: 'youtube.com/',
+
+                                        id: 'v=',
+                                        src: '//www.youtube.com/embed/%id%?autoplay=1' // URL that will be set as a source for iframe. 
+                                    },
+                                    vimeo: {
+                                        index: 'vimeo.com/',
+                                        id: '/',
+                                        src: '//player.vimeo.com/video/%id%?autoplay=1'
+                                    },
+                                    gmaps: {
+                                        index: '//maps.google.',
+                                        src: '%id%&output=embed'
+                                    }
+                                }
+                            }
+                    } else {
+                        item.type = 'image',
+                            item.tLoading = 'Loading image #%curr%...',
+                            item.mainClass = 'mfp-img-mobile',
+                            item.image = {
+                                tError: '<a href="%url%">The image #%curr%</a> could not be loaded.'
+                            }
+                    }
+
+                }
+            },
+            gallery: {
+                enabled: true,
+                navigateByImgClick: true,
+                preload: [0, 1]
+            }
+
+        });
+
     });
 </script>
 @endsection

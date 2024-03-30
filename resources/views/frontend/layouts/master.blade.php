@@ -15,7 +15,8 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/animatecss/3.5.2/animate.min.css" />
     
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/css/lightbox.min.css">
+    <link rel="stylesheet" href="{{ asset('assets/css/magnific-popup.css')}}">
+    {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/css/lightbox.min.css"> --}}
 </head>
 
 <body>
@@ -39,8 +40,11 @@
     <script src="{{ asset('assets/js/cdn.datatables.net_1.13.5_js_jquery.dataTables.min.js')}}" type="text/javascript"></script>
     <script src="https://raw.githubusercontent.com/graingert/WOW/master/src/WOW.js" type="text/javascript"></script>
 
-<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/js/lightbox.min.js"></script>-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/js/lightbox.min.js"></script>
 
+
+    
+    <script src="{{ asset('assets/js/jquery.magnific-popup.min.js')}}" type="text/javascript"></script>
 
     <script>
         // page schroll top
@@ -111,6 +115,7 @@
 
 
     </script>
+
     @yield('script')
 
 </body>
