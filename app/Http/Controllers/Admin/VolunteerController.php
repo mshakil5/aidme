@@ -19,6 +19,7 @@ class VolunteerController extends Controller
     {
         $data = new Volunteer();
         $data->date = $request->date;
+        $data->dob = $request->dob;
         $data->name = $request->name;
         $data->email = $request->email;
         $data->phone = $request->phone;
@@ -53,6 +54,7 @@ class VolunteerController extends Controller
         $data->print_name = $request->print_name;
         $data->address = $request->address;
         $data->profession = $request->profession;
+        $data->dob = $request->dob;
         $data->updated_by = Auth::user()->id;
 
         if ($data->save()) {
@@ -71,5 +73,27 @@ class VolunteerController extends Controller
         else{
             return response()->json(['success'=>false,'message'=>'Update Failed']);
         }
+    }
+
+    public function activevolunteer(Request $request)
+    {
+        $data = Volunteer::find($request->id);
+        $data->status = $request->status;
+        $data->save();
+
+        if($request->status==1){
+            $active = Volunteer::find($request->id);
+            $active->status = $request->status;
+            $active->save();
+            $message ="<div class='alert alert-success'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><b>Active Successfully.</b></div>";
+            return response()->json(['status'=> 300,'message'=>$message]);
+        }else{
+            $deactive = Volunteer::find($request->id);
+            $deactive->status = $request->status;
+            $deactive->save();
+            $message ="<div class='alert alert-danger'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><b>Inactive Successfully.</b></div>";
+            return response()->json(['status'=> 303,'message'=>$message]);
+        }
+
     }
 }

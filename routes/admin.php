@@ -140,5 +140,9 @@ Route::group(['prefix' =>'admin/', 'middleware' => ['auth', 'is_admin']], functi
     Route::post('/volunteer-update', [VolunteerController::class, 'update']);
     Route::get('/volunteer/{id}', [VolunteerController::class, 'delete']);
 
+    
+    // active deactive fundraiser
+    Route::get('active-volunteer', [VolunteerController::class, 'activevolunteer']);
+
 });
 //admin part end

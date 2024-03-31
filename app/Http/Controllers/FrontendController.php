@@ -352,6 +352,7 @@ class FrontendController extends Controller
     public function volunteerStore(Request $request)
     {
         $contactmail = ContactMail::where('id', 1)->first()->email;
+
         $data = new Volunteer();
         $data->name = $request->name;
         $data->email = $request->email;
@@ -360,6 +361,7 @@ class FrontendController extends Controller
         $data->address = $request->address;
         $data->print_name = $request->print_name;
         $data->date = $request->date;
+        $data->dob = $request->dob;
         if ($data->save()) {
 
             $array['name'] = $request->name;

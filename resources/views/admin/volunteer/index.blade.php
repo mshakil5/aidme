@@ -76,6 +76,11 @@
                                         <label for="profession">Profession</label>
                                         <input type="text" id="profession" name="profession" class="form-control">
                                     </div>
+
+                                    <div>
+                                        <label for="dob">Date of birth</label>
+                                        <input type="date" id="dob" name="dob" class="form-control">
+                                    </div>
     
 
                                 </div>
@@ -98,6 +103,7 @@
 </div>
 
 <button id="newBtn" type="button" class="btn-theme bg-primary">Add New</button>
+<div class="stsermsg"></div>
     <hr>
     <div id="contentContainer">
         <div class="row">
@@ -115,6 +121,7 @@
                                     <th style="text-align: center">Name</th>
                                     <th style="text-align: center">Email</th>
                                     <th style="text-align: center">Phone</th>
+                                    <th style="text-align: center">DOB</th>
                                     <th style="text-align: center">Print Name</th>
                                     <th style="text-align: center">Address</th>
                                     <th style="text-align: center">Profession</th>
@@ -130,10 +137,15 @@
                                         <td style="text-align: center">{{$data->name}}</td>
                                         <td style="text-align: center">{{$data->email}}</td>
                                         <td style="text-align: center">{{$data->phone}}</td>
+                                        <td style="text-align: center">{{$data->dob}}</td>
                                         <td style="text-align: center">{{$data->print_name}}</td>
                                         <td style="text-align: center">{{$data->address}}</td>
                                         <td style="text-align: center">{{$data->profession}}</td>
-                                        <td style="text-align: center">{{$data->status}}</td>
+                                        <td style="text-align: center">
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input fundraiserstatus" type="checkbox" role="switch"  data-id="{{$data->id}}" id="fundraiserstatus" @if ($data->status == 1) checked @endif >
+                                            </div>
+                                        </td>
                                         <td style="text-align: center">
                                         <a id="EditBtn" rid="{{$data->id}}"><i class="fa fa-edit" style="color: #2196f3;font-size:16px;"></i></a>
                                         <a id="deleteBtn" rid="{{$data->id}}"><i class="fa fa-trash-o" style="color: red;font-size:16px;"></i></a>
@@ -155,17 +167,42 @@
 
 @endsection
 @section('script')
-
+<script>
+    $(function() {
+      $('.fundraiserstatus').change(function() {
+        var url = "{{URL::to('/admin/active-volunteer')}}";
+          var status = $(this).prop('checked') == true ? 1 : 0;
+          var id = $(this).data('id');
+           console.log(id);
+          $.ajax({
+              type: "GET",
+              dataType: "json",
+              url: url,
+              data: {'status': status, 'id': id},
+              success: function(d){
+                // console.log(data.success)
+                if (d.status == 303) {
+                        pagetop();
+                        $(".stsermsg").html(d.message);
+                        window.setTimeout(function(){location.reload()},2000)
+                    }else if(d.status == 300){
+                        pagetop();
+                        $(".stsermsg").html(d.message);
+                        window.setTimeout(function(){location.reload()},2000)
+                    }
+                },
+                error: function (d) {
+                    console.log(d);
+                }
+          });
+      })
+    })
+</script>
 <script src="//cdn.ckeditor.com/4.13.0/standard/ckeditor.js"></script>
     <script>
         $(document).ready(function () {
             $("#addThisFormContainer").hide();
             $("#newBtn").click(function(){
-                $("#description").addClass("ckeditor");
-                for ( instance in CKEDITOR.instances ) {
-                    CKEDITOR.instances[instance].updateElement();
-                } 
-                 CKEDITOR.replace( 'description' );
                 clearform();
                 $("#newBtn").hide(100);
                 $("#addThisFormContainer").show(300);
@@ -195,6 +232,7 @@
                     form_data.append("phone", $("#phone").val());
                     form_data.append("print_name", $("#print_name").val());
                     form_data.append("address", $("#address").val());
+                    form_data.append("dob", $("#dob").val());
                     form_data.append("profession", $("#profession").val());
                     $.ajax({
                       url: url,
@@ -227,6 +265,7 @@
                     form_data.append("print_name", $("#print_name").val());
                     form_data.append("address", $("#address").val());
                     form_data.append("profession", $("#profession").val());
+                    form_data.append("dob", $("#dob").val());
                     form_data.append("codeid", $("#codeid").val());
                     $.ajax({
                         url:upurl,
@@ -299,6 +338,7 @@
                 $("#print_name").val(data.print_name);
                 $("#address").val(data.address);
                 $("#profession").val(data.profession);
+                $("#dob").val(data.dob);
                 $("#codeid").val(data.id);
                 $("#addBtn").val('Update');
                 $("#addThisFormContainer").show(300);

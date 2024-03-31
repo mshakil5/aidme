@@ -100,6 +100,20 @@
 
                         <div class="row mb-2">
                             <div class="col-4">
+                                <label for="dob" style="font-size: 23px">Date of birth</label>
+                            </div>
+                            <div class="col-8">
+                                <input id="dob" type="date" class="form-control @error('dob') is-invalid @enderror" name="dob" value="{{ old('dob') }}" required autocomplete="dob" placeholder="dob" autofocus>
+                                @error('dob')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="row mb-2">
+                            <div class="col-4">
                                 <label for="address" style="font-size: 23px">Address</label>
                             </div>
                             <div class="col-8">
