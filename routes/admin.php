@@ -103,8 +103,8 @@ Route::group(['prefix' =>'admin/', 'middleware' => ['auth', 'is_admin']], functi
     Route::post('/home-top-section', [MasterController::class, 'homeTopSectionUpdate']);
 
     // payment
-    Route::get('/fundraiser-pay/{id}', [TransactionController::class, 'fundraiserPay'])->name('admin.fundraiserPay');
-    Route::post('/fundraiser-pay', [TransactionController::class, 'fundraiserPayStore'])->name('admin.fundraiserPaystore');
+    // Route::get('/fundraiser-pay/{id}', [TransactionController::class, 'fundraiserPay'])->name('admin.fundraiserPay');
+    // Route::post('/fundraiser-pay', [TransactionController::class, 'fundraiserPayStore'])->name('admin.fundraiserPaystore');
 
 
     
@@ -141,8 +141,11 @@ Route::group(['prefix' =>'admin/', 'middleware' => ['auth', 'is_admin']], functi
     Route::get('/volunteer/{id}', [VolunteerController::class, 'delete']);
 
     
-    // active deactive fundraiser
+    // active deactive volunteer
     Route::get('active-volunteer', [VolunteerController::class, 'activevolunteer']);
+
+    // get all donation 
+    Route::get('/get-all-transaction', [TransactionController::class, 'getAllTransaction'])->name('admin.alltran');
 
 });
 //admin part end

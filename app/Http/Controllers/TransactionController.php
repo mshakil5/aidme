@@ -22,6 +22,18 @@ class TransactionController extends Controller
         return view('admin.donationtype.alltransaction',compact('transaction','moneyIn','moneyOut'));
     }
 
+    public function getAllTransaction()
+    {
+
+        
+        $moneyIn = \App\Models\Transaction::where('tran_type','In')->sum('total_amount');
+        $moneyOut = \App\Models\Transaction::where('tran_type','Out')->sum('total_amount');
+
+        // dd($moneyOut);
+        $transaction = Transaction::orderby('id', 'DESC')->get();
+        return view('admin.transaction.alltransaction',compact('transaction','moneyIn','moneyOut'));
+    }
+
 
     
     
