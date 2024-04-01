@@ -59,6 +59,7 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'phone' => 'required',
+            'hiddenid' => 'required',
             'password' => ['required','min:6'],
             'confirm_password' => 'required|same:password',
         ]);
@@ -74,48 +75,42 @@ class RegisterController extends Controller
      protected function create(array $data)
     {
 
-        $msg = EmailContent::where('title','=','user_registration_mail')->first()->description;
-        $adminmail = ContactMail::where('id', 1)->first()->email;
-        $contactmail = $data['email'];
-
-            $array['contactmail'] = $contactmail;
-            $array['name'] = $data['name'];
-            $array['email'] = $data['email'];
-            $array['message'] = $msg;
-            $array['subject'] = "Welcome to Aidme";
-            $array['from'] = 'do-not-reply@aidmeuk.com';
-            $email = $data['email'];
-
-            
-            $a = Mail::to($contactmail)
-                ->send(new RegistrationMail($array));
-            
-        if ($a) {
-           
-            return User::create([
-                'name' => $data['name'],
-                'email' => $data['email'],
-                'phone' => $data['phone'],
-                'sur_name' => $data['name'],
-                'clientid' => time(),
-                'password' => Hash::make($data['password']),
-            ]);
-            
+        if (empty($data['hiddenid'])) {
+            return $data;
         } else {
-            return "Error";
+            $msg = EmailContent::where('title','=','user_registration_mail')->first()->description;
+            $adminmail = ContactMail::where('id', 1)->first()->email;
+            $contactmail = $data['email'];
+
+                $array['contactmail'] = $contactmail;
+                $array['name'] = $data['name'];
+                $array['email'] = $data['email'];
+                $array['message'] = $msg;
+                $array['subject'] = "Welcome to Aidme";
+                $array['from'] = 'do-not-reply@aidmeuk.com';
+                $email = $data['email'];
+                $a = Mail::to($contactmail)
+                    ->send(new RegistrationMail($array));
+                
+            if ($a) {
+
+                return User::create([
+                    'name' => $data['name'],
+                    'email' => $data['email'],
+                    'phone' => $data['phone'],
+                    'sur_name' => $data['name'],
+                    'clientid' => time(),
+                    'password' => Hash::make($data['password']),
+                ]);
+                
+            } else {
+                return "Error";
+            }
         }
         
-        // return User::create([
-        //     'name' => $data['name'],
-        //     'email' => $data['email'],
-        //     'sur_name' => $data['surname'],
-        //     'house_number' => $data['house_number'],
-        //     'town' => $data['town'],
-        //     'street_name' => $data['street_name'],
-        //     'phone' => $data['phone'],
-        //     'postcode' => $data['postcode'],
-        //     'password' => Hash::make($data['password'])
-        // ]);
+
+        
+        
     }
 
 

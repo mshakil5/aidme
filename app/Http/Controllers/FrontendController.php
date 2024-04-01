@@ -354,6 +354,7 @@ class FrontendController extends Controller
         $contactmail = ContactMail::where('id', 1)->first()->email;
 
         $data = new Volunteer();
+        $data->volunteerid = time();
         $data->name = $request->name;
         $data->email = $request->email;
         $data->phone = $request->phone;
@@ -362,6 +363,7 @@ class FrontendController extends Controller
         $data->print_name = $request->print_name;
         $data->date = $request->date;
         $data->dob = $request->dob;
+        $data->status = 0;
         if ($data->save()) {
 
             $array['name'] = $request->name;

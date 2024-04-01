@@ -29,11 +29,9 @@
                               <div class="title text-center mb-5 txt-secondary">Create Account</div>
                             <div class="form-group">
                                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" placeholder="Name" autofocus>
-                                @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+
+                                <input id="hiddenid" type="hidden" class="form-control" name="hiddenid" value="{{time()}}" >
+                                
                             </div>
                             <div class="form-group" style="display: none">
                                 <input id="surname" type="text" class="form-control @error('surname') is-invalid @enderror" name="surname" value="{{ old('surname') }}" autocomplete="surname" placeholder="Surname" autofocus>
