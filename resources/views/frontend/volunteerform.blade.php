@@ -9,6 +9,66 @@
     .pagetitle{
         font-size: 30px;
     }
+
+    .sectionTitle {
+        font-size: 2rem;
+        text-align: center;
+        color: #000;
+        font-family: 'poppins-bold';
+        padding: 15px 0;
+        margin-bottom: 50px;
+        position: relative;
+        display: inline-block;
+        background: #fff;
+        padding: 14px;
+        }
+
+        @media (max-width: 768px) {
+        .sectionTitle::before {
+            display: none;
+        }
+        }
+
+        .services .items {
+        height: 150px;
+        overflow: hidden;
+        position: relative;
+        margin-bottom: 23px;
+        border-radius: 4px;
+        width: 100%;
+        border-radius: 10px;
+        }
+
+
+        .items {
+            border: 1px solid #ccc;
+            padding: 10px;
+            transition: transform 0.3s ease;
+            background-color: #f0f0f0;
+        }
+
+        .items:hover {
+            transform: scale(1.05);
+        }
+
+        .info {
+            padding: 10px;
+        }
+
+        .name {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .email,
+        .address,
+        .dob {
+            margin-bottom: 5px;
+        }
+
+
+
+
 </style>
 <section class="auth py-4">
     <div class="container">
@@ -185,18 +245,8 @@
                                         </span>
                                     @enderror
                                 </div>
-<!--
-                                <div class="col-6">
-                                    <label style="font-size: 23px"> Sign: ...................................</label>
-                                </div>
-                            </div><br><br>
-<!--
-                            <div class="row mb-2">
-                                <div class="col-12">
-                                    <label style="font-size: 23px"> Approved By: .......................................................................</label>
-                                </div>
-                            </div>
--->
+
+                                
 
                             <div class="col-lg-12 mt-3">
                                 <p class="para mb-3 text-muted fs-6 ">
@@ -226,6 +276,43 @@
         </div>
     </div>
 </section> 
+
+
+<section class="services py-5 border-bottom">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <div class="sectionTitle">
+                    Our Volunteer
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            @foreach (\App\Models\Volunteer::where('status', 1)->get() as $item)
+            <div class="col-md-3">
+                <div class="items bg-olive">
+                    <div class="info">
+                        <div class="name">{{$item->name}}</div>
+                        <div class="email">{{$item->email}}</div>
+                        <div class="address">{{$item->address}}</div>
+                        <div class="dob">{{$item->phone}}</div>
+                    </div>
+                </div>
+            </div>
+            @endforeach
+            
+            
+
+
+
+
+        </div>
+    </div>
+</section>
+
+
+
+
 @endsection
 
 @section('scripts')

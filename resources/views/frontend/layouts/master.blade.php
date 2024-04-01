@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/animatecss/3.5.2/animate.min.css" />
     
     <link rel="stylesheet" href="{{ asset('assets/css/magnific-popup.css')}}">
-    <link rel="stylesheet" href="{{ asset('assets/css/popup.css')}}">
+    {{-- <link rel="stylesheet" href="{{ asset('assets/css/popup.css')}}"> --}}
     {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/css/lightbox.min.css"> --}}
 </head>
 
