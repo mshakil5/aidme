@@ -21,6 +21,7 @@ class VolunteerController extends Controller
     public function store(Request $request)
     {
         $data = new Volunteer();
+        $data->volunteerid = time();
         $data->date = $request->date;
         $data->dob = $request->dob;
         $data->name = $request->name;

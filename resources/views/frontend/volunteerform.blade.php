@@ -293,6 +293,7 @@
                 <div class="items bg-olive">
                     <div class="info">
                         <div class="name">{{$item->name}}</div>
+                        <div class="name">ID: {{$item->volunteerid}}</div>
                         <div class="email">{{$item->email}}</div>
                         <div class="address">{{$item->address}}</div>
                         <div class="dob">{{$item->phone}}</div>

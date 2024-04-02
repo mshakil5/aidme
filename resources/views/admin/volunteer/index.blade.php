@@ -132,7 +132,7 @@
                             <tbody>
                                 @foreach ($data as $key => $data)
                                     <tr>
-                                        <td style="text-align: center">{{ $key + 1 }}</td>
+                                        <td style="text-align: center">{{$data->volunteerid}}</td>
                                         <td style="text-align: center">{{$data->date}}</td>
                                         <td style="text-align: center">{{$data->name}}</td>
                                         <td style="text-align: center">{{$data->email}}</td>
