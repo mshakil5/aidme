@@ -10,6 +10,7 @@ use App\Http\Controllers\FundraiserController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\Admin\ContactMailController; 
 use App\Http\Controllers\SliderController;
+use App\Http\Controllers\ContributorController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\EmailContentController;
 use App\Http\Controllers\Admin\DonationTypeController;
@@ -146,6 +147,14 @@ Route::group(['prefix' =>'admin/', 'middleware' => ['auth', 'is_admin']], functi
 
     // get all donation 
     Route::get('/get-all-transaction', [TransactionController::class, 'getAllTransaction'])->name('admin.alltran');
+
+    
+    // contributor
+    Route::get('/contributor', [ContributorController::class, 'index'])->name('admin.contributor');
+    Route::post('/contributor', [ContributorController::class, 'store']);
+    Route::get('/contributor/{id}/edit', [ContributorController::class, 'edit']);
+    Route::post('/contributor-update', [ContributorController::class, 'update']);
+    Route::get('/contributor/{id}', [ContributorController::class, 'delete']);
 
 });
 //admin part end

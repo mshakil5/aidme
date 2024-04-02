@@ -14,6 +14,7 @@ use App\Mail\EventPaymentMail;
 use App\Mail\PaymentMail;
 use App\Models\CampaignShare;
 use App\Models\Category;
+use App\Models\Contributor;
 use App\Models\Event;
 use App\Models\Gallery;
 use App\Models\Volunteer;
@@ -111,7 +112,8 @@ class FrontendController extends Controller
 
     public function getContributors()
     {
-        return view('frontend.allcontributors');
+        $data = Contributor::orderby('id','DESC')->get();
+        return view('frontend.allcontributors', compact('data'));
     }
 
     
