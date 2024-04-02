@@ -297,7 +297,7 @@ AC :10350363</h2>
             <div class="row justify-content-center">
                 <div class="col-md-8 mx-auto mb-3">
                     <h2 class="title-global text-center">
-                        Gallery
+                        Our Activities
                     </h2>
 
 

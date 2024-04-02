@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Mail\VolunteerMail;
+use App\Models\ContactMail;
 use App\Models\Volunteer;
+use Mail;
 use Illuminate\support\Facades\Auth;
 use Illuminate\Http\Request;
 
@@ -85,6 +88,24 @@ class VolunteerController extends Controller
             $active = Volunteer::find($request->id);
             $active->status = $request->status;
             $active->save();
+
+
+            $adminmail = ContactMail::where('id', 1)->first()->email;
+            $contactmail = $data->email;
+
+                $array['contactmail'] = $contactmail;
+                $array['name'] = $data->name;
+                $array['email'] = $data->email;
+                $array['message'] = "Volunteer registration approved successfully.";
+                $array['subject'] = "Volunteer registration approved";
+                $array['from'] = 'do-not-reply@aidmeuk.com';
+                
+                $a = Mail::to($contactmail)
+                    ->send(new VolunteerMail($array));
+
+
+
+
             $message ="<div class='alert alert-success'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><b>Active Successfully.</b></div>";
             return response()->json(['status'=> 300,'message'=>$message]);
         }else{
