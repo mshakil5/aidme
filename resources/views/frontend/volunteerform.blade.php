@@ -30,7 +30,7 @@
         }
 
         .services .items {
-        height: 150px;
+        height: 215px;
         overflow: hidden;
         position: relative;
         margin-bottom: 23px;
