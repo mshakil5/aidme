@@ -25,7 +25,7 @@
                         <div>
                             <ul class="menu">
 
-                                @foreach (\App\Models\DonationType::where('type', 'Appeals')->get() as $appeals)
+                                @foreach (\App\Models\DonationType::where('type', 'Appeals')->where('status', 0)->get() as $appeals)
                                 <li>
                                     <a href="{{route('projectDetails', $appeals->id)}}" class="d-flex align-items-center">
                                         <iconify-icon icon="mdi-light:chevron-right"
@@ -44,7 +44,7 @@
                         <h5 class="fw-bold txt-primary">What we do</h5>
                         <div>
                             <ul class="menu">
-                                @foreach (\App\Models\DonationType::where('type', 'Projects')->get() as $projects)
+                                @foreach (\App\Models\DonationType::where('type', 'Projects')->where('status', 0)->get() as $projects)
                                 <li>
                                     <a href="{{route('projectDetails', $projects->id)}}" class="d-flex align-items-center">
                                         <iconify-icon icon="mdi-light:chevron-right"

@@ -75,7 +75,7 @@
                                     <iconify-icon icon="tabler:chevron-up" class="up ms-1"></iconify-icon>
                                 </a>
                                 <ul class="dropdown-menu rounded-0 shadow-sm"  aria-labelledby="dropdownItem">
-                                    @foreach (\App\Models\DonationType::where('type', 'Appeals')->get() as $appeals)
+                                    @foreach (\App\Models\DonationType::where('type', 'Appeals')->where('status', 0)->get() as $appeals)
                                     <li><a class="dropdown-item" href="{{route('projectDetails', $appeals->id)}}">{{$appeals->menu}}</a></li>
                                     @endforeach
                                 </ul>
@@ -88,7 +88,7 @@
                                     <iconify-icon icon="tabler:chevron-up" class="up ms-1"></iconify-icon>
                                 </a>
                                 <ul class="dropdown-menu rounded-0 shadow-sm"  aria-labelledby="dropdownItem">
-                                    @foreach (\App\Models\DonationType::where('type', 'Projects')->get() as $projects)
+                                    @foreach (\App\Models\DonationType::where('type', 'Projects')->where('status', 0)->get() as $projects)
                                     <li><a class="dropdown-item" href="{{route('projectDetails', $projects->id)}}">{{$projects->menu}}</a></li>
                                     @endforeach
                                 </ul>
