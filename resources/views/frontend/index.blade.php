@@ -245,7 +245,7 @@ AC :10350363</h2>
 
 
 
-            @foreach (\App\Models\DonationType::where('type', 'Appeals')->orderby('id', 'DESC')->limit(6)->get() as $appeals)
+            @foreach (\App\Models\DonationType::where('type', 'Appeals')->orderby('id', 'DESC')->where('status', 0)->limit(6)->get() as $appeals)
 
             <div class="col-md-4 col-sm-6 col-xs-12  wow fadeInUp " data-wow-delay="0.6s">
                 <div class="card-theme">
