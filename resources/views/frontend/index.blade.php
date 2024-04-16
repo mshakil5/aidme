@@ -170,7 +170,7 @@
     <div class="container">
         <div class="row">
 
-            @foreach (\App\Models\DonationType::where('type', 'Projects')->orderby('id', 'DESC')->limit(3)->get() as $projects)
+            @foreach (\App\Models\DonationType::where('type', 'Projects')->where('status', 0)->orderby('id', 'DESC')->limit(3)->get() as $projects)
 
             <div class="col-md-4">
                 <div class="inner">

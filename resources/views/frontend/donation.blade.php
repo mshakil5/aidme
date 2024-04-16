@@ -121,14 +121,14 @@ $pid = $_GET["pid"];
                             <option value="">Projects</option>
                             
                             <hr>
-                            @foreach (\App\Models\DonationType::where('type', 'Projects')->orderby('id', 'DESC')->get() as $projects)
+                            @foreach (\App\Models\DonationType::where('type', 'Projects')->where('status', 0)->orderby('id', 'DESC')->get() as $projects)
                             <option value="{{$projects->id}}" @if (isset($pid)) @if ($pid == $projects->id) selected @endif @endif>{{$projects->title}}</option>
                             @endforeach
                             <hr>
                             <option value="">Appeals</option>
                             <hr>
 
-                            @foreach (\App\Models\DonationType::where('type', 'Appeals')->orderby('id', 'DESC')->get() as $appeals)
+                            @foreach (\App\Models\DonationType::where('type', 'Appeals')->where('status', 0)->orderby('id', 'DESC')->get() as $appeals)
                             <option value="{{$appeals->id}}" @if (isset($pid)) @if ($pid == $appeals->id) selected @endif @endif>{{$appeals->title}}</option>
                             @endforeach
 
