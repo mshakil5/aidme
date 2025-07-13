@@ -102,8 +102,12 @@
                                 </a>
                                 <ul class="dropdown-menu rounded-0 shadow-sm"  aria-labelledby="dropdownItem">
                                     <li><a class="dropdown-item" href="{{route('frontend.work')}}">How you can help</a></li>
-                                    <li><a class="dropdown-item" href="{{route('frontend.volunteerform')}}">Volunteer with us</a></li>
-                                    <li><a class="dropdown-item" href="{{route('frontend.network')}}">Our Contributors</a></li>
+                                    <li>
+                                        <a class="dropdown-item d-flex align-items-center" href="{{route('frontend.volunteerform')}}">
+                                            <iconify-icon icon="mdi:account-group" class="me-2"></iconify-icon>
+                                            Volunteer with us
+                                        </a>
+                                    </li>           <li><a class="dropdown-item" href="{{route('frontend.network')}}">Our Contributors</a></li>
                                     <li><a class="dropdown-item" href="{{route('frontend.giftaid')}}">Major Gift Giving</a></li>
                                 </ul>
                             </li>

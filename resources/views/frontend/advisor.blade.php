@@ -125,22 +125,7 @@
 
 
             
-            <div class="col-md-4">
-                <div class="inner">
-                    <div class="items wow fadeIn" data-wow-delay="0.6s">
-                        <div class="photo">
-                            <img src="{{ asset('assets/images/posts/jaman.jpg')}}" alt="" class="img-fluid">
-                        </div>
-                        <div class="bottom-part">
-                            <div class="items">
-                                <a href="#" class="title fw-bold">Mr. Khalique Zaman</a>
-                                <div class="sub-title">Financial Advisor </div>
-                            </div>
-                            
-                        </div>
-                    </div>
-                </div>
-            </div>
+            
 
 
 
