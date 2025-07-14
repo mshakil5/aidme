@@ -65,6 +65,7 @@ Route::get('/transparency', [FrontendController::class, 'news'])->name('frontend
 Route::get('/giftaid', [FrontendController::class, 'giftaid'])->name('frontend.giftaid');
 
 Route::get('/advisor', [FrontendController::class, 'advisor'])->name('frontend.advisor');
+Route::get('/financial-statement', [FrontendController::class, 'financialStatement'])->name('frontend.financialStatement');
 
 Route::get('/contact', [FrontendController::class, 'contact'])->name('frontend.contact');
 Route::get('/privacy', [FrontendController::class, 'privacy'])->name('frontend.privacy');

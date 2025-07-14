@@ -384,4 +384,13 @@ class FrontendController extends Controller
             ->with('error','Registration Fail.');
         }
     }
+
+
+    public function financialStatement()
+    {
+        return view('frontend.financialStatement');
+    }
+
+
+
 }

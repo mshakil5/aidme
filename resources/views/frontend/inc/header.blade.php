@@ -64,6 +64,7 @@
                                     <li><a class="dropdown-item" href="{{ route('frontend.directors')}}">Who we are</a></li>
                                     <li><a class="dropdown-item" href="{{ route('frontend.advisor')}}">Advisory Team</a></li>
                                     <li><a class="dropdown-item" href="{{ route('frontend.news')}}">Transparency</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('frontend.financialStatement')}}">Financial Statement</a></li>
                                 </ul>
                             </li>
                             
