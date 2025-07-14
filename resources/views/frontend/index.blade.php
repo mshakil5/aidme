@@ -367,7 +367,9 @@ AC :10350363</h2>
                     
 
                     {!! \App\Models\Master::where('name','homepage2ndsection')->first()->description !!}
-                    
+                    <a href="{{route('frontend.contributors')}}" class="btn-theme ">
+                        Click Here
+                    </a>
                 </div>
             </div>
         </div>

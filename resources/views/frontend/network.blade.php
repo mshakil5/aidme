@@ -35,6 +35,10 @@
                     
                         </br>
                          <p style="color: #fc0fc0;"><b></b><span style="color: #ff00ff;"><a style="color: #000000;" href="{{route('frontend.contributors')}}" target="_blank" rel="noopener noreferrer"><h1> Meet Our Generous Contributors</h1></a></span></p>
+
+                         <a href="{{route('frontend.contributors')}}" class="btn-theme ">
+                            Click Here
+                        </a>
                     
                 </div>
             </div>
