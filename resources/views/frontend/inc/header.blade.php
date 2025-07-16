@@ -108,7 +108,8 @@
                                             <iconify-icon icon="mdi:account-group" class="me-2"></iconify-icon>
                                             Volunteer with us
                                         </a>
-                                    </li>           <li><a class="dropdown-item" href="{{route('frontend.network')}}">Our Contributors</a></li>
+                                    </li>           
+                                    {{-- <li><a class="dropdown-item" href="{{route('frontend.network')}}">Our Contributors</a></li> --}}
                                     <li><a class="dropdown-item" href="{{route('frontend.giftaid')}}">Major Gift Giving</a></li>
                                 </ul>
                             </li>

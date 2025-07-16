@@ -187,9 +187,50 @@
 </section>
 </br>
 
-
-
 <section class="about spacer">
+    <div class="container">
+        <div class="row">
+            
+            
+                <div class="about-right mt-5">
+                    <h2 class="title-global">Our Distinguished Contributors</h2>
+                    <p>At <b>AidmeUK</b>, we believe in the power of collective generosity to create lasting change. To celebrate those who go above and beyond, we proudly recognise individuals and organisations who have donated £1,000 or more as our Distinguished Contributors.</p>
+
+                    <p>
+                      These remarkable supporters are not only vital partners in our mission but also an inspiration to others. Their names, photos, and contributions are featured on our website as a testament to their commitment to making a difference.
+                    </p>
+                    
+                    <p>
+                      <b>Become a Distinguished Contributor:</b> <br>
+                      If you share our vision, we invite you to join this special group. Your substantial contribution will directly support those in need and earn you a place on our honoured list.
+
+                    </p>
+
+                    <p>
+                      <b>Why We Recognise Our Contributors:</b>
+                      This recognition goes beyond acknowledging financial support — it celebrates a shared dedication to positive change and encourages a wider community of giving.
+                    </p>
+
+                    <p>
+                      <b>Together, we can make the world better.</b>
+                    </p>
+
+
+                        </br>
+                         <p style="color: #fc0fc0;"><b></b><span style="color: #ff00ff;"><a style="color: #000000;" href="{{route('frontend.contributors')}}" target="_blank" rel="noopener noreferrer"><h1> Meet Our Generous Contributors</h1></a></span></p>
+
+                         <a href="{{route('frontend.contributors')}}" class="btn-theme ">
+                            Click Here
+                        </a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="about spacer d-none">
     <div class="container">
         <div class="row">
             
