@@ -87,7 +87,7 @@
                                         <td style="text-align: center">{{ $key + 1 }}</td>
                                         <td style="text-align: center">
                                             @if ($data->image)
-                                            <img src="{{asset('images/contributor/'.$data->image)}}" height="120px" width="220px" alt="">
+                                            <img src="{{asset('images/contributor/'.$data->image)}}" height="300px" width="220px" alt="">
                                             @endif
                                         </td>
                                         <td style="text-align: center">{!! $data->description !!}</td>
