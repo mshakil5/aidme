@@ -112,7 +112,7 @@ class FrontendController extends Controller
 
     public function getContributors()
     {
-        $data = Contributor::orderby('id','DESC')->get();
+        $data = Contributor::orderby('serial','ASC')->get();
         return view('frontend.allcontributors', compact('data'));
     }
 

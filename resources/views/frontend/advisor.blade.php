@@ -186,71 +186,48 @@
     </div>
 </section>
 </br>
-<!--
-<section class="director-post">
+
+
+
+<section class="about spacer">
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
-                <h2 class="title-global text-center">Honorable Members</h2>
-            </div>
-            <div class="col-md-4">
-                <div class="inner">
-                    <div class="items wow fadeIn" data-wow-delay="0.6s">
-                        <div class="photo">
-                            <img src="{{ asset('assets/images/posts/kayez.jpeg')}}" alt="" class="img-fluid">
-                        </div>
-                        <div class="bottom-part">
-                            <div class="items">
-                                <a href="#" class="title fw-bold">Mr. Anamu Haque Kayez</a>
-                                <div class="sub-title">Head of Event Management </div>
-                            </div>
-                            
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
             
-            <div class="col-md-4">
-                <div class="inner">
-                    <div class="items wow fadeIn" data-wow-delay="0.6s">
-                        <div class="photo">
-                            <img src="{{ asset('assets/images/posts/shahid.jpeg')}}" alt="" class="img-fluid">
-                        </div>
-                        <div class="bottom-part">
-                            <div class="items">
-                                <a href="#" class="title fw-bold">Mr. Abdus Shahid</a>
-                                <div class="sub-title">Head of Volunteer Management </div>
-                            </div>
-                            
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-
             
-            <div class="col-md-4">
-                <div class="inner">
-                    <div class="items wow fadeIn" data-wow-delay="0.6s">
-                        <div class="photo">
-                            <img src="{{ asset('assets/images/posts/reaz.jpeg')}}" alt="" class="img-fluid">
-                        </div>
-                        <div class="bottom-part">
-                            <div class="items">
-                                <a href="#" class="title fw-bold">Mr. Reaz Chowdhury </a>
-                                <div class="sub-title">Head of Communications  </div>
-                            </div>
-                            
-                        </div>
-                    </div>
+                <div class="about-right mt-5">
+                    <h2 class="title-global">Contributors</h2>
+                    <p>Contributor means a person or an organisation from whom a donation of, not less than <b>£1000.00</b> is received. </p>
+
+                    <b>Honouring Generosity: Our Distinguished Contributors</b>
+
+                     <p>Introduction: AidmeUK, we believe in the power of collective kindness to make a lasting impact on the lives of those in need. In our ongoing efforts to support and uplift communities, we are thrilled to introduce a special initiative that recognizes the extraordinary generosity of individuals who have gone above and beyond in their commitment to making a difference</p></br>
+                     
+                    <p>We are proud to present our distinguished contributor list, featuring the names, photos, and details of those remarkable individuals who have donated<b> £1000.00</b> or more to our cause. These philanthropic leaders have not only demonstrated a deep sense of compassion but have also become integral partners in our mission to create positive change.</p>
+                    
+                    <b>How to Become a Recognized Contributor </b>
+                    
+                    <p>If you share our vision and are interested in becoming a distinguished contributor, we welcome you to reach out to our team. Your substantial contribution will not only make a tangible impact on the lives of those in need but will also earn you a well-deserved place among our esteemed list of contributors</p>
+                    
+                    <b>Why Recognition Matters</b>
+                    
+                    <p> Recognizing our generous contributors is not just about acknowledging their financial support; it's about celebrating a shared commitment to making the world a better place. By showcasing these individuals on our charity website, we aim to inspire others to join in our cause, fostering a sense of community and collective responsibility.</p>
+                    
+                        </br>
+                         <p style="color: #fc0fc0;"><b></b><span style="color: #ff00ff;"><a style="color: #000000;" href="{{route('frontend.contributors')}}" target="_blank" rel="noopener noreferrer"><h1> Meet Our Generous Contributors</h1></a></span></p>
+
+                         <a href="{{route('frontend.contributors')}}" class="btn-theme ">
+                            Click Here
+                        </a>
+                    
                 </div>
             </div>
-
+        </div>
+    </div>
 </section>
--->
+
+
+
+
 @endsection
 
 @section('scripts')
