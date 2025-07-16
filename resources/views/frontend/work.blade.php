@@ -27,20 +27,20 @@
                     </p>
                     
                     <p>
-                        <b>Monetary Donations</b>
+                        <b>Monetary Donations</b> <br>
                         Your financial contributions provide essential resources to fund our programs and initiatives. You can choose to make a one-time donation or set up a recurring donation to offer sustained support.
 
                     </p>
 
                     <p>
-                        <b>Online Giving</b>
+                        <b>Online Giving</b><br>
 
                         Visit our official website to make a secure online donation. We accept major credit cards, and the process is quick, safe, and convenient.
 
                     </p>
 
                     <p>
-                        <b>Bank Transfers</b>
+                        <b>Bank Transfers</b><br>
                         You can also transfer funds directly to our bank account. Bank Account Details:
                         AC name: AidMeuk private Ltd <br>
                         AC Number: 10350363 <br>
@@ -49,37 +49,37 @@
                     </p>
 
                     <p>
-                        <b>Corporate Sponsorship</b>
+                        <b>Corporate Sponsorship</b><br>
                         Businesses can make a meaningful impact through corporate sponsorship. Partner with us to support specific projects or become a long-term sponsor committed to driving positive change.
 
                     </p>
 
                     <p>
-                        <b>In-Kind Donations</b>
+                        <b>In-Kind Donations</b><br>
                         Non-monetary contributions — such as goods, services, or professional expertise — are invaluable to our work. Reach out to discuss how your in-kind donation can help meet specific needs.
 
                     </p>
 
                     <p>
-                        <b>Volunteer Your Time</b>
+                        <b>Volunteer Your Time</b><br>
                         Prefer a hands-on approach? Volunteer your time and skills — your expertise can make a significant difference in the success of our programs.
 
                     </p>
 
                     <p>
-                        <b>Fundraising Events</b>
+                        <b>Fundraising Events</b><br>
                         Organize or take part in fundraising events to help mobilize resources and raise awareness. From charity runs to community gatherings, every effort counts.
 
                     </p>
 
                     <p>
-                        <b>Social Media Advocacy</b>
+                        <b>Social Media Advocacy</b><br>
                         Amplify our mission by spreading the word on social media. Follow us, share our content, and inspire others to get involved.
 
                     </p>
 
                     <p>
-                        <b>Partnerships and Collaborations</b>
+                        <b>Partnerships and Collaborations</b><br>
                         If you represent an organization or group, consider partnering with us. Together, we can expand our reach and make an even greater impact.
 
                     </p>
@@ -89,47 +89,47 @@
 
                         <br>
 
-                        <b>Together, we can make a meaningful difference in the lives of those we serve.</b>
+                        <b>Together, we can make a meaningful difference in the lives of those we serve.</b><br>
 
                     </p>
 
                     <p>
-                        <b>Major Gift Giving</b>
+                        <b>Major Gift Giving</b><br>
                         Discover the profound impact of major gift-giving with AidMeUK as we work to transform lives and uplift communities in need. Major gifts are powerful acts of generosity that enable us to expand our charitable initiatives and drive meaningful change on a larger scale. Here's why major gift-giving matters — and how you can be a catalyst for lasting transformation:
 
                     </p>
 
                     <p>
-                        <b>Magnify Your Impact</b>
+                        <b>Magnify Your Impact</b><br>
                         Major gifts empower us to scale up vital projects and tackle complex social challenges more comprehensively. Your significant contribution becomes a catalyst for far-reaching initiatives, helping us reach more individuals, families, and communities in need.
 
                     </p>
 
                     <p>
-                        <b>Drive Sustainable Change</b>
+                        <b>Drive Sustainable Change</b><br>
                         By making a major gift, you play a critical role in creating sustainable solutions. Your support provides the stability we need to implement long-term programs, ensuring our work has a lasting impact on the lives we touch.
 
                     </p>
 
                     <p>
-                        <b>Be a Force for Good</b>
+                        <b>Be a Force for Good</b><br>
                         As a major donor, you become a true change agent, directly shaping the future of our charitable work. Your commitment inspires others to give generously, creating a community of philanthropists united in tackling society’s most pressing issues.
 
                     </p>
 
                     <p>
-                        <b>Enjoy Personalised Engagement</b>
+                        <b>Enjoy Personalised Engagement</b><br>
                         At AidMeUK, we deeply value major donors. We offer tailored engagement and regular updates, so you can see the tangible difference your generosity makes. You become an integral part of our journey, witnessing the transformative impact your support brings to life.
 
                     </p>
 
                     <p>
-                        <b>Join Us in Making a Difference</b>
+                        <b>Join Us in Making a Difference</b><br>
                         Learn more about major gift-giving and discover how your generous contribution can fuel real change. Your support isn't just a donation — it's an investment in a brighter, more compassionate future. Together, we can build a world where kindness and generosity leave a legacy of hope for those who need it most.
 
                         <br>
 
-                        <b>Become a major gift donor today — and be the difference.</b>
+                        <b>Become a major gift donor today — and be the difference.</b><br>
 
                     </p>
 
