@@ -71,6 +71,8 @@
                         <h3> All Data</h3>
                     </div>
                     <div class="card-body">
+
+                        <div class="stsmsg"></div>
                         <table class="table table-bordered table-hover" id="exdatatable">
                             <thead>
                                 <tr>
@@ -121,6 +123,37 @@
 
 @endsection
 @section('script')
+
+     <script>
+        $(function() {
+          $('.toggle-class').change(function() {
+            var url = "{{URL::to('/admin/activeslider')}}";
+              var status = $(this).prop('checked') == true ? 1 : 0;
+              var id = $(this).data('id');
+               console.log(status);
+              $.ajax({
+                  type: "GET",
+                  dataType: "json",
+                  url: url,
+                  data: {'status': status, 'id': id},
+                  success: function(d){
+                    console.log(d) 
+                    if (d.status == 303) {
+                            $(".stsmsg").html(d.message);
+                        }else if(d.status == 300){
+                            $(".stsmsg").html(d.message);
+                            window.setTimeout(function(){location.reload()},2000)
+                        }
+                    },
+                    error: function (d) {
+                        console.log(d);
+                    }
+              });
+          })
+        })
+      </script>
+
+
 
     <script>
         $(document).ready(function () {

@@ -211,9 +211,9 @@
                 <h2 class="display-6 m-0 text-center">Donate direct to our Bank account: </h2>
             </div>
             <div class=" col-md-4 d-flex align-items-center justify-content-center">
-              <p><h2>York United Group Ltd</br>
-SC :30 99 50</br>
-AC :10350363</h2>
+              <p><h2>Aidmeuk private Ltd</br>
+SC: 30 99 50</br>
+AC: 10350363</h2>
 </p>
                 <!--
                 <a class="btn-theme " href="{{route('frontend.volunteerform')}}">learn more

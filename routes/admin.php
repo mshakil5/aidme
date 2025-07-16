@@ -71,6 +71,7 @@ Route::group(['prefix' =>'admin/', 'middleware' => ['auth', 'is_admin']], functi
     Route::get('/sliders/{id}/edit', [SliderController::class, 'edit']);
     Route::put('/sliders/{id}', [SliderController::class, 'update']);
     Route::get('/sliders/{id}', [SliderController::class, 'delete']);
+    Route::get('/activeslider', [SliderController::class, 'activeslider']);
 
 
 
