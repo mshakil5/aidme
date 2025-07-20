@@ -63,6 +63,7 @@
                                     <li><a class="dropdown-item" href="{{ route('frontend.about')}}">About AidMeUK</a></li>
                                     <li><a class="dropdown-item" href="{{ route('frontend.directors')}}">Who we are</a></li>
                                     <li><a class="dropdown-item" href="{{ route('frontend.advisor')}}">Advisory Team</a></li>
+                                    <li><a class="dropdown-item" href="{{route('frontend.network')}}">Our Contributors</a></li>
                                     <li><a class="dropdown-item" href="{{ route('frontend.news')}}">Transparency</a></li>
                                     <li><a class="dropdown-item" href="{{ route('frontend.financialStatement')}}">Financial Statement</a></li>
                                 </ul>
@@ -105,11 +106,10 @@
                                     <li><a class="dropdown-item" href="{{route('frontend.work')}}">How you can help</a></li>
                                     <li>
                                         <a class="dropdown-item d-flex align-items-center" href="{{route('frontend.volunteerform')}}">
-                                            <iconify-icon icon="mdi:account-group" class="me-2"></iconify-icon>
+                                            {{-- <iconify-icon icon="mdi:account-group" class="me-2"></iconify-icon> --}}
                                             Volunteer with us
                                         </a>
                                     </li>           
-                                    {{-- <li><a class="dropdown-item" href="{{route('frontend.network')}}">Our Contributors</a></li> --}}
                                     <li><a class="dropdown-item" href="{{route('frontend.giftaid')}}">Major Gift Giving</a></li>
                                 </ul>
                             </li>
