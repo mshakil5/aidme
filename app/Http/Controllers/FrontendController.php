@@ -64,9 +64,16 @@ class FrontendController extends Controller
         return view('frontend.volunteerform');
     }
 
-    public function network()
+    public function ourContributors()
     {
-        return view('frontend.network');
+        $data = Contributor::orderby('serial','ASC')->get();
+        return view('frontend.ourContributors', compact('data'));
+    }
+
+    public function getContributors()
+    {
+        $data = Contributor::orderby('serial','ASC')->get();
+        return view('frontend.allcontributors', compact('data'));
     }
 
     public function trustees()
@@ -110,11 +117,7 @@ class FrontendController extends Controller
         return view('frontend.donation');
     }
 
-    public function getContributors()
-    {
-        $data = Contributor::orderby('serial','ASC')->get();
-        return view('frontend.allcontributors', compact('data'));
-    }
+
 
     
 

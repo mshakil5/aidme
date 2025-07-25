@@ -14,8 +14,6 @@
             
             
                 <div class="about-right mt-5">
-                    {{-- <h2 class="title-global">{{\App\Models\Master::where('name','about')->first()->title}}</h2>
-                    {!! \App\Models\Master::where('name','about')->first()->description !!} --}}
                     <h2 class="title-global">Contributors</h2>
                     <p>Contributor means a person or an organisation from whom a donation of, not less than <b>£1000.00</b> is received. </p>
 
@@ -34,11 +32,13 @@
                     <p> Recognizing our generous contributors is not just about acknowledging their financial support; it's about celebrating a shared commitment to making the world a better place. By showcasing these individuals on our charity website, we aim to inspire others to join in our cause, fostering a sense of community and collective responsibility.</p>
                     
                         </br>
-                         <p style="color: #fc0fc0;"><b></b><span style="color: #ff00ff;"><a style="color: #000000;" href="{{route('frontend.contributors')}}" target="_blank" rel="noopener noreferrer"><h1> Meet Our Generous Contributors</h1></a></span></p>
+
+
+                         {{-- <p style="color: #fc0fc0;"><b></b><span style="color: #ff00ff;"><a style="color: #000000;" href="{{route('frontend.contributors')}}" target="_blank" rel="noopener noreferrer"><h1> Meet Our Generous Contributors</h1></a></span></p>
 
                          <a href="{{route('frontend.contributors')}}" class="btn-theme ">
                             Click Here
-                        </a>
+                        </a> --}}
                     
                 </div>
             </div>
@@ -46,6 +46,41 @@
     </div>
 </section>
 
+
+
+<section class="bleesed default">
+    <div class="container">
+
+        <div class="row my-5">
+            <div class="col-lg-10 mx-auto authBox">
+
+                <h3 class="fw-bold txt-primary mb-4"> Meet our contributors</h3>
+
+                <div class="row mb-3">
+
+                    @foreach ($data as $data)
+                        <div class='col-md-6 mb-3 p-5'>
+                            <a target="blank" href="{{asset('images/contributor/'.$data->image)}}" class="img-fluid" title="Some Text for the image">
+                                <img src="{{asset('images/contributor/'.$data->image)}}" style="width:100%;height:330px" class="img-fluid" alt="Alt text" />
+                            </a> 
+                            <p>{!! $data->description !!}
+                                Contributor No. {{$data->serial}}
+                            
+                            </p>  
+                        </div>
+                    @endforeach
+                <div>
+
+                
+
+        
+
+
+            </div>
+        </div>
+
+    </div>
+</section>
 
 
 @endsection

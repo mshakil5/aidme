@@ -5,7 +5,13 @@
 
 @section('content')
 
-
+<style>
+    .small-title {
+        font-size: 1.2em;
+        font-weight: bold;
+        color: #333;
+    }
+</style>
 
 
 <section class="about spacer">
@@ -19,13 +25,13 @@
                     
                     <h2 class="title-global">Major gift giving</h2>
 <p>
-                        <b>Major Gift Giving</b><br>
+                        {{-- <b>Major Gift Giving</b><br> --}}
                         Discover the profound impact of major gift-giving with AidMeUK as we work to transform lives and uplift communities in need. Major gifts are powerful acts of generosity that enable us to expand our charitable initiatives and drive meaningful change on a larger scale. Here's why major gift-giving matters — and how you can be a catalyst for lasting transformation:
 
                     </p>
 
                     <p>
-                        <b>Magnify Your Impact</b><br>
+                        <span class="small-title">Magnify Your Impact</span><br>
                         Major gifts empower us to scale up vital projects and tackle complex social challenges more comprehensively. Your significant contribution becomes a catalyst for far-reaching initiatives, helping us reach more individuals, families, and communities in need.
 
                     </p>
