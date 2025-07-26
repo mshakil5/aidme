@@ -113,8 +113,19 @@
                                         <td style="text-align: center">{{ $key + 1 }}</td>
                                         <td style="text-align: center">{{$data->title}}</td>
                                         <td style="text-align: center">
-                                            @if ($data->image)
-                                            <img src="{{asset('images/'.$data->image)}}" height="120px" width="220px" alt="">
+                                            @if ($data->images && $data->images->count() > 0)
+                                                <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;">
+                                                    @foreach ($data->images->take(3) as $image)
+                                                        <img src="{{ asset('images/'.$image->image) }}" height="80px" style="margin-bottom: 5px; border: 1px solid #ddd; border-radius: 4px;">
+                                                    @endforeach
+                                                    @if ($data->images->count() > 3)
+                                                        <div style="align-self: center; color: #666;">
+                                                            +{{ $data->images->count() - 3 }} more
+                                                        </div>
+                                                    @endif
+                                                </div>
+                                            @else
+                                                <span>No images</span>
                                             @endif
                                         </td>
                                         <td style="text-align: center">{!! $data->description !!}</td>
