@@ -34,16 +34,29 @@
 
             <div class='col-md-8'>
                 <div class="popup-gallery shadow-sm p-4 bg-white">
-                    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-                        <div class="carousel-inner">
-                                <div class="carousel-item  active">
-                                    <a href="#" class="img-fluid" title="Some Text for the image">
-                                        <img src="{{asset('images/'.$data->image)}}" style="width:100%;height:330px" class="img-fluid" alt="Alt text" />
-                                    </a>
-                                </div>
-                          
-                        </div>
-                    </div>
+                  <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                      <div class="carousel-inner">
+                          @foreach ($data->images as $key => $img)
+                          <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
+                              <a href="#" class="img-fluid" title="Project Image">
+                                  <img src="{{ asset('images/' . $img->image) }}" style="width:100%; height:330px; object-fit:cover;" class="img-fluid" alt="project image" />
+                              </a>
+                          </div>
+                          @endforeach
+                      </div>
+
+                      @if(count($data->images) > 1)
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev"
+                            style="width: 40px; height: 40px; background-color: rgba(0,0,0,0.6); border-radius: 50%; top: 50%; transform: translateY(-50%);">
+                            <span class="carousel-control-prev-icon" aria-hidden="true" style="background-size: 60%; filter: invert(1);"></span>
+                        </button>
+
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next"
+                            style="width: 40px; height: 40px; background-color: rgba(0,0,0,0.6); border-radius: 50%; top: 50%; transform: translateY(-50%);">
+                            <span class="carousel-control-next-icon" aria-hidden="true" style="background-size: 60%; filter: invert(1);"></span>
+                        </button>
+                      @endif
+                  </div>
                 </div>
                 <div>
                     <ul class="nav nav-tabs justify-content-start mt-4 mb-2 rounded-0" id="myTab" role="tablist">

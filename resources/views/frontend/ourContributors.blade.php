@@ -54,28 +54,18 @@
         <div class="row my-5">
             <div class="col-lg-10 mx-auto authBox">
 
-                <h3 class="fw-bold txt-primary mb-4"> Meet our contributors</h3>
-
-                <div class="row mb-3">
-
-                    @foreach ($data as $data)
-                        <div class='col-md-6 mb-3 p-5'>
-                            <a target="blank" href="{{asset('images/contributor/'.$data->image)}}" class="img-fluid" title="Some Text for the image">
-                                <img src="{{asset('images/contributor/'.$data->image)}}" style="width:100%;height:330px" class="img-fluid" alt="Alt text" />
-                            </a> 
-                            <p>{!! $data->description !!}
-                                Contributor No. {{$data->serial}}
-                            
-                            </p>  
+                <h2 class="fw-bold txt-primary mb-4 text-center"> Meet our contributors</h2>
+                <div class="row mb-4 justify-content-center">
+                    @foreach ($data as $item)
+                        <div class="col-md-5 mb-4 mx-2 p-3 border rounded shadow-sm">
+                            <a href="{{ asset('images/contributor/' . $item->image) }}" target="_blank" class="d-block mb-3" title="Contributor Image">
+                                <img src="{{ asset('images/contributor/' . $item->image) }}" alt="Contributor Image" style="width:100%; height:280px; object-fit: cover; border-radius: 4px;">
+                            </a>
+                            <p class="text-muted mb-1" style="font-size: 0.9rem;">{!! $item->description !!}</p>
+                            <small class="text-secondary">Contributor No. {{ $item->serial }}</small>
                         </div>
                     @endforeach
-                <div>
-
-                
-
-        
-
-
+                </div>
             </div>
         </div>
 

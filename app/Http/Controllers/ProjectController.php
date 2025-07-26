@@ -19,7 +19,7 @@ class ProjectController extends Controller
         ->twitter()
         ->whatsapp();
 
-        $data = DonationType::where('id', $id)->first();
+        $data = DonationType::with('images')->find($id); 
         return view('frontend.projectdetails', compact('data','shareComponent'));
     }
 }

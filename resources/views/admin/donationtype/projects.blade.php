@@ -47,10 +47,11 @@
                                     </select>
                                 </div>
 
-                                  <div>
-                                      <label for="image">Image</label>
-                                      <input class="form-control" id="image" name="image" type="file">
-                                  </div>
+                              <div>
+                                  <label for="images">Project Images</label>
+                                  <input type="file" class="form-control" id="images" name="images[]" multiple>
+                                  <div id="image-preview-container" class="mt-2"></div>
+                              </div>
 
                                   
                                 <div>
@@ -142,10 +143,30 @@
 
         
 </div>
-
+<link href="https://unpkg.com/filepond@^4/dist/filepond.css" rel="stylesheet" />
+<link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css" rel="stylesheet" />
 
 @endsection
 @section('script')
+<script src="https://unpkg.com/filepond@^4/dist/filepond.js"></script>
+
+<script src="https://unpkg.com/filepond-plugin-file-validate-type/dist/filepond-plugin-file-validate-type.js"></script>
+
+<script src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>
+
+<script>
+  FilePond.registerPlugin(
+    FilePondPluginFileValidateType,
+    FilePondPluginImagePreview
+  );
+
+  const pond = FilePond.create(document.querySelector('#images'), {
+    instantUpload: false,
+    allowMultiple: true,
+    acceptedFileTypes: ['image/*'],
+  });
+
+</script>
 
 <script src="//cdn.ckeditor.com/4.13.0/standard/ckeditor.js"></script>
     <script>
@@ -179,18 +200,26 @@
                     for ( instance in CKEDITOR.instances ) {
                     CKEDITOR.instances[instance].updateElement();
                     } 
-                    var file_data = $('#image').prop('files')[0];
-                    if(typeof file_data === 'undefined'){
-                        file_data = 'null';
-                    }
+                    // var file_data = $('#image').prop('files')[0];
+                    // if(typeof file_data === 'undefined'){
+                    //     file_data = 'null';
+                    // }
 
                     var form_data = new FormData();
-                    form_data.append('image', file_data);
+                    // form_data.append('image', file_data);
                     form_data.append("title", $("#title").val());
                     form_data.append("type", $("#type").val());
                     form_data.append("menu", $("#menu").val());
                     form_data.append("goal", $("#goal").val());
                     form_data.append("description", $("#description").val());
+
+                      var pondFiles = pond.getFiles();
+                      if (pondFiles.length > 0) {
+                          pondFiles.forEach((fileItem) => {
+                              form_data.append("images[]", fileItem.file);
+                          });
+                      }
+
                     $.ajax({
                       url: url,
                       method: "POST",
@@ -216,17 +245,26 @@
                     for ( instance in CKEDITOR.instances ) {
                     CKEDITOR.instances[instance].updateElement();
                     }  
-                    var file_data = $('#image').prop('files')[0];
-                    if(typeof file_data === 'undefined'){
-                        file_data = 'null';
-                    }
+                    // var file_data = $('#image').prop('files')[0];
+                    // if(typeof file_data === 'undefined'){
+                    //     file_data = 'null';
+                    // }
                     var form_data = new FormData();
-                    form_data.append('image', file_data);
+                    // form_data.append('image', file_data);
                     form_data.append("title", $("#title").val());
                     form_data.append("type", $("#type").val());
                     form_data.append("menu", $("#menu").val());
                     form_data.append("goal", $("#goal").val());
                     form_data.append("description", $("#description").val());
+
+                    var pondFiles = pond.getFiles();
+                    if (pondFiles.length > 0) {
+                        pondFiles.forEach((fileItem) => {
+                            form_data.append("images[]", fileItem.file);
+                        });
+                    }
+
+
                     form_data.append('_method', 'put');
                     $.ajax({
                         url:url+'/'+$("#codeid").val(),
@@ -305,10 +343,27 @@
                 $("#addBtn").val('Update');
                 $("#addThisFormContainer").show(300);
                 $("#newBtn").hide(100);
+
+                pond.removeFiles();
+                if (data.images && data.images.length > 0) {
+                  const baseImageUrl = "{{ asset('images') }}/";
+                  data.images.forEach(image => {
+                    const imageUrl = baseImageUrl + image.image;
+
+                    fetch(imageUrl)
+                      .then(res => res.blob())
+                      .then(blob => {
+                        const fileName = image.image.split('/').pop();
+                        const file = new File([blob], fileName, { type: blob.type });
+                        pond.addFile(file);
+                      });
+                  });
+                }
             }
             function clearform(){
                 $('#createThisForm')[0].reset();
                 $("#addBtn").val('Create');
+                pond.removeFiles();
             }
             
         });
