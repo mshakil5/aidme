@@ -32,15 +32,15 @@ class DonationTypeController extends Controller
         $data->goal = $request->goal;
         $data->description = $request->description;
 
-        // if ($request->hasFile('image')) {
-        //     $request->validate([
-        //         'image' => 'required|mimes:jpeg,png,jpg,gif,svg,pdf|max:8048',
-        //     ]);
-        //     $rand = mt_rand(100000, 999999);
-        //     $imageName = time(). $rand .'.'.$request->image->extension();
-        //     $request->image->move(public_path('images'), $imageName);
-        //     $data->image = $imageName;
-        // }
+        if ($request->hasFile('feature_image')) {
+            $request->validate([
+                'feature_image' => 'required|mimes:jpeg,png,jpg,gif,svg,pdf|max:8048',
+            ]);
+            $rand = mt_rand(100000, 999999);
+            $imageName = time(). $rand .'.'.$request->feature_image->extension();
+            $request->feature_image->move(public_path('images'), $imageName);
+            $data->image = $imageName;
+        }
 
         $data->status = "0";
         $data->created_by = Auth::user()->id;
@@ -83,16 +83,16 @@ class DonationTypeController extends Controller
     {
         $data = DonationType::find($id);
 
-        // if($request->image != 'null'){
+        if($request->feature_image != 'null'){
 
-        //     $request->validate([
-        //         'image' => 'required|mimes:jpeg,png,jpg,gif,svg,pdf|max:8048',
-        //     ]);
-        //     $rand = mt_rand(100000, 999999);
-        //     $imageName = time(). $rand .'.'.$request->image->extension();
-        //     $request->image->move(public_path('images'), $imageName);
-        //     $data->image= $imageName;
-        // }
+            $request->validate([
+                'feature_image' => 'required|mimes:jpeg,png,jpg,gif,svg,pdf|max:8048',
+            ]);
+            $rand = mt_rand(100000, 999999);
+            $imageName = time(). $rand .'.'.$request->feature_image->extension();
+            $request->feature_image->move(public_path('images'), $imageName);
+            $data->image= $imageName;
+        }
             $data->title = $request->title;
             $data->type = $request->type;
             $data->menu = $request->menu;

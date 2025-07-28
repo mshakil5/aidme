@@ -48,6 +48,11 @@
                                 </div>
 
                                 <div>
+                                    <label for="feature_image">Feature Images</label>
+                                    <input type="file" class="form-control" id="feature_image" name="feature_image">
+                                </div>
+
+                                <div>
                                     <label for="images">Project Images</label>
                                     <input type="file" class="form-control" id="images" name="images[]" multiple>
                                     <div id="image-preview-container" class="mt-2"></div>
@@ -114,6 +119,8 @@
                                         <td style="text-align: center">
                                             @if ($data->images && $data->images->count() > 0)
                                                 <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;">
+                                                    <img src="{{ asset('images/'.$data->image) }}" height="80px" style="margin-bottom: 5px; border: 1px solid #ddd; border-radius: 4px;">
+
                                                     @foreach ($data->images->take(3) as $image)
                                                         <img src="{{ asset('images/'.$image->image) }}" height="80px" style="margin-bottom: 5px; border: 1px solid #ddd; border-radius: 4px;">
                                                     @endforeach
@@ -214,13 +221,13 @@
                     for ( instance in CKEDITOR.instances ) {
                     CKEDITOR.instances[instance].updateElement();
                     } 
-                    // var file_data = $('#image').prop('files')[0];
-                    // if(typeof file_data === 'undefined'){
-                    //     file_data = 'null';
-                    // }
+                    var file_data = $('#feature_image').prop('files')[0];
+                    if(typeof file_data === 'undefined'){
+                        file_data = 'null';
+                    }
 
                     var form_data = new FormData();
-                    // form_data.append('image', file_data);
+                    form_data.append('feature_image', file_data);
                     form_data.append("title", $("#title").val());
                     form_data.append("type", $("#type").val());
                     form_data.append("menu", $("#menu").val());
@@ -259,12 +266,12 @@
                     for ( instance in CKEDITOR.instances ) {
                     CKEDITOR.instances[instance].updateElement();
                     }  
-                    // var file_data = $('#image').prop('files')[0];
-                    // if(typeof file_data === 'undefined'){
-                    //     file_data = 'null';
-                    // }
+                    var file_data = $('#feature_image').prop('files')[0];
+                    if(typeof file_data === 'undefined'){
+                        file_data = 'null';
+                    }
                     var form_data = new FormData();
-                    // form_data.append('image', file_data);
+                    form_data.append('feature_image', file_data);
                     form_data.append("title", $("#title").val());
                     form_data.append("type", $("#type").val());
                     form_data.append("menu", $("#menu").val());
