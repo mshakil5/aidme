@@ -435,6 +435,15 @@ p {
   .slider .carousel-text h1 {
     font-size: 19px;
   }
+  .slider .carousel-item {
+    min-height: 37vh !important;
+  }
+
+  .slider .carousel-item img {
+    height: 45% !important;
+    -o-object-fit: cover;
+      object-fit: cover;
+  }
 }
 .slider .carousel-item {
   min-height: 100vh;
@@ -548,7 +557,7 @@ p {
 .featured-post .inner .items .bottom-part .items .link:before {
   content: "";
   position: absolute;
-  background: orange;
+  /* background: orange;  */
   right: 0;
   top: 0;
   bottom: 0;

@@ -185,7 +185,7 @@
                                 <a href="{{route('projectDetails', $projects->id)}}" class="title fw-bold">{{$projects->title}}</a>
                                 {{-- <div class="sub-title">Giving money to food </div> --}}
                             </div>
-                            <div class="items">
+                            <div class="items d-none d-md-block">
                                 <div class="link">
                                     <a href="{{route('projectDetails', $projects->id)}}">
                                         <iconify-icon icon="ci:chevron-right-duo"></iconify-icon>

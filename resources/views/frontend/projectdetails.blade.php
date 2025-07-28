@@ -58,15 +58,15 @@
                       @endif
                   </div>
                 </div>
-                <div>
-                    <ul class="nav nav-tabs justify-content-start mt-4 mb-2 rounded-0" id="myTab" role="tablist">
+                <div class="mb-4 mt-3">
+                    {{-- <ul class="nav nav-tabs justify-content-start mt-4 mb-2 rounded-0" id="myTab" role="tablist">
                         <li class="nav-item" role="presentation">
                             <button class="nav-link fs-5 active" id="home-tab" data-bs-toggle="tab"
                                 data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane"
-                                aria-selected="true">Story</button>
+                                aria-selected="true"></button>
                         </li>
                         
-                    </ul>
+                    </ul> --}}
                     <div class="tab-content fs-5 mb-4" id="myTabContent">
                         <div class="tab-pane fade p-4 bg-white show text-justify active" id="home-tab-pane" role="tabpanel"
                             aria-labelledby="home-tab" tabindex="0">

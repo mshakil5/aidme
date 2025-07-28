@@ -36,12 +36,25 @@
     </section>
     -->
 
+    <style>
+        .header-logo {
+            width: 100px;
+            height: auto;
+        }
+        
+        @media (max-width: 768px) {
+            .header-logo {
+                width: 60px !important;
+            }
+        }
+    </style>
+
     <section class="app-header bg-white">
         <div class="container">
             <div class="row">
                 <nav class="navbar navbar-expand-lg px-3">
                     <a class="navbar-brand" href="{{ route('homepage')}}">
-                        <img src="{{ asset('images/company/'.\App\Models\CompanyDetail::where('id',1)->first()->header_logo)}}" class="img-fluid mx-auto" width="100" >
+                        <img src="{{ asset('images/company/'.\App\Models\CompanyDetail::where('id',1)->first()->header_logo)}}" class="img-fluid mx-auto header-logo" >
                     </a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
@@ -62,7 +75,7 @@
                                 <ul class="dropdown-menu rounded-0 shadow-sm"  aria-labelledby="dropdownItem">
                                     <li><a class="dropdown-item" href="{{ route('frontend.about')}}">About AidMeUK</a></li>
                                     <li><a class="dropdown-item" href="{{ route('frontend.directors')}}">Who we are</a></li>
-                                    <li><a class="dropdown-item" href="{{ route('frontend.advisor')}}">Advisory Team</a></li>
+                                    {{-- <li><a class="dropdown-item" href="{{ route('frontend.advisor')}}">Advisory Team</a></li> --}}
                                     <li><a class="dropdown-item" href="{{route('frontend.network')}}">Our Contributors</a></li>
                                     <li><a class="dropdown-item" href="{{ route('frontend.news')}}">Transparency</a></li>
                                     <li><a class="dropdown-item" href="{{ route('frontend.financialStatement')}}">Financial Statement</a></li>

@@ -230,6 +230,93 @@
 
 </section>
 
+
+<section class="director-post">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="title-global text-center">Advisory Team</h2>
+            </div>
+            <div class="col-md-4">
+                <div class="inner">
+                    <div class="items wow fadeIn" data-wow-delay="0.6s">
+                        <div class="photo">
+                            <img src="{{ asset('assets/images/posts/fozla.png')}}" alt="" class="img-fluid">
+                        </div>
+                        <div class="bottom-part">
+                            <div class="items">
+                                <a href="#" class="title fw-bold">Mr. Fozla Bhuyain</a>
+                                <div class="sub-title">Information Technology Advisor </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            
+            
+
+
+
+            
+            <div class="col-md-4">
+                <div class="inner">
+                    <div class="items wow fadeIn" data-wow-delay="0.6s">
+                        <div class="photo">
+                            <img src="{{ asset('assets/images/posts/joynal.jpeg')}}" alt="" class="img-fluid">
+                        </div>
+                        <div class="bottom-part">
+                            <div class="items">
+                                <a href="#" class="title fw-bold">Dr. M Abedin</a>
+                                <div class="sub-title">Financial Advisor</div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            
+            
+             <div class="col-md-4">
+                <div class="inner">
+                    <div class="items wow fadeIn" data-wow-delay="0.6s">
+                        <div class="photo">
+                            <img src="{{ asset('assets/images/posts/AtikAnwarchowdhury.png')}}" alt="" class="img-fluid">
+                        </div>
+                        <div class="bottom-part">
+                            <div class="items">
+                                <a href="#" class="title fw-bold">Atik Anwar chowdhury</a>
+                                <div class="sub-title">Project and planning Advisor</div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+             <div class="col-md-4">
+                <div class="inner">
+                    <div class="items wow fadeIn" data-wow-delay="0.6s">
+                        <div class="photo">
+                            <img src="{{ asset('assets/images/posts/MohammedSahil.png')}}" alt="" class="img-fluid">
+                        </div>
+                        <div class="bottom-part">
+                            <div class="items">
+                                <a href="#" class="title fw-bold">Mohammad Sahil</a>
+                                <div class="sub-title">Project and planning-Advisor</div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+         
+        </div>
+    </div>
+</section>
+
 @endsection
 
 @section('scripts')
