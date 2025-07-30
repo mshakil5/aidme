@@ -75,6 +75,21 @@
         padding-bottom: 30px;
     }
 
+    @media (max-width: 768px) {
+        .slider .carousel-text h1 {
+            font-size: 19px;
+        }
+        .slider .carousel-item {
+            min-height: 37vh !important;
+        }
+
+        .slider .carousel-item img {
+            height: 45% !important;
+            -o-object-fit: cover;
+            object-fit: cover;
+        }
+    }
+
 
     /* .lightbox {
     display: none !important;
