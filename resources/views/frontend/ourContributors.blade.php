@@ -59,7 +59,7 @@
                     @foreach ($data as $item)
                         <div class="col-md-5 mb-4 mx-2 p-3 border rounded shadow-sm">
                             <a href="{{ asset('images/contributor/' . $item->image) }}" target="_blank" class="d-block mb-3" title="Contributor Image">
-                                <img src="{{ asset('images/contributor/' . $item->image) }}" alt="Contributor Image" style="width:100%; height:280px; object-fit: cover; border-radius: 4px;">
+                                <img src="{{ asset('images/contributor/' . $item->image) }}" alt="Contributor Image" style="width:100%; height:380px; object-fit: cover; border-radius: 4px;">
                             </a>
                             <p class="text-muted mb-1" style="font-size: 0.9rem;">{!! $item->description !!}</p>
                             <small class="text-secondary">Contributor No. {{ $item->serial }}</small>
