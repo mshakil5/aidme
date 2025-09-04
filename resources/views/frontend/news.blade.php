@@ -17,14 +17,9 @@
                     {!! \App\Models\Master::where('name','about')->first()->description !!} --}}
                     <p>
                         <b>AIDMEUK</b>, we are committed to maintaining the highest standards of transparency and accountability. We believe that openness with our stakeholders, including donors, beneficiaries, and the public, is crucial in building trust and ensuring the effective use of resources for our charitable mission.
-                    </p>                    <h2 class="title-global">Annual Financial Report</h2>
+                    </p>                    
                     </br>
-                     <p> One of the keyways we demonstrate transparency is through the publication of our annual financial report. This comprehensive document provides a detailed overview of our financial activities, including income, expenses, and the allocation of funds to various programs and initiatives. Our stakeholders can access this report on our website.</p>
-                    </br>
-                    <h2 class="title-global">Impact Reports</h2>
                     
-                    <p> In addition to financial transparency, we are committed to sharing the impact of our work. Our annual impact reports showcase the outcomes and achievements of our programs and initiatives. These reports highlight the tangible difference we are making in the lives of those we serve and contribute to our commitment to accountability.</p>
-                    </br>
                     <h2 class="title-global">Donor Privacy and Acknowledgment</h2>
                     
                    <p>  Respecting the privacy of our donors is of utmost importance. We adhere to strict confidentiality standards, ensuring that donor information is handled with the utmost care and used only for the intended purpose. Donors are acknowledged and recognized in a manner consistent with their preferences and our ethical guidelines.</p>
@@ -57,6 +52,16 @@
                 <h2 class="secTtile text-center text-dark text-uppercase fw-bold title-font wow bounce">Financial Statement</h2>
             </div>
             <div class="row mt-5 mb-5">
+
+
+                <h2 class="title-global">Annual Financial Report</h2>
+                    </br>
+                     <p> One of the keyways we demonstrate transparency is through the publication of our annual financial report. This comprehensive document provides a detailed overview of our financial activities, including income, expenses, and the allocation of funds to various programs and initiatives. Our stakeholders can access this report on our website.</p>
+
+
+
+
+
                 <div class="accordion accordion-flush" id="accordionFlushExample">
                     <div class="accordion-item rounded-3 border-0 shadow mb-2 fadeInUp wow">
                         <h2 class="accordion-header">
