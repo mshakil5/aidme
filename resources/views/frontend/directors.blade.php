@@ -195,7 +195,7 @@
                 <div class="inner">
                     <div class="items wow fadeIn" data-wow-delay="0.6s">
                         <div class="photo">
-                            <img src="{{ asset('assets/images/posts/tazim.jpg')}}" alt="" class="img-fluid">
+                            <img src="{{ asset('assets/images/posts/tazim.jpg')}}" alt="" class="img-fluid" height="300px">
                         </div>
                         <div class="bottom-part">
                             <div class="items">
