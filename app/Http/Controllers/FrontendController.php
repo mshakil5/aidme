@@ -22,6 +22,8 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\URL;
 use DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Log;
 
 class FrontendController extends Controller
 {
@@ -151,93 +153,74 @@ class FrontendController extends Controller
 
     public function visitorContact(Request $request)
     {
-        $name = $request->name;
-        $email = $request->email;
-        $visitor_subject = $request->subject;
-        $visitor_message = $request->message;
+        // Validation rules & custom messages
+        $rules = [
+            'name'    => 'required|string|max:255',
+            'email'   => 'required|email:rfc|max:255',
+            'subject' => 'required|string|max:255',
+            'message' => 'required|string|min:5',
+            'captcha' => ['required', function ($attribute, $value, $fail) {
+                if ((int)$value !== (int) session('contact_captcha_sum')) {
+                    $fail('The math captcha answer is incorrect.');
+                }
+            }],
+            // honeypot must be empty
+            'website' => 'nullable|max:0',
+        ];
 
-        $emailValidation = "/^[a-zA-Z0-9._-]+@[a-zA-Z0-9-]+\.[a-zA-Z.]{2,10}$/";
+        $messages = [
+            'name.required'    => 'Please fill the name field.',
+            'email.required'   => 'Please fill the email field.',
+            'email.email'      => 'Please provide a valid email address.',
+            'subject.required' => 'Please fill the subject field.',
+            'message.required' => 'Please write your query in message field.',
+            'message.min'      => 'Message is too short.',
+            'website.max'      => 'Spam detected.',
+            'captcha.required' => 'Please solve the math question to prove you are human.',
+        ];
 
-        if(empty($name)){
-            $message ="<div class='alert alert-danger alert-dismissible fade show' role='alert'>
-            Please fill name field, thank you!
-            <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>";
-            return response()->json(['status'=> 303,'message'=>$message]);
-            exit();
-        }
-        
-        if(empty($email)){
-            $message ="<div class='alert alert-danger alert-dismissible fade show' role='alert'>
-            Please fill email field, thank you!
-            <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>";
-            return response()->json(['status'=> 303,'message'=>$message]);
-            exit();
-        }
+        $validator = Validator::make($request->all(), $rules, $messages);
 
-        if(!preg_match($emailValidation,$email)){
-	    
-            $message ="<div class='alert alert-danger alert-dismissible fade show' role='alert'>
-            Your mail ".$email." is not valid mail. Please wirite a valid mail, thank you!
-            <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>";
-            return response()->json(['status'=> 303,'message'=>$message]);
-            exit();
-            
-        }
-        
-        if(empty($visitor_subject)){
-            $message ="<div class='alert alert-danger alert-dismissible fade show' role='alert'>
-            Please fill subject field, thank you!
-            <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>";
-            return response()->json(['status'=> 303,'message'=>$message]);
-            exit();
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors()], 422);
         }
 
-        if(empty($visitor_message)){
-            $message ="<div class='alert alert-danger alert-dismissible fade show' role='alert'>
-            Please write your query in message field, thank you!
-            <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>";
-            return response()->json(['status'=> 303,'message'=>$message]);
-            exit();
+        // Extra check: honeypot field or session missing
+        if ($request->filled('website')) {
+            Log::warning('Contact honeypot filled', ['ip' => $request->ip(), 'payload' => $request->only('name','email','subject')]);
+            return response()->json(['status' => 303, 'message' => '<div class="alert alert-danger">Spam detected.</div>']);
         }
 
-        $contactmail = ContactMail::where('id', 1)->first()->email;
+        // Save contact
         $contact = new Contact();
         $contact->name = $request->name;
-        $contact->email = $request->email; 
-        $contact->subject = $request->subject; 
-        $contact->message = $request->message; 
-        if ($contact->save()) {
+        $contact->email = $request->email;
+        $contact->subject = $request->subject;
+        $contact->message = $request->message;
 
-            $array['name'] = $request->name;
-            $array['email'] = $request->email;
-            $array['subject'] = $request->subject;
-            $array['message'] = $request->message;
-            $array['contactmail'] = $contactmail;
-            Mail::to($contactmail)
-            ->send(new ContactFormMail($array));
-            
-
-            // Mail::to($contactmail)->queue(new ContactFormMail($array));
-
-            
-            // $array['name'] = $request->name;
-            // $array['email'] = $request->email;
-            // $array['subject'] = $request->subject;
-            // $array['message'] = $request->message;
-            // $array['contactmail'] = $contactmail;
-
-            // $email_to = "kazimuhammadullah@gmail.com";
-            // Mail::send('emails.contactmail', compact('array'), function($message)use($array,$email_to) {
-            //     $message->from('info@fancybeautyhairprofessional.com', 'Test International');
-            //     $message->to($email_to)
-            //     ->subject($array["subject"]);
-            //     });
-
-            $message ="<div class='alert alert-success'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><b>Message Send Successfully.</b></div>";
-            return response()->json(['status'=> 300,'message'=>$message]);
-        } else {
-            return response()->json(['status'=> 303,'message'=>'Server Error']);
+        if (! $contact->save()) {
+            return response()->json(['status' => 303, 'message' => '<div class="alert alert-danger">Server Error</div>']);
         }
+
+        // Send mail (graceful)
+        try {
+            $contactmail = ContactMail::where('id',1)->value('email');
+            $array = [
+                'name' => $request->name,
+                'email' => $request->email,
+                'subject' => $request->subject,
+                'message' => $request->message,
+                'contactmail' => $contactmail,
+            ];
+
+            Mail::to($contactmail)->send(new ContactFormMail($array));
+        } catch (\Exception $e) {
+            Log::error('Contact form mail failed: '.$e->getMessage(), ['contact_id' => $contact->id]);
+            // still return success to user so bots can't easily detect mail failure
+        }
+
+        $message = "<div class='alert alert-success'><b>Message sent successfully.</b></div>";
+        return response()->json(['status' => 300, 'message' => $message]);
     }
 
     public function campaignMessage(Request $request)
@@ -376,8 +359,9 @@ class FrontendController extends Controller
             $array['subject'] = "Volunteer Registration Form";
             $array['message'] = "Some text here";
             $array['contactmail'] = $contactmail;
-            // Mail::to($contactmail)
-            // ->send(new ContactFormMail($array));
+
+            Mail::to($contactmail)
+            ->send(new ContactFormMail($array));
 
             
             return view('frontend.volunteerform')

@@ -12,6 +12,7 @@ use App\Http\Controllers\StripeController;
 use App\Http\Controllers\PaypalController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\SocialLoginController;
+use App\Http\Controllers\VolunteerController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
 
@@ -85,6 +86,9 @@ Route::get('/project-details/{id}', [ProjectController::class, 'projectDetails']
 
 
 
+Route::get('/volunteers', [VolunteerController::class, 'showForm'])->name('volunteers.form');
+Route::post('/volunteers', [VolunteerController::class, 'store'])
+    ->name('volunteers.store');
 
 /*------------------------------------------
 --------------------------------------------
