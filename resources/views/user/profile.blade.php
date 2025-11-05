@@ -14,7 +14,7 @@
                   @if (isset(Auth::user()->photo))
                       <img src="{{ asset('images/'.Auth::user()->photo)}}" alt="Profile" class="rounded-circle ">
                   @else
-                  <img src="https://via.placeholder.com/510x440.png" alt="Profile" class="rounded-circle ">
+                  <img src="1.png" alt="Profile" class="rounded-circle ">
                   @endif
                   <h2>{{Auth::user()->name}}</h2>
                 </div>

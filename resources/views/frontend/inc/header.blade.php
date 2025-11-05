@@ -207,7 +207,8 @@
                                             <img width="45px" src="{{ asset('images/'.Auth::user()->photo)}}" alt="Profile" class="rounded-circle">
                                             @else
                                                 
-                                            <img width="45px" src="{{ asset('assets/images/posts/1.jpg')}}" alt="Profile" class="rounded-circle">
+                                            <img width="45px" src="{{ asset('1.png')}}" alt="Profile" class="rounded-circle">
+
                                             @endif
                                             {{-- <span class="d-none d-md-block dropdown-toggle ps-2">{{Auth::user()->name}}</span> --}}
                                         </a><!-- End Profile Iamge Icon -->

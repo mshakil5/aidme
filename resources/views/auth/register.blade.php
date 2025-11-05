@@ -26,96 +26,62 @@
                          
                         <form method="POST" action="{{ route('register') }}" class="form-custom py-4">
                             @csrf
-                              <div class="title text-center mb-5 txt-secondary">Create Account</div>
-                            <div class="form-group">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" placeholder="Name" autofocus>
+                            <div class="title text-center mb-5 txt-secondary">Create Account</div>
 
-                                <input id="hiddenid" type="hidden" class="form-control" name="hiddenid" value="{{time()}}" >
-                                
-                            </div>
-                            <div class="form-group" style="display: none">
-                                <input id="surname" type="text" class="form-control @error('surname') is-invalid @enderror" name="surname" value="{{ old('surname') }}" autocomplete="surname" placeholder="Surname" autofocus>
-                                @error('surname')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
                             <div class="form-group">
-                                <input id="phone" type="number" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" required autocomplete="phone" placeholder="Phone Number" autofocus>
-                                @error('phone')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror"
+                                    name="name" value="{{ old('name') }}" required placeholder="Name">
+                                @error('name') <span class="invalid-feedback">{{ $message }}</span> @enderror
                             </div>
-                            <div class="form-group" style="display: none">
-                                <input id="house_number" type="text" class="form-control @error('house_number') is-invalid @enderror" name="house_number" value="{{ old('house_number') }}" autocomplete="house_number" placeholder="House Number" autofocus>
-                                @error('house_number')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                            <div class="form-group" style="display: none">
-                                <input id="street_name" type="text" class="form-control @error('street_name') is-invalid @enderror" name="street_name" value="{{ old('street_name') }}" autocomplete="street_name" placeholder="Street" autofocus>
-                                @error('street_name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                            <div class="form-group" style="display: none">
-                                <input id="town" type="text" class="form-control @error('town') is-invalid @enderror" name="town" value="{{ old('town') }}" autocomplete="town" placeholder="Town" autofocus>
-                                @error('town')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                            <div class="form-group" style="display: none">
-                                <input id="postcode" type="text" class="form-control @error('postcode') is-invalid @enderror" name="postcode" value="{{ old('postcode') }}" autocomplete="postcode" placeholder="Post code" autofocus>
-                                @error('postcode')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
+
+                            <input type="hidden" name="hiddenid" value="{{ time() }}">
+
                             <div class="form-group">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Email" autofocus>
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                <input id="phone" type="number" class="form-control @error('phone') is-invalid @enderror"
+                                    name="phone" value="{{ old('phone') }}" required placeholder="Phone Number">
+                                @error('phone') <span class="invalid-feedback">{{ $message }}</span> @enderror
                             </div>
+
                             <div class="form-group">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="password" placeholder="Password" autofocus>
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
+                                    name="email" value="{{ old('email') }}" required placeholder="Email">
+                                @error('email') <span class="invalid-feedback">{{ $message }}</span> @enderror
                             </div>
+
                             <div class="form-group">
-                                <input id="confirm_password" type="password" class="form-control @error('confirm_password') is-invalid @enderror" name="confirm_password" required autocomplete="confirm_password" placeholder="Confirm Password" autofocus>
-                                @error('confirm_password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror"
+                                    name="password" required placeholder="Password">
+                                @error('password') <span class="invalid-feedback">{{ $message }}</span> @enderror
                             </div>
-                            <!-- <div class="form-group">
-                                <textarea class="form-control" rows="3" placeholder="Message"></textarea> 
-                            </div> -->
+
                             <div class="form-group">
-                                <button type="submit" class="btn-theme bg-primary d-block text-center mx-0 w-100">Sign up</button>
+                                <input id="confirm_password" type="password" class="form-control"
+                                    name="confirm_password" required placeholder="Confirm Password">
                             </div>
+
+                            {{-- Math Captcha --}}
+                            @php
+                                $a = rand(1, 9);
+                                $b = rand(1, 9);
+                                session(['captcha_sum' => $a + $b]);
+                            @endphp
+
+                            <div class="form-group">
+                                <label for="captcha">What is {{ $a }} + {{ $b }}?</label>
+                                <input id="captcha" type="text" class="form-control @error('captcha') is-invalid @enderror"
+                                    name="captcha" required placeholder="Enter the answer">
+                                @error('captcha') <span class="invalid-feedback">{{ $message }}</span> @enderror
+                            </div>
+
+                            {{-- Honeypot field (bots usually fill this) --}}
+                            <input type="text" name="website" value="" style="display:none">
+
                             <div class="form-group d-flex justify-content-center">
-                                <span class="txt-primary fs-20 me-2 ">or</span>
-                                 <a href="{{ route('login')}}" class="theme-link"> log into another account</a>
+                                <button type="submit" class="btn-theme bg-primary px-5 py-2">Sign up</button>
                             </div>
+
                         </form>
+
                     </div>
                    
                 </div>
