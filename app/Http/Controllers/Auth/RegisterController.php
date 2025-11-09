@@ -130,11 +130,13 @@ class RegisterController extends Controller
             'from'        => 'info@aidmeuk.com',
         ];
 
-        try {
-            Mail::to($data['email'])->send(new RegistrationMail($mailData));
-        } catch (\Exception $e) {
-            \Log::error('Registration email failed: ' . $e->getMessage());
-        }
+        Mail::to($data['email'])->send(new RegistrationMail($mailData));
+
+        // try {
+        //     Mail::to($data['email'])->send(new RegistrationMail($mailData));
+        // } catch (\Exception $e) {
+        //     \Log::error('Registration email failed: ' . $e->getMessage());
+        // }
 
         // Finally create user
         return User::create([
