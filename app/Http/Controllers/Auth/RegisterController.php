@@ -127,7 +127,7 @@ class RegisterController extends Controller
             'email'       => $data['email'],
             'message'     => $emailContent->description ?? 'Welcome to Aidme!',
             'subject'     => 'Welcome to Aidme',
-            'from'        => 'do-not-reply@aidmeuk.com',
+            'from'        => 'info@aidmeuk.com',
         ];
 
         try {
@@ -192,7 +192,7 @@ class RegisterController extends Controller
             $array['email'] = $email;
             $array['message'] = $msg;
             $array['subject'] = "Welcome to Aidme";
-            $array['from'] = 'do-not-reply@aidmeuk.com';
+            $array['from'] = 'info@aidmeuk.com';
             
             $a = Mail::to($contactmail)
                 ->cc($adminmail)

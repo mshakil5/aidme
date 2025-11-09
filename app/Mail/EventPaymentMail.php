@@ -40,7 +40,7 @@ class EventPaymentMail extends Mailable
      */
     public function build()
     {
-        return $this->from('do-not-reply@aidmeuk.com', 'Aidme')
+        return $this->from('info@aidmeuk.com', 'Aidme')
                     ->subject($this->array['subject'])
                     ->markdown('emails.eventpayment');
     }
