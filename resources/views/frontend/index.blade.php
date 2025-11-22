@@ -162,6 +162,198 @@
     </div>
 </section>
 
+
+
+<style>
+    :root{
+        --base:#0e0e4e;
+        --base-1:#1a1a7a;
+        --base-2:#28328f;
+        --accent:#0d6efd;
+        --bg:#ffffff;
+        --card-radius:12px;
+        --dot-size:44px;
+        --dot-icon-size:22px;
+    }
+    body{background:#f5f5f9;font-family:Arial, sans-serif;margin:0;padding:0;}
+    .timeline-body{background:#f5f5f9;font-family:Arial, sans-serif;margin:0;padding:0;}
+    .timeline-wrap{max-width:1000px;margin:2rem auto;padding:2rem 1rem;position:relative;}
+    .timeline-wrap::before{
+        content:"";
+        position:absolute;left:50%;transform:translateX(-50%);
+        top:0;bottom:0;width:4px;
+        background:var(--accent);
+        z-index:1;border-radius:4px;
+    }
+    /* Keep grid structure for the timeline columns */
+    .timeline{display:grid;grid-template-columns:1fr 80px 1fr;position:relative;z-index:2;gap:1rem;}
+    .timeline-item{position:relative;margin:2rem 0;display:contents;}
+    .dot-wrap{grid-column:2;display:flex;align-items:center;justify-content:center;position:relative;z-index:3;}
+    .dot{width:var(--dot-size);height:var(--dot-size);border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 0 10px rgba(0,0,0,.15);}
+    .card{padding:1rem 1.25rem;border-radius:var(--card-radius);box-shadow:0 6px 20px rgba(12,14,45,.06);color:var(--bg);max-width:420px;}
+    .year-title{font-size:1.15rem;font-weight:700;margin-bottom:.45rem;color:#fff;}
+    .list-wrap ul{margin:0;padding-left:0;list-style:none;}
+    .list-wrap li{margin:.35rem 0;font-size:.96rem;color:#fff;position:relative;padding-left:1.2rem;}
+    .list-wrap li::before{content:'➤';position:absolute;left:0;color:#fff;}
+    .left .content{grid-column:1;text-align:right;justify-self:end;}
+    .right .content{grid-column:3;text-align:left;justify-self:start;}
+    .variant-0 .card,.variant-0 .dot{background:var(--base);}
+    .variant-1 .card,.variant-1 .dot{background:var(--base-1);}
+    .variant-2 .card,.variant-2 .dot{background:var(--base-2);}
+
+    /* Responsive adjustments */
+    @media (max-width: 991px) {
+        .timeline-wrap{padding:1.5rem .75rem;}
+        .timeline-wrap::before{width:3px;}
+        .card{padding:.85rem 1rem;}
+        :root{--dot-size:40px;}
+    }
+
+    @media (max-width: 767px) {
+        /* switch to two-column layout: small left column for dots + full-width content */
+        .timeline{grid-template-columns:44px 1fr; gap:.75rem;}
+        .timeline-wrap::before{left:22px;transform:none;} /* align vertical line with dot column */
+        .timeline-item{display:contents;}
+        .dot-wrap{grid-column:1;align-items:flex-start;margin-top:.35rem;}
+        .left .content, .right .content{grid-column:2;text-align:left;justify-self:start;}
+        .card{max-width:100%;box-shadow:0 6px 18px rgba(12,14,45,.06);padding:.9rem;border-radius:10px;}
+        .dot{width:36px;height:36px}
+        .year-title{font-size:1rem;}
+        .list-wrap li{font-size:.95rem;padding-left:1rem;}
+        /* ensure spacing looks good on very small devices */
+        .timeline-wrap{padding:1rem .6rem;margin:1rem auto;}
+    }
+
+    @media (max-width: 420px) {
+        :root{--dot-size:34px;}
+        .dot{width:34px;height:34px;}
+        .year-title{font-size:.98rem;}
+        .list-wrap li{font-size:.92rem;}
+        .timeline-wrap{padding:.75rem .5rem;}
+    }
+
+    /* Optional: improve visual tap targets */
+    .dot{cursor:default}
+</style>
+
+<section class="timeline-body py-4">
+    <div class="container">
+        <div class="row justify-content-center mb-4">
+            <div class="col-md-8 mx-auto text-center">
+                <h2 class="title-global">AidMeUk ongoing progress</h2>
+            </div>
+        </div>
+
+        <div class="timeline-wrap">
+            <div class="timeline" id="timeline">
+
+                <!-- Timeline item: 2023 -->
+                <article class="timeline-item left variant-0" data-year="2023">
+                    <div class="content card">
+                        <div class="year-title">2023</div>
+                        <div class="list-wrap">
+                            <ul>
+                                <li>Company formation, office & website setup</li>
+                                <li>Food provided to 100 families (BD)</li>
+                                <li>1 water plant installed (deep tube well)</li>
+                                <li>Donation for 1 orphan marriage</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="dot-wrap">
+                        <div class="dot" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" width="20" height="20" focusable="false" aria-hidden="true">
+                                <path d="M12 21s-6-4.35-8-7.02C1.8 10.9 3.33 6 8 6c2.11 0 3.43 1.1 4 2.08.57-.98 1.89-2.08 4-2.08 4.66 0 6.2 4.9 4 7.98C18 16.65 12 21 12 21z" fill="white"/>
+                            </svg>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Timeline item: 2024 -->
+                <article class="timeline-item right variant-1" data-year="2024">
+                    <div class="content card">
+                        <div class="year-title">2024</div>
+                        <div class="list-wrap">
+                            <ul>
+                                <li>Environmental campaign</li>
+                                <li>Food provided to refugees (York Community Kitchen)</li>
+                                <li>2 water plants installed</li>
+                                <li>2 houses built for orphan families (BD)</li>
+                                <li>York community sports introduced (Badminton)</li>
+                                <li>Ramadan food packages to 50 families (BD)</li>
+                                <li>Emergency flood food support (Sylhet, BD)</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="dot-wrap">
+                        <div class="dot" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" width="20" height="20" focusable="false" aria-hidden="true">
+                                <path d="M12 21s-6-4.35-8-7.02C1.8 10.9 3.33 6 8 6c2.11 0 3.43 1.1 4 2.08.57-.98 1.89-2.08 4-2.08 4.66 0 6.2 4.9 4 7.98C18 16.65 12 21 12 21z" fill="white"/>
+                            </svg>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Timeline item: 2025 -->
+                <article class="timeline-item left variant-2" data-year="2025">
+                    <div class="content card">
+                        <div class="year-title">2025</div>
+                        <div class="list-wrap">
+                            <ul>
+                                <li>Emergency Help Gaza</li>
+                                <li>Environmental campaign continued</li>
+                                <li>Food for refugees (York Community Kitchen)</li>
+                                <li>3 water plants installed (BD)</li>
+                                <li>3 houses built for orphan families (BD)</li>
+                                <li>York community sports continued (Badminton)</li>
+                                <li>3 orphan sponsorships</li>
+                                <li>Ramadan food packages to 50 families (BD)</li>
+                                <li>Built orphan Education Centre (BD)</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="dot-wrap">
+                        <div class="dot" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" width="20" height="20" focusable="false" aria-hidden="true">
+                                <path d="M12 21s-6-4.35-8-7.02C1.8 10.9 3.33 6 8 6c2.11 0 3.43 1.1 4 2.08.57-.98 1.89-2.08 4-2.08 4.66 0 6.2 4.9 4 7.98C18 16.65 12 21 12 21z" fill="white"/>
+                            </svg>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Timeline item: 2026 Vision -->
+                <article class="timeline-item right variant-0" data-year="2026">
+                    <div class="content card">
+                        <div class="year-title">2026 (Vision)</div>
+                        <div class="list-wrap">
+                            <ul>
+                                <li>York Bangla School</li>
+                                <li>Environmental campaign continued</li>
+                                <li>Food for refugees (York Community Kitchen)</li>
+                                <li>3 water plants installed (BD)</li>
+                                <li>3 houses built for orphan families (BD)</li>
+                                <li>York community sports continued (Badminton)</li>
+                                <li>4 orphan sponsorships</li>
+                                <li>Ramadan food packages to 100 families (BD)</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="dot-wrap">
+                        <div class="dot" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" width="20" height="20" focusable="false" aria-hidden="true">
+                                <path d="M12 21s-6-4.35-8-7.02C1.8 10.9 3.33 6 8 6c2.11 0 3.43 1.1 4 2.08.57-.98 1.89-2.08 4-2.08 4.66 0 6.2 4.9 4 7.98C18 16.65 12 21 12 21z" fill="white"/>
+                            </svg>
+                        </div>
+                    </div>
+                </article>
+
+            </div> <!-- .timeline -->
+        </div> <!-- .timeline-wrap -->
+    </div> <!-- .container -->
+</section>
+
+
+
 <section class="featured-post">
     <div class="container">
         <div class="row">
@@ -222,135 +414,6 @@
     </div>
 </section>
 
-<style>
-    :root{
---base:#0e0e4e;
---base-1:#1a1a7a;
---base-2:#28328f;
---accent:#0d6efd;
---bg:#ffffff;
---card-radius:12px;
---dot-size:44px;
---dot-icon-size:22px;
-}
-body{background:#f5f5f9;font-family:Arial, sans-serif;margin:0;padding:0;}
-    .timeline-body{background:#f5f5f9;font-family:Arial, sans-serif;margin:0;padding:0;}
-.timeline-wrap{max-width:1000px;margin:2rem auto;padding:2rem 1rem;position:relative;}
-.timeline-wrap::before{
-content:"";
-position:absolute;left:50%;transform:translateX(-50%);
-top:0;bottom:0;width:4px;
-background:var(--accent);
-z-index:1;border-radius:4px;
-}
-.timeline{display:grid;grid-template-columns:1fr 80px 1fr;gap:1rem 2rem;position:relative;z-index:2;}
-.year-block{position:relative;margin:2rem 0;display:contents;}
-.dot-wrap{grid-column:2;display:flex;align-items:center;justify-content:center;position:relative;z-index:3;}
-.dot{width:var(--dot-size);height:var(--dot-size);border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 0 10px rgba(0,0,0,.15);}
-.card{padding:1rem 1.25rem;border-radius:var(--card-radius);box-shadow:0 6px 20px rgba(12,14,45,.06);color:var(--bg);max-width:420px;}
-.year-title{font-size:1.15rem;font-weight:700;margin-bottom:.45rem;color:#fff;}
-.list-wrap ul{margin:0;padding-left:0;list-style:none;}
-.list-wrap li{margin:.35rem 0;font-size:.96rem;color:#fff;position:relative;padding-left:1.2rem;}
-.list-wrap li::before{
-content:'➤';
-position:absolute;
-left:0;
-color:#fff;
-}
-.left .content{grid-column:1;text-align:right;justify-self:end;}
-.right .content{grid-column:3;text-align:left;justify-self:start;}
-.variant-0 .card,.variant-0 .dot{background:var(--base);}
-.variant-1 .card,.variant-1 .dot{background:var(--base-1);}
-.variant-2 .card,.variant-2 .dot{background:var(--base-2);}
-</style>
-
-<section class="timeline-body py-4">
-
-    
-        <div class="row justify-content-center">
-            <div class="col-md-8 mx-auto ">
-                <h2 class="title-global text-center">
-                    Aidme UK ongoing progress
-                </h2>
-            </div>
-        </div>
-
-
-<div  class="timeline-wrap">
-    <div class="timeline" id="timeline">
-
-
-<div class="year-block left variant-0">
-<div class="content card">
-<div class="year-title">2023</div>
-<div class="list-wrap"><ul>
-<li>Company formation, office & website setup</li>
-<li>Food provided to 100 families (BD)</li>
-<li>1 water plant installed (deep tube well)</li>
-<li>Donation for 1 orphan marriage</li>
-</ul></div>
-</div>
-<div class="dot-wrap"><div class="dot"><svg viewBox="0 0 24 24"><path d="M12 21s-6-4.35-8-7.02C1.8 10.9 3.33 6 8 6c2.11 0 3.43 1.1 4 2.08.57-.98 1.89-2.08 4-2.08 4.66 0 6.2 4.9 4 7.98C18 16.65 12 21 12 21z" fill="white"/></svg></div></div>
-</div>
-
-
-<div class="year-block right variant-1">
-<div class="content card">
-<div class="year-title">2024</div>
-<div class="list-wrap"><ul>
-<li>Environmental campaign</li>
-<li>Food provided to refugees (York Community Kitchen)</li>
-<li>2 water plants installed</li>
-<li>2 houses built for orphan families (BD)</li>
-<li>York community sports introduced (Badminton)</li>
-<li>Ramadan food packages to 50 families (BD)</li>
-<li>Emergency flood food support (Sylhet, BD)</li>
-</ul></div>
-</div>
-<div class="dot-wrap"><div class="dot"><svg viewBox="0 0 24 24"><path d="M12 21s-6-4.35-8-7.02C1.8 10.9 3.33 6 8 6c2.11 0 3.43 1.1 4 2.08.57-.98 1.89-2.08 4-2.08 4.66 0 6.2 4.9 4 7.98C18 16.65 12 21 12 21z" fill="white"/></svg></div></div>
-</div>
-
-
-<div class="year-block left variant-2">
-<div class="content card">
-<div class="year-title">2025</div>
-<div class="list-wrap"><ul>
-<li>Emergency Help Gaza</li>
-<li>Environmental campaign continued</li>
-<li>Food for refugees (York Community Kitchen)</li>
-<li>3 water plants installed (BD)</li>
-<li>3 houses built for orphan families (BD)</li>
-<li>York community sports continued (Badminton)</li>
-<li>3 orphan sponsorships</li>
-<li>Ramadan food packages to 50 families (BD)</li>
-<li>Built orphan Education Centre (BD)</li>
-</ul></div>
-</div>
-<div class="dot-wrap"><div class="dot"><svg viewBox="0 0 24 24"><path d="M12 21s-6-4.35-8-7.02C1.8 10.9 3.33 6 8 6c2.11 0 3.43 1.1 4 2.08.57-.98 1.89-2.08 4-2.08 4.66 0 6.2 4.9 4 7.98C18 16.65 12 21 12 21z" fill="white"/></svg></div></div>
-</div>
-
-
-    <div class="year-block right variant-0">
-        <div class="content card">
-            <div class="year-title">2026 (Vision)</div>
-            <div class="list-wrap"><ul>
-                <li>York Bangla School</li>
-                <li>Environmental campaign continued</li>
-                <li>Food for refugees (York Community Kitchen)</li>
-                <li>3 water plants installed (BD)</li>
-                <li>3 houses built for orphan families (BD)</li>
-                <li>York community sports continued (Badminton)</li>
-                <li>4 orphan sponsorships</li>
-                <li>Ramadan food packages to 100 families (BD)</li>
-            </ul></div>
-        </div>
-        <div class="dot-wrap"><div class="dot"><svg viewBox="0 0 24 24"><path d="M12 21s-6-4.35-8-7.02C1.8 10.9 3.33 6 8 6c2.11 0 3.43 1.1 4 2.08.57-.98 1.89-2.08 4-2.08 4.66 0 6.2 4.9 4 7.98C18 16.65 12 21 12 21z" fill="white"/></svg></div></div>
-    </div>
-
-
-</div>
-</div>
-</section>
 
 
 <section class="post-view spacer">
