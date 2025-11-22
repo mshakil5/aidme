@@ -7,7 +7,7 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="pagetitle pb-2">
-                 Gallery
+                 Volunteer
             </div>
         </div>
     </div>
@@ -130,25 +130,30 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($data as $key => $data)
+                                @foreach ($data as $key => $item)
                                     <tr>
-                                        <td style="text-align: center">{{$data->volunteerid}}</td>
-                                        <td style="text-align: center">{{$data->date}}</td>
-                                        <td style="text-align: center">{{$data->name}}</td>
-                                        <td style="text-align: center">{{$data->email}}</td>
-                                        <td style="text-align: center">{{$data->phone}}</td>
-                                        <td style="text-align: center">{{$data->dob}}</td>
-                                        <td style="text-align: center">{{$data->print_name}}</td>
-                                        <td style="text-align: center">{{$data->address}}</td>
-                                        <td style="text-align: center">{{$data->profession}}</td>
+                                        <td style="text-align: center">{{$item->volunteerid}}</td>
+                                        <td style="text-align: center">{{$item->date}}</td>
+                                        <td style="text-align: center">{{$item->name}}</td>
+                                        <td style="text-align: center">{{$item->email}}</td>
+                                        <td style="text-align: center">{{$item->phone}}</td>
+                                        <td style="text-align: center">{{$item->dob}}</td>
+                                        <td style="text-align: center">{{$item->print_name}}</td>
+                                        <td style="text-align: center">{{$item->address}}</td>
+                                        <td style="text-align: center">{{$item->profession}}</td>
                                         <td style="text-align: center">
                                             <div class="form-check form-switch">
-                                                <input class="form-check-input fundraiserstatus" type="checkbox" role="switch"  data-id="{{$data->id}}" id="fundraiserstatus" @if ($data->status == 1) checked @endif >
+                                                <input class="form-check-input fundraiserstatus" type="checkbox" role="switch"  data-id="{{$item->id}}" id="fundraiserstatus" @if ($item->status == 1) checked @endif >
                                             </div>
                                         </td>
                                         <td style="text-align: center">
-                                        <a id="EditBtn" rid="{{$data->id}}"><i class="fa fa-edit" style="color: #2196f3;font-size:16px;"></i></a>
-                                        <a id="deleteBtn" rid="{{$data->id}}"><i class="fa fa-trash-o" style="color: red;font-size:16px;"></i></a>
+
+                                            <a class="detailsBtn" href="javascript:void(0)" data-volunteer='@json($item)'><i class="fa fa-eye" style="color: #17a2b8;font-size:16px;"></i></a>
+
+                                           
+
+                                            <a id="EditBtn" rid="{{$item->id}}"><i class="fa fa-edit" style="color: #2196f3;font-size:16px;"></i></a>
+                                            <a id="deleteBtn" rid="{{$item->id}}"><i class="fa fa-trash-o" style="color: red;font-size:16px;"></i></a>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -167,6 +172,87 @@
 
 @endsection
 @section('script')
+ <script>
+    (function($){
+        // ensure modal exists (only once)
+        if (!$('#volunteerDetailsModal').length) {
+            $('body').append(
+                '<div class="modal fade" id="volunteerDetailsModal" tabindex="-1" aria-hidden="true">' +
+                    '<div class="modal-dialog modal-lg modal-dialog-centered">' +
+                    '<div class="modal-content">' +
+                        '<div class="modal-header">' +
+                        '<h5 class="modal-title">Volunteer details</h5>' +
+                        '<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>' +
+                        '</div>' +
+                        '<div class="modal-body">' +
+                        '<table class="table table-borderless mb-0">' +
+                            '<tbody>' +
+                            '<tr><th style="width:30%;">ID</th><td id="vd-id"></td></tr>' +
+                            '<tr><th>Volunteer ID</th><td id="vd-volunteerid"></td></tr>' +
+                            '<tr><th>Name</th><td id="vd-name"></td></tr>' +
+                            '<tr><th>Email</th><td id="vd-email"></td></tr>' +
+                            '<tr><th>Phone</th><td id="vd-phone"></td></tr>' +
+                            '<tr><th>Profession</th><td id="vd-profession"></td></tr>' +
+                            '<tr><th>Print Name</th><td id="vd-print_name"></td></tr>' +
+                            '<tr><th>Date</th><td id="vd-date"></td></tr>' +
+                            '<tr><th>DOB</th><td id="vd-dob"></td></tr>' +
+                            '<tr><th>Address</th><td id="vd-address"></td></tr>' +
+                            '<tr><th>Status</th><td id="vd-status"></td></tr>' +
+                            '<tr><th>Created At</th><td id="vd-created_at"></td></tr>' +
+                            '<tr><th>Updated At</th><td id="vd-updated_at"></td></tr>' +
+                            '<tr><th>Created By</th><td id="vd-created_by"></td></tr>' +
+                            '<tr><th>Updated By</th><td id="vd-updated_by"></td></tr>' +
+                            '</tbody>' +
+                        '</table>' +
+                        '</div>' +
+                        '<div class="modal-footer">' +
+                        '<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>' +
+                        '</div>' +
+                    '</div>' +
+                    '</div>' +
+                '</div>'
+            );
+        }
+
+        // delegate click handler (safe if script inserted per-row)
+        $(document).off('click', '.detailsBtn').on('click', '.detailsBtn', function () {
+            var data = $(this).attr('data-volunteer');
+            try {
+                var v = (typeof data === 'object') ? data : JSON.parse(data);
+            } catch (e) {
+                // fallback: try fetching from server by id
+                var id = $(this).data('id') || ($(this).attr('rid') || null);
+                if (id) {
+                    $.get("{{ url('/admin/volunteer') }}/" + id, function(d){
+                        fillAndShow(d);
+                    });
+                }
+                return;
+            }
+            fillAndShow(v);
+        });
+
+        function fillAndShow(v) {
+            $('#vd-id').text(v.id ?? '');
+            $('#vd-volunteerid').text(v.volunteerid ?? '');
+            $('#vd-name').text(v.name ?? '');
+            $('#vd-email').text(v.email ?? '');
+            $('#vd-phone').text(v.phone ?? '');
+            $('#vd-profession').text(v.profession ?? '');
+            $('#vd-print_name').text(v.print_name ?? '');
+            $('#vd-date').text(v.date ?? '');
+            $('#vd-dob').text(v.dob ?? '');
+            $('#vd-address').text(v.address ?? '');
+            $('#vd-status').text(v.status == 1 ? 'Active' : 'Inactive');
+            $('#vd-created_at').text(v.created_at ?? '');
+            $('#vd-updated_at').text(v.updated_at ?? '');
+            $('#vd-created_by').text(v.created_by ?? '');
+            $('#vd-updated_by').text(v.updated_by ?? '');
+            var modalEl = new bootstrap.Modal(document.getElementById('volunteerDetailsModal'));
+            modalEl.show();
+        }
+    })(jQuery);
+</script>
 <script>
     $(function() {
       $('.fundraiserstatus').change(function() {
@@ -351,8 +437,8 @@
             
         });
 
-        $(document).ready(function () {
-            $('#exdatatable').DataTable();
+        $('#exdatatable').DataTable({
+            order: [[0, 'desc']]
         });
 
             
