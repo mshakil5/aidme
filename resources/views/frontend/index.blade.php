@@ -114,26 +114,7 @@
 
 
 </style>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AidmeUK - Uniting for a better communitry</title>
-    <link rel="stylesheet" href="./css/bootstrap@5.3.0_dist_css_bootstrap.min.css">
-    <!-- <link rel="stylesheet" type="text/css" href="./css/slick.css" />
-    <link rel="stylesheet" type="text/css" href="./css/slick-theme.css" /> -->
-    <link rel="stylesheet" type="text/css" href="./css/popup.css" />
-    <link rel="stylesheet" href="./css/app.css">
-    
-    
-    
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <meta name="description" content="Welcome to Aidmeuk- A popular charity in the UK - We will work alongside underprivileged people, supporters, companies, including trusts and institutions to build a better community.">
-    <meta name="author" content="">
-    
-    <meta name="keywords" content="charity,donatio, giving, muslim aid, uk aid, pure water, ">
-    </head>
 
 
 
@@ -227,9 +208,9 @@
             </div>
             <div class=" col-md-4 d-flex align-items-center justify-content-center">
               <p><h2>Aidmeuk private Ltd</br>
-SC: 30 99 50</br>
-AC: 10350363</h2>
-</p>
+                    SC: 30 99 50</br>
+                    AC: 10350363</h2>
+                    </p>
                 <!--
                 <a class="btn-theme " href="{{route('frontend.volunteerform')}}">learn more
                     <div class="icon">
@@ -239,6 +220,136 @@ AC: 10350363</h2>
             </div>
         </div>
     </div>
+</section>
+
+<style>
+    :root{
+--base:#0e0e4e;
+--base-1:#1a1a7a;
+--base-2:#28328f;
+--accent:#0d6efd;
+--bg:#ffffff;
+--card-radius:12px;
+--dot-size:44px;
+--dot-icon-size:22px;
+}
+body{background:#f5f5f9;font-family:Arial, sans-serif;margin:0;padding:0;}
+    .timeline-body{background:#f5f5f9;font-family:Arial, sans-serif;margin:0;padding:0;}
+.timeline-wrap{max-width:1000px;margin:2rem auto;padding:2rem 1rem;position:relative;}
+.timeline-wrap::before{
+content:"";
+position:absolute;left:50%;transform:translateX(-50%);
+top:0;bottom:0;width:4px;
+background:var(--accent);
+z-index:1;border-radius:4px;
+}
+.timeline{display:grid;grid-template-columns:1fr 80px 1fr;gap:1rem 2rem;position:relative;z-index:2;}
+.year-block{position:relative;margin:2rem 0;display:contents;}
+.dot-wrap{grid-column:2;display:flex;align-items:center;justify-content:center;position:relative;z-index:3;}
+.dot{width:var(--dot-size);height:var(--dot-size);border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 0 10px rgba(0,0,0,.15);}
+.card{padding:1rem 1.25rem;border-radius:var(--card-radius);box-shadow:0 6px 20px rgba(12,14,45,.06);color:var(--bg);max-width:420px;}
+.year-title{font-size:1.15rem;font-weight:700;margin-bottom:.45rem;color:#fff;}
+.list-wrap ul{margin:0;padding-left:0;list-style:none;}
+.list-wrap li{margin:.35rem 0;font-size:.96rem;color:#fff;position:relative;padding-left:1.2rem;}
+.list-wrap li::before{
+content:'➤';
+position:absolute;
+left:0;
+color:#fff;
+}
+.left .content{grid-column:1;text-align:right;justify-self:end;}
+.right .content{grid-column:3;text-align:left;justify-self:start;}
+.variant-0 .card,.variant-0 .dot{background:var(--base);}
+.variant-1 .card,.variant-1 .dot{background:var(--base-1);}
+.variant-2 .card,.variant-2 .dot{background:var(--base-2);}
+</style>
+
+<section class="timeline-body py-4">
+
+    
+        <div class="row justify-content-center">
+            <div class="col-md-8 mx-auto ">
+                <h2 class="title-global text-center">
+                    Aidme UK ongoing progress
+                </h2>
+            </div>
+        </div>
+
+
+<div  class="timeline-wrap">
+    <div class="timeline" id="timeline">
+
+
+<div class="year-block left variant-0">
+<div class="content card">
+<div class="year-title">2023</div>
+<div class="list-wrap"><ul>
+<li>Company formation, office & website setup</li>
+<li>Food provided to 100 families (BD)</li>
+<li>1 water plant installed (deep tube well)</li>
+<li>Donation for 1 orphan marriage</li>
+</ul></div>
+</div>
+<div class="dot-wrap"><div class="dot"><svg viewBox="0 0 24 24"><path d="M12 21s-6-4.35-8-7.02C1.8 10.9 3.33 6 8 6c2.11 0 3.43 1.1 4 2.08.57-.98 1.89-2.08 4-2.08 4.66 0 6.2 4.9 4 7.98C18 16.65 12 21 12 21z" fill="white"/></svg></div></div>
+</div>
+
+
+<div class="year-block right variant-1">
+<div class="content card">
+<div class="year-title">2024</div>
+<div class="list-wrap"><ul>
+<li>Environmental campaign</li>
+<li>Food provided to refugees (York Community Kitchen)</li>
+<li>2 water plants installed</li>
+<li>2 houses built for orphan families (BD)</li>
+<li>York community sports introduced (Badminton)</li>
+<li>Ramadan food packages to 50 families (BD)</li>
+<li>Emergency flood food support (Sylhet, BD)</li>
+</ul></div>
+</div>
+<div class="dot-wrap"><div class="dot"><svg viewBox="0 0 24 24"><path d="M12 21s-6-4.35-8-7.02C1.8 10.9 3.33 6 8 6c2.11 0 3.43 1.1 4 2.08.57-.98 1.89-2.08 4-2.08 4.66 0 6.2 4.9 4 7.98C18 16.65 12 21 12 21z" fill="white"/></svg></div></div>
+</div>
+
+
+<div class="year-block left variant-2">
+<div class="content card">
+<div class="year-title">2025</div>
+<div class="list-wrap"><ul>
+<li>Emergency Help Gaza</li>
+<li>Environmental campaign continued</li>
+<li>Food for refugees (York Community Kitchen)</li>
+<li>3 water plants installed (BD)</li>
+<li>3 houses built for orphan families (BD)</li>
+<li>York community sports continued (Badminton)</li>
+<li>3 orphan sponsorships</li>
+<li>Ramadan food packages to 50 families (BD)</li>
+<li>Built orphan Education Centre (BD)</li>
+</ul></div>
+</div>
+<div class="dot-wrap"><div class="dot"><svg viewBox="0 0 24 24"><path d="M12 21s-6-4.35-8-7.02C1.8 10.9 3.33 6 8 6c2.11 0 3.43 1.1 4 2.08.57-.98 1.89-2.08 4-2.08 4.66 0 6.2 4.9 4 7.98C18 16.65 12 21 12 21z" fill="white"/></svg></div></div>
+</div>
+
+
+    <div class="year-block right variant-0">
+        <div class="content card">
+            <div class="year-title">2026 (Vision)</div>
+            <div class="list-wrap"><ul>
+                <li>York Bangla School</li>
+                <li>Environmental campaign continued</li>
+                <li>Food for refugees (York Community Kitchen)</li>
+                <li>3 water plants installed (BD)</li>
+                <li>3 houses built for orphan families (BD)</li>
+                <li>York community sports continued (Badminton)</li>
+                <li>4 orphan sponsorships</li>
+                <li>Ramadan food packages to 100 families (BD)</li>
+            </ul></div>
+        </div>
+        <div class="dot-wrap"><div class="dot"><svg viewBox="0 0 24 24"><path d="M12 21s-6-4.35-8-7.02C1.8 10.9 3.33 6 8 6c2.11 0 3.43 1.1 4 2.08.57-.98 1.89-2.08 4-2.08 4.66 0 6.2 4.9 4 7.98C18 16.65 12 21 12 21z" fill="white"/></svg></div></div>
+    </div>
+
+
+</div>
+</div>
 </section>
 
 
